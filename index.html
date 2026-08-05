@@ -2,6 +2,32 @@
 <html lang="ru">
 <head>
   <script>
+  /* GitHub Pages / subpath staging: set base prefix. On *.krivoshein.site stays "/". */
+  (function () {
+    try {
+      var m = location.pathname.match(/^\/([a-z0-9-]+-krivoshein-site)(?=\/|$)/i);
+      var base = m ? ("/" + m[1] + "/") : "/";
+      window.__KRV_BASE__ = base;
+      // Expose helper for scripts
+      window.krvUrl = function (path) {
+        path = String(path || "");
+        if (!path) return base;
+        if (/^https?:\/\//i.test(path) || path.slice(0, 2) === "//") return path;
+        if (path.charAt(0) === "/") path = path.slice(1);
+        return base + path;
+      };
+    } catch (e) {
+      window.__KRV_BASE__ = "/";
+      window.krvUrl = function (path) {
+        path = String(path || "");
+        if (/^https?:\/\//i.test(path)) return path;
+        return path.charAt(0) === "/" ? path : "/" + path;
+      };
+    }
+  })();
+  </script>
+
+  <script>
   (function(){try{
     var t=null;
     try{var _q=new URLSearchParams(location.search).get('theme');if(_q==='light'||_q==='dark')t=_q;}catch(e){}
@@ -30,16 +56,16 @@
   <meta name="theme-color" content="#315fe8">
 
   <!-- Icons: transparent PNG preferred (no white plate) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260716u">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260716u">
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20260716u">
-  <link rel="icon" type="image/png" href="/favicon.png?v=20260716u">
-  <link rel="shortcut icon" href="/favicon.ico?v=20260716u">
-  <link rel="icon" href="/favicon.ico?v=20260716u" sizes="any">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260716u">
-  <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png?v=20260726f">
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=20260726f">
-  <link rel="mask-icon" href="/android-chrome-192x192.png?v=20260716u" color="#315fe8">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20260716u">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=20260716u">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png?v=20260716u">
+  <link rel="icon" type="image/png" href="favicon.png?v=20260716u">
+  <link rel="shortcut icon" href="favicon.ico?v=20260716u">
+  <link rel="icon" href="favicon.ico?v=20260716u" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20260716u">
+  <link rel="icon" type="image/png" sizes="120x120" href="favicon-120x120.png?v=20260726f">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png?v=20260726f">
+  <link rel="mask-icon" href="android-chrome-192x192.png?v=20260716u" color="#315fe8">
 
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="Настройка и ведение Яндекс.Директ: аудит от 10 000 ₽, настройка от 20 000 ₽, ведение от 25 000 ₽/мес.">
@@ -77,19 +103,19 @@
   <meta name="twitter:title" content="Яндекс.Директ для малого бизнеса">
   <meta name="twitter:description" content="Аудит, настройка и ведение Яндекс.Директ без слива бюджета. Сертифицированный специалист.">
   <meta name="twitter:image" content="https://direct.krivoshein.site/og.jpg">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="site.webmanifest">
   <!-- CSS: Tailwind utilities + studio art direction -->
-  <link rel="preload" href="/assets/app.css" as="style">
-  <link rel="preload" href="/assets/art-design.css" as="style">
-  <link rel="stylesheet" href="/assets/fonts/onest.css">
-  <link rel="stylesheet" href="/assets/fonts/mono.css">
-  <link rel="stylesheet" href="/assets/app.css">
-  <link rel="stylesheet" href="/assets/fa/css/all.min.css">
-  <link rel="stylesheet" href="/assets/art-design.css">
-  <link rel="stylesheet" href="/assets/premium.css">
-  <link rel="stylesheet" href="/assets/theme-i18n.css?v=20260805lift">
-  <link rel="stylesheet" href="/assets/krv-lift.css?v=20260805lift">
-<link rel="stylesheet" href="/assets/krv-bundle.css?v=20260805c">
+  <link rel="preload" href="assets/app.css" as="style">
+  <link rel="preload" href="assets/art-design.css" as="style">
+  <link rel="stylesheet" href="assets/fonts/onest.css">
+  <link rel="stylesheet" href="assets/fonts/mono.css">
+  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="assets/fa/css/all.min.css">
+  <link rel="stylesheet" href="assets/art-design.css">
+  <link rel="stylesheet" href="assets/premium.css">
+  <link rel="stylesheet" href="assets/theme-i18n.css?v=20260805lift">
+  <link rel="stylesheet" href="assets/krv-lift.css?v=20260805lift">
+<link rel="stylesheet" href="assets/krv-bundle.css?v=20260805c">
 <!-- Structured Data / JSON-LD -->
   <script type="application/ld+json">
   {
@@ -181,7 +207,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="/assets/cookie-pwa.css">
+  <link rel="stylesheet" href="assets/cookie-pwa.css">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Яндекс.Директ">
@@ -193,7 +219,7 @@
   <link rel="alternate" href="https://direct.krivoshein.site/openapi.json" type="application/json" title="OpenAPI">
   <link rel="alternate" href="https://direct.krivoshein.site/.well-known/agent.json" type="application/json" title="agent.json">
   <link rel="api-catalog" href="https://direct.krivoshein.site/.well-known/api-catalog" type="application/linkset+json">
-  <link rel="stylesheet" href="/assets/krv-rwd.css?v=20260805ai">
+  <link rel="stylesheet" href="assets/krv-rwd.css?v=20260805ai">
   <!-- AI schema pack -->
 <script type="application/ld+json">
 {
@@ -285,7 +311,7 @@
             <div class="flex items-center justify-between gap-3 min-h-16 py-2">
         <div class="krv-nav-brand">
           <a href="https://direct.krivoshein.site">
-            <img src="/logo.png?v=20260716" alt="Krivoshein" width="56" height="66" class="krv-logo krv-logo--nav" decoding="async">
+            <img src="logo.png?v=20260716" alt="Krivoshein" width="56" height="66" class="krv-logo krv-logo--nav" decoding="async">
           </a>
           <div class="krv-nav-title">
             <span class="font-display text-2xl font-semibold tracking-tight">direct</span>
@@ -338,7 +364,7 @@
 
       <aside class="drslon-hero__visual" aria-label="Кейс Директ">
         <div class="drslon-hero__shot">
-          <img fetchpriority="high" src="/assets/cases/direct-hero.svg" alt="Кейс: 192 заявки по 299 рублей" width="960" height="600" loading="eager" decoding="async">
+          <img fetchpriority="high" src="assets/cases/direct-hero.svg" alt="Кейс: 192 заявки по 299 рублей" width="960" height="600" loading="eager" decoding="async">
         </div>
         <div class="drslon-hero__panel drslon-hero__panel--compact">
           <div class="drslon-hero__panel-kicker">Кейс</div>
@@ -600,49 +626,49 @@
 
     <div class="krv-clients" role="list">
       <a class="krv-client" href="https://lumistek.ru/" target="_blank" rel="noopener noreferrer nofollow" title="LUMISTEK">
-        <div class="krv-client__logo"><img src="/assets/proof/lumistek.svg" alt="LUMISTEK" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/lumistek.svg" alt="LUMISTEK" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://www.softcomlan.com/" target="_blank" rel="noopener noreferrer nofollow" title="Softcomlan">
-        <div class="krv-client__logo"><img src="/assets/proof/screenshot_20251014.png" alt="Softcomlan" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/screenshot_20251014.png" alt="Softcomlan" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://стоматолог-мурашова.рф/" target="_blank" rel="noopener noreferrer nofollow" title="Стоматолог-Мурашова">
-        <div class="krv-client__logo"><img src="/assets/proof/screenshot_2-1.png" alt="Стоматолог-Мурашова" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/screenshot_2-1.png" alt="Стоматолог-Мурашова" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://rogovo-hram.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Храм в Рогово">
-        <div class="krv-client__logo"><img src="/assets/proof/rogovo.webp" alt="Храм в Рогово" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/rogovo.webp" alt="Храм в Рогово" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://solovie.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Соловьи.Ай.Ти">
-        <div class="krv-client__logo"><img src="/assets/proof/solov.png" alt="Соловьи.Ай.Ти" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/solov.png" alt="Соловьи.Ай.Ти" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://tleader.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Технолидер">
-        <div class="krv-client__logo"><img src="/assets/proof/full-logo.png" alt="Технолидер" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/full-logo.png" alt="Технолидер" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://realestate.cambobiz.co/" target="_blank" rel="noopener noreferrer nofollow" title="Cambobiz">
-        <div class="krv-client__logo"><img src="/assets/proof/base_icon.png" alt="Cambobiz" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/base_icon.png" alt="Cambobiz" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://skd73.ru/" target="_blank" rel="noopener noreferrer nofollow" title="СКД">
-        <div class="krv-client__logo"><img src="/assets/proof/kandinsky.png" alt="СКД" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/kandinsky.png" alt="СКД" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://groupst.ru/" target="_blank" rel="noopener noreferrer nofollow" title="GroupST">
-        <div class="krv-client__logo"><img src="/assets/proof/header-logo.png" alt="GroupST" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/header-logo.png" alt="GroupST" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://fornovogas.kz/" target="_blank" rel="noopener noreferrer nofollow" title="Форновогаз Казахстан">
-        <div class="krv-client__logo"><img src="/assets/proof/logo_fornovogas.png" alt="Форновогаз Казахстан" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/logo_fornovogas.png" alt="Форновогаз Казахстан" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://agnks.ru/" target="_blank" rel="noopener noreferrer nofollow" title="АГНКС">
-        <div class="krv-client__logo"><img src="/assets/proof/agnks-logo-191x54-1.png" alt="АГНКС" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/agnks-logo-191x54-1.png" alt="АГНКС" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://designersfromrussia.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Designers from Russia">
-        <div class="krv-client__logo"><img src="/assets/proof/new_dfr_logo_to_site.png" alt="Designers from Russia" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/new_dfr_logo_to_site.png" alt="Designers from Russia" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://accp-cniitmash.ru/" target="_blank" rel="noopener noreferrer nofollow" title="ЦНИИТМАШ (аттестация)">
-        <div class="krv-client__logo"><img src="/assets/proof/lodi-lodi.svg" alt="ЦНИИТМАШ (аттестация)" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/lodi-lodi.svg" alt="ЦНИИТМАШ (аттестация)" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://форновогаз.рф/" target="_blank" rel="noopener noreferrer nofollow" title="Fornovo Gas">
-        <div class="krv-client__logo"><img src="/assets/proof/logo_fornovogas.png" alt="Fornovo Gas" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/logo_fornovogas.png" alt="Fornovo Gas" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
       <a class="krv-client" href="https://accniitmash.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Аттестационный центр ЦНИИТМАШ">
-        <div class="krv-client__logo"><img src="/assets/proof/logo.gif" alt="Аттестационный центр ЦНИИТМАШ" loading="lazy" decoding="async" width="120" height="48"></div>
+        <div class="krv-client__logo"><img src="assets/proof/logo.gif" alt="Аттестационный центр ЦНИИТМАШ" loading="lazy" decoding="async" width="120" height="48"></div>
 </a>
     </div>
 
@@ -761,7 +787,7 @@
     <div class="max-w-screen-xl mx-auto px-5">
       <div class="flex flex-col md:flex-row items-center justify-between gap-y-4">
         <div class="flex items-center gap-x-3">
-          <img src="/logo.png?v=20260716" alt="Krivoshein" width="48" height="56" class="krv-logo krv-logo--footer" decoding="async">
+          <img src="logo.png?v=20260716" alt="Krivoshein" width="48" height="56" class="krv-logo krv-logo--footer" decoding="async">
           <span class="text-sm text-slate-600">ИП Кривошеин Алексей Сергеевич</span>
         </div>
         <div class="text-sm text-slate-500 text-center md:text-right">
@@ -779,7 +805,7 @@
         <span class="text-slate-300" aria-hidden="true">·</span>
         <a href="https://ai-ready.krivoshein.site/" class="hover:text-krv transition-colors">AI-ready</a>
       </nav>
-    <p class="krv-footer-legal">ИП Кривошеин А. С. · Работа по договору · Безнал и закрывающие · aleksey@krivoshein.site · <a href="/privacy.html">Конфиденциальность</a> · <a href="/llms.txt">llms.txt</a></p>
+    <p class="krv-footer-legal">ИП Кривошеин А. С. · Работа по договору · Безнал и закрывающие · aleksey@krivoshein.site · <a href="privacy.html">Конфиденциальность</a> · <a href="llms.txt">llms.txt</a></p>
     </div>
     <!-- ai:llms https://direct.krivoshein.site/llms.txt -->
   </footer>
@@ -795,11 +821,11 @@
     <p>
       Мы используем cookies и обезличенную аналитику Яндекс&nbsp;Метрики для улучшения сайта.
       Персональные данные через этот лендинг не собираем.
-      <a href="/privacy.html">Политика конфиденциальности</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
     </p>
     <div class="krv-cookie__actions">
       <button type="button" class="krv-cookie__btn" id="krv-cookie-ok">Понятно</button>
-      <a class="krv-cookie__link" href="/privacy.html">Подробнее</a>
+      <a class="krv-cookie__link" href="privacy.html">Подробнее</a>
     </div>
   </div>
 
@@ -818,21 +844,21 @@
   <!-- KRV AI Assistant -->
   <script src="https://support.krivoshein.site/widget/krv-assistant.js?v=20260730r" defer data-api="https://support.krivoshein.site/api/v1" data-side="right"></script>
 
-<script src="/assets/cookie-pwa.js" defer></script>
-  <script src="/assets/premium.js" defer></script>
+<script src="assets/cookie-pwa.js" defer></script>
+  <script src="assets/premium.js" defer></script>
   <script>window.__KRV_METRIKA_ID=110134518;</script>
-<script src="/assets/krv-lift.js?v=20260805rwd5" defer></script>
-  <script src="/assets/theme-i18n.js?v=20260805rwd4" defer></script>
+<script src="assets/krv-lift.js?v=20260805rwd5" defer></script>
+  <script src="assets/theme-i18n.js?v=20260805rwd4" defer></script>
   <script id="krv-matrix-gate">
   (function(){
     try {
       if (window.matchMedia('(max-width:767.98px), (prefers-reduced-motion: reduce)').matches) return;
       var s=document.createElement('script');
-      s.src='/assets/krv-matrix.js'; s.defer=true;
+      s.src='assets/krv-matrix.js'; s.defer=true;
       document.body.appendChild(s);
     } catch(e) {}
   })();
   </script>
-  <script src="/assets/krv-motion.js?v=20260805c" defer></script>
+  <script src="assets/krv-motion.js?v=20260805c" defer></script>
 </body>
 </html>

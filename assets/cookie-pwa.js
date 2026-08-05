@@ -25,7 +25,7 @@
   }
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js').catch(function () {});
+      navigator.serviceWorker.register((typeof krvUrl==='function'?krvUrl('sw.js'):'/sw.js')).catch(function () {});
     });
   }
 })();

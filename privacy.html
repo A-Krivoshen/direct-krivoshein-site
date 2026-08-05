@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <script>
+  /* GitHub Pages / subpath staging: set base prefix. On *.krivoshein.site stays "/". */
+  (function () {
+    try {
+      var m = location.pathname.match(/^\/([a-z0-9-]+-krivoshein-site)(?=\/|$)/i);
+      var base = m ? ("/" + m[1] + "/") : "/";
+      window.__KRV_BASE__ = base;
+      // Expose helper for scripts
+      window.krvUrl = function (path) {
+        path = String(path || "");
+        if (!path) return base;
+        if (/^https?:\/\//i.test(path) || path.slice(0, 2) === "//") return path;
+        if (path.charAt(0) === "/") path = path.slice(1);
+        return base + path;
+      };
+    } catch (e) {
+      window.__KRV_BASE__ = "/";
+      window.krvUrl = function (path) {
+        path = String(path || "");
+        if (/^https?:\/\//i.test(path)) return path;
+        return path.charAt(0) === "/" ? path : "/" + path;
+      };
+    }
+  })();
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Политика конфиденциальности - Яндекс.Директ | ИП Кривошеин А.С.</title>
   <meta name="description" content="Политика конфиденциальности https://direct.krivoshein.site. ИП Кривошеин А.С. не собирает персональные данные через формы лендинга. Используется обезличенная аналитика Яндекс Метрики.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://direct.krivoshein.site/privacy.html">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#315fe8">
-  <link rel="stylesheet" href="/assets/fonts/inter.css">
-  <link rel="stylesheet" href="/assets/fonts/mono.css">
-  <link rel="stylesheet" href="/assets/cookie-pwa.css">
+  <link rel="stylesheet" href="assets/fonts/inter.css">
+  <link rel="stylesheet" href="assets/fonts/mono.css">
+  <link rel="stylesheet" href="assets/cookie-pwa.css">
   <style>
     :root { --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#64748b; --line:#e2e8f0; --accent:#315fe8; --dark:#0f172a; }
     * { box-sizing:border-box; }
@@ -38,13 +64,13 @@
     footer { background:var(--dark); color:#94a3b8; padding:1.5rem 0; font-size:.88rem; }
     footer a { color:#7aa2ff; }
   </style>
-  <link rel="stylesheet" href="/assets/theme-i18n.css?v=20260805en2">
-  <script src="/assets/theme-i18n.js?v=20260805en2" defer></script>
+  <link rel="stylesheet" href="assets/theme-i18n.css?v=20260805en2">
+  <script src="assets/theme-i18n.js?v=20260805en2" defer></script>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <a href="/">← Яндекс.Директ</a>
+      <a href="./">← Яндекс.Директ</a>
       <a href="https://krivoshein.site/contacts/">Контакты</a>
     </div>
   </header>
@@ -120,17 +146,17 @@
   </main>
   <footer>
     <div class="wrap">
-      © 2026 ИП Кривошеин А.С. · <a href="/">На лендинг</a> · <a href="https://krivoshein.site/">krivoshein.site</a>
+      © 2026 ИП Кривошеин А.С. · <a href="./">На лендинг</a> · <a href="https://krivoshein.site/">krivoshein.site</a>
     </div>
   </footer>
 
   <div id="krv-cookie" class="krv-cookie" role="dialog" aria-label="Уведомление о cookies" hidden>
-    <p>Используем cookies и обезличенную Яндекс&nbsp;Метрику. Персональные данные через лендинг не собираем. <a href="/privacy.html">Конфиденциальность</a></p>
+    <p>Используем cookies и обезличенную Яндекс&nbsp;Метрику. Персональные данные через лендинг не собираем. <a href="privacy.html">Конфиденциальность</a></p>
     <div class="krv-cookie__actions">
       <button type="button" class="krv-cookie__btn" id="krv-cookie-ok">Понятно</button>
     </div>
   </div>
-  <script src="/assets/cookie-pwa.js" defer></script>
+  <script src="assets/cookie-pwa.js" defer></script>
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
