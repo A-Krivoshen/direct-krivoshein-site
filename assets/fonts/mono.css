@@ -1,0 +1,4 @@
+/* Mono stack aligned with DrSlon (JetBrains Mono if available, else system mono) */
+code, kbd, pre, samp, .font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}

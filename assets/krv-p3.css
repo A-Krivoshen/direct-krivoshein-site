@@ -1,0 +1,262 @@
+
+/**
+ * KRV P3 polish pack
+ * - icon scale lock
+ * - scroll reveal (pairs with krv-motion.js)
+ * - section layout variety
+ * Brand accent stays #315fe8
+ */
+
+/* ── Icon system (Font Awesome, one optical size) ── */
+body.art-lb i.fa-solid,
+body.art-lb i.fa-brands,
+body.art-lb i.fa-regular {
+  line-height: 1;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+}
+/* Feature icon wells */
+body.art-lb .w-12.h-12 i.fa-solid,
+body.art-lb .w-12.h-12 i.fa-brands,
+body.art-lb .w-10.h-10 i.fa-solid {
+  font-size: 1.15rem !important;
+  width: 1.15rem;
+  text-align: center;
+}
+body.art-lb .w-12.h-12 i.text-2xl,
+body.art-lb .w-10.h-10 i.text-lg {
+  font-size: 1.15rem !important;
+}
+/* Checklist ticks: quieter, consistent */
+body.art-lb li i.fa-check,
+body.art-lb li i.fa-solid.fa-check {
+  font-size: 0.85rem !important;
+  width: 0.95rem;
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+/* CTA arrow */
+body.art-lb a i.fa-arrow-right {
+  font-size: 0.9rem !important;
+  transition: transform 0.2s var(--krv-ease, cubic-bezier(0.22,1,0.36,1));
+}
+body.art-lb a:hover i.fa-arrow-right {
+  transform: translateX(3px);
+}
+
+/* ── Scroll reveal ── */
+body.art-lb .krv-reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+body.art-lb .krv-reveal.is-in {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+body.art-lb .krv-reveal[data-reveal-delay="1"] { transition-delay: 0.06s; }
+body.art-lb .krv-reveal[data-reveal-delay="2"] { transition-delay: 0.12s; }
+body.art-lb .krv-reveal[data-reveal-delay="3"] { transition-delay: 0.18s; }
+body.art-lb .krv-reveal[data-reveal-delay="4"] { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  body.art-lb .krv-reveal,
+  body.art-lb .krv-reveal.is-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  body.art-lb a:hover i.fa-arrow-right {
+    transform: none !important;
+  }
+}
+
+/* ── Layout variety ── */
+
+/* 1) Alternate section head alignment (not every block centered) */
+@media (min-width: 768px) {
+  body.art-lb main > .max-w-screen-xl:nth-of-type(odd) > .text-center {
+    text-align: left;
+    max-width: 40rem;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  body.art-lb main > .max-w-screen-xl:nth-of-type(odd) > .text-center > .mx-auto,
+  body.art-lb main > .max-w-screen-xl:nth-of-type(odd) > .text-center p.max-w-md {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  /* Pricing stays centered (conversion) */
+  body.art-lb main > #pricing > .text-center,
+  body.art-lb main > #packages > .text-center {
+    text-align: center;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* 2) Process / how: horizontal step rail on desktop */
+@media (min-width: 1024px) {
+  body.art-lb #how > .grid.sm\:grid-cols-2.lg\:grid-cols-4,
+  body.art-lb #how .grid.lg\:grid-cols-4 {
+    position: relative;
+    gap: 1.25rem !important;
+  }
+  body.art-lb #how > .grid.lg\:grid-cols-4::before,
+  body.art-lb #how > .grid.sm\:grid-cols-2.lg\:grid-cols-4::before {
+    content: "";
+    position: absolute;
+    top: 1.15rem;
+    left: 2.5rem;
+    right: 2.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--krv-line, #d8e0ee) 12%, var(--krv-line, #d8e0ee) 88%, transparent);
+    z-index: 0;
+    pointer-events: none;
+  }
+  body.art-lb #how .flex.gap-x-4 {
+    position: relative;
+    z-index: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-top: 0.15rem;
+  }
+  body.art-lb #how .flex.gap-x-4 > .w-9.h-9 {
+    box-shadow: 0 0 0 6px var(--krv-bg, #f7f9fc);
+  }
+}
+
+/* 3) FAQ: two-column on wide screens */
+@media (min-width: 900px) {
+  body.art-lb #faq .krv-faq,
+  body.art-lb #faq > .krv-faq {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem 1.25rem;
+    align-items: start;
+  }
+  body.art-lb #faq .krv-faq > details {
+    break-inside: avoid;
+    margin: 0 !important;
+  }
+}
+
+/* 4) Case grid: feature first card */
+@media (min-width: 1024px) {
+  body.art-lb .krv-case-grid.lg\:grid-cols-3 {
+    grid-template-columns: 1.35fr 1fr 1fr !important;
+  }
+  body.art-lb .krv-case-grid > :first-child .krv-case-card__media,
+  body.art-lb .krv-case-grid > a:first-child .krv-case-card__media {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+/* 5) Social proof: logo wall denser, reviews shell offset */
+body.art-lb .krv-proof .krv-clients {
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+}
+@media (min-width: 900px) {
+  body.art-lb .krv-proof {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  body.art-lb .krv-yandex-reviews {
+    margin-top: 0.5rem;
+  }
+}
+
+/* 6) Final CTA band: slight left content bias already ok; add soft noise edge */
+body.art-lb .bg-krv.shadow-krv-cta.rounded-3xl {
+  position: relative;
+  overflow: hidden;
+}
+body.art-lb .bg-krv.shadow-krv-cta.rounded-3xl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(600px 200px at 90% 0%, rgba(255,255,255,0.16), transparent 55%),
+    radial-gradient(400px 180px at 10% 100%, rgba(0,0,0,0.08), transparent 50%);
+  opacity: 0.9;
+}
+body.art-lb .bg-krv.shadow-krv-cta.rounded-3xl > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 7) Trust strip under hero: quieter */
+body.art-lb .krv-hero-trust .drslon-hero__stat {
+  background: color-mix(in srgb, var(--krv-card, #fff) 70%, transparent);
+}
+
+/* ── Package C: design lift ── */
+
+/* Equal 3-col feature grids → asymmetric */
+@media (min-width: 900px) {
+  body.art-lb .grid.md\:grid-cols-3:not(.krv-keep-equal),
+  body.art-lb .grid.sm\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal),
+  body.art-lb .grid.md\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal) {
+    grid-template-columns: 1.28fr 0.9fr 0.9fr !important;
+    gap: 1.1rem !important;
+  }
+  body.art-lb .grid.md\:grid-cols-3:not(.krv-keep-equal) > :first-child,
+  body.art-lb .grid.sm\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal) > :first-child,
+  body.art-lb .grid.md\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal) > :first-child,
+  body.art-lb .krv-asym-grid > :first-child {
+    background:
+      radial-gradient(circle at 100% 0%, color-mix(in srgb, #315fe8 12%, transparent), transparent 55%),
+      var(--krv-card, #fff) !important;
+    border-color: color-mix(in srgb, #315fe8 22%, var(--krv-line, #d8e0ee)) !important;
+  }
+  /* 4-up feature rows */
+  body.art-lb .grid.lg\:grid-cols-4:not(.krv-keep-equal):not(#pricing .grid) {
+    grid-template-columns: 1.2fr 0.95fr 0.95fr 0.95fr !important;
+  }
+  body.art-lb .grid.lg\:grid-cols-4:not(.krv-keep-equal):not(#pricing .grid) > :first-child {
+    background:
+      radial-gradient(circle at 100% 0%, color-mix(in srgb, #315fe8 10%, transparent), transparent 55%),
+      var(--krv-card, #fff) !important;
+  }
+}
+
+/* Hero shot without redundant bulky panel lists */
+body.art-lb .drslon-hero__shot {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(23, 33, 51, 0.1);
+}
+body.art-lb .drslon-hero__panel--compact {
+  padding: 0.85rem 1rem !important;
+}
+body.art-lb .drslon-hero__panel--compact .drslon-hero__panel-list {
+  display: none;
+}
+
+/* Mobile chrome: secondary = messenger, not case */
+body.art-lb .mobile-cta-bar .cta-secondary {
+  border-color: color-mix(in srgb, #315fe8 25%, var(--krv-line, #d8e0ee));
+  color: #315fe8;
+  font-weight: 600;
+}
+
+/* Subnav denser */
+body.art-lb .krv-subnav {
+  font-size: 0.9rem;
+}
+body.art-lb .krv-subnav a {
+  padding: 0.45rem 0.65rem;
+}
+
+/* Nav brand CTA already filled - ensure contrast */
+body.art-lb a.krv-nav-cta.bg-krv,
+body.art-lb .krv-nav-cta.bg-krv {
+  color: #fff !important;
+}

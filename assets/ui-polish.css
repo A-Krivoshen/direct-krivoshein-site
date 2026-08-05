@@ -1,0 +1,398 @@
+/**
+ * UI polish — buttons, nav controls, chips, cards
+ * Premium, neat, no clipping / no awkward wraps
+ */
+
+/* ── Don't break words inside buttons / chips ── */
+body.art-lb a,
+body.art-lb button,
+body.art-lb .krv-switch,
+body.art-lb .krv-hero__pricechip,
+body.art-lb .krv-subnav a,
+body.art-lb summary {
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: manual;
+}
+
+/* ── Nav bar layout ── */
+body.art-lb nav > .max-w-screen-xl > .flex.items-center.justify-between {
+  gap: 0.75rem !important;
+  flex-wrap: nowrap !important;
+  min-height: 3.75rem;
+  height: auto !important;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+body.art-lb nav .krv-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+body.art-lb nav .krv-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+body.art-lb nav .krv-nav-brand > a {
+  flex-shrink: 0;
+}
+
+body.art-lb nav .krv-nav-title {
+  min-width: 0;
+  line-height: 1.15;
+}
+
+body.art-lb nav .krv-nav-title .font-display,
+body.art-lb nav .krv-nav-title .text-2xl {
+  font-size: 1.05rem !important;
+  white-space: nowrap;
+}
+
+body.art-lb nav .krv-nav-title .text-xl,
+body.art-lb nav .krv-nav-title .text-slate-500 {
+  font-size: 0.8rem !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 11rem;
+}
+
+/* Nav CTA button — compact, never overflow */
+body.art-lb nav a.inline-flex,
+body.art-lb nav .krv-nav-cta {
+  white-space: nowrap !important;
+  min-height: 2.35rem !important;
+  height: auto !important;
+  padding: 0.45rem 0.85rem !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.2 !important;
+  border-radius: 0.75rem !important;
+  flex-shrink: 0;
+}
+
+/* legacy small square — superseded by .krv-logo */
+body.art-lb nav img.w-11,
+body.art-lb nav img.h-11 {
+  width: auto !important;
+  height: 3.1rem !important;
+}
+body.art-lb nav .krv-logo--nav {
+  height: 3.75rem !important;
+  width: auto !important;
+  max-width: 4.25rem !important;
+}
+body.art-lb footer .krv-logo--footer {
+  height: 3.15rem !important;
+  width: auto !important;
+  max-width: 3.6rem !important;
+}
+@media (max-width: 640px) {
+  body.art-lb nav .krv-logo--nav {
+    height: 3.15rem !important;
+    max-width: 3.5rem !important;
+  }
+  body.art-lb footer .krv-logo--footer {
+    height: 2.75rem !important;
+    max-width: 3.1rem !important;
+  }
+}
+
+/* Controls cluster */
+.krv-controls {
+  display: flex !important;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.krv-switch {
+  height: 2.15rem;
+  flex-shrink: 0;
+}
+
+.krv-switch button {
+  min-width: 2rem;
+  padding: 0 0.55rem !important;
+}
+
+.krv-theme-btn {
+  flex-shrink: 0;
+}
+
+/* Mobile nav: hide long domain, shrink CTA text space */
+@media (max-width: 767px) {
+  body.art-lb nav .krv-nav-title .text-xl,
+  body.art-lb nav .krv-nav-title .text-slate-500 {
+    display: none !important;
+  }
+  body.art-lb nav a.inline-flex,
+  body.art-lb nav .krv-nav-cta {
+    padding: 0.4rem 0.65rem !important;
+    font-size: 0.75rem !important;
+    min-height: 2.15rem !important;
+  }
+  .krv-switch button {
+    padding: 0 0.42rem !important;
+    font-size: 0.65rem !important;
+    min-width: 1.75rem;
+  }
+  .krv-theme-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 420px) {
+  /* very small: hide nav CTA text site, keep controls + brand */
+  body.art-lb nav .krv-nav-cta {
+    display: none !important;
+  }
+}
+
+/* ── Hero buttons ── */
+body.art-lb .krv-hero-single .flex.flex-col.sm\:flex-row,
+body.art-lb .krv-hero-single > .flex {
+  width: 100%;
+  max-width: 36rem;
+}
+
+body.art-lb .krv-hero-single a.inline-flex {
+  white-space: nowrap !important;
+  text-align: center;
+  padding-left: 1.15rem !important;
+  padding-right: 1.15rem !important;
+  min-height: 2.85rem !important;
+  line-height: 1.25 !important;
+  gap: 0.5rem !important;
+}
+
+@media (max-width: 639px) {
+  body.art-lb .krv-hero-single a.inline-flex {
+    width: 100% !important;
+    white-space: normal !important;
+    justify-content: center;
+  }
+}
+
+/* Price chip neat */
+.krv-hero__pricechip {
+  margin-bottom: 0.65rem !important;
+}
+
+/* Pill under hero */
+body.art-lb .krv-hero-single .inline-flex.items-center {
+  max-width: 100%;
+  white-space: normal !important;
+  height: auto !important;
+  min-height: 2rem;
+  line-height: 1.35 !important;
+}
+
+/* ── Card / pricing CTAs ── */
+body.art-lb a.block.text-center,
+body.art-lb a.mt-6.block,
+body.art-lb a.mt-8.block,
+body.art-lb #pricing a.block,
+body.art-lb #packages a.block,
+body.art-lb #servers a.block,
+body.art-lb #support a.block {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center !important;
+  white-space: normal !important;
+  line-height: 1.3 !important;
+  min-height: 2.75rem !important;
+  padding: 0.7rem 0.9rem !important;
+  border-radius: 0.85rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Grid cards equal action area */
+body.art-lb #servers .grid > *,
+body.art-lb #pricing .grid > *,
+body.art-lb #packages .grid > *,
+body.art-lb #support .grid > * {
+  min-width: 0; /* prevent grid blowout */
+}
+
+body.art-lb #servers .text-3xl,
+body.art-lb #pricing .text-5xl,
+body.art-lb #packages .text-5xl {
+  font-size: clamp(1.5rem, 3.2vw, 2.35rem) !important;
+  line-height: 1.15 !important;
+  word-break: keep-all;
+}
+
+/* Badge "Рекомендую" / "ПОПУЛЯРНЫЙ" */
+body.art-lb .inline-flex.self-start,
+body.art-lb .bg-emerald-600.text-xs,
+body.art-lb .bg-krv.text-xs,
+body.art-lb .absolute.bg-krv,
+body.art-lb [class*="bg-krv"][class*="text-xs"] {
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+  max-width: 100%;
+}
+
+/* Kill old absolute badge offset that reserved empty text space */
+body.art-lb .relative.border > .flex-1 > .font-semibold:first-child,
+body.art-lb .relative .absolute ~ .flex-1 > .font-semibold:first-child {
+  padding-right: 0 !important;
+}
+
+/* Subnav chips */
+.krv-subnav a {
+  white-space: nowrap !important;
+  line-height: 1.2;
+  padding: 0.4rem 0.75rem !important;
+}
+
+/* FAQ summary neat */
+.krv-faq summary {
+  padding-right: 2.75rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Mobile CTA */
+.mobile-cta-bar a {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+/* Blue CTA band buttons */
+body.art-lb div.bg-krv a.inline-flex,
+body.art-lb div.bg-krv a.bg-white {
+  white-space: nowrap !important;
+  min-height: 2.85rem !important;
+  padding: 0.7rem 1.2rem !important;
+  line-height: 1.25 !important;
+}
+
+@media (max-width: 639px) {
+  body.art-lb div.bg-krv a.inline-flex,
+  body.art-lb div.bg-krv a.bg-white {
+    width: 100%;
+    white-space: normal !important;
+  }
+}
+
+/* Trust row under hero */
+body.art-lb .krv-hero-single .flex.flex-wrap {
+  row-gap: 0.35rem !important;
+}
+
+/* Prevent global anywhere-break from art-design on UI */
+body.art-lb {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+body.art-lb p,
+body.art-lb li,
+body.art-lb .text-sm,
+body.art-lb .text-slate-600 {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+
+/* No empty gap under footer on desktop */
+body.has-mobile-cta { padding-bottom: 0 !important; }
+@media (max-width: 767.98px) {
+  body.has-mobile-cta {
+    padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+
+/* tap targets — mobile accessibility */
+@media (max-width: 767.98px) {
+  body.art-lb footer a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.25rem;
+  }
+  body.art-lb .krv-subnav a {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+  body.art-lb nav a.inline-flex {
+    min-height: 44px !important;
+  }
+}
+
+/* ── Case cards with screenshots ── */
+.krv-case-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.krv-case-card:hover {
+  border-color: #315fe8;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+.krv-case-card__media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+.krv-case-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.krv-case-card__body {
+  padding: 1.15rem 1.25rem 1.35rem;
+}
+.krv-case-card__tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
+}
+.krv-case-card__tag--client { color: #059669; }
+.krv-case-card__tag--event { color: #244ac2; }
+.krv-case-card__tag--media { color: #b45309; }
+.krv-case-card h3 {
+  margin: 0;
+  line-height: 1.3;
+}
+html[data-theme="dark"] .krv-case-card {
+  background: var(--card, #172133);
+  border-color: rgba(148, 163, 184, 0.18);
+}
+html[data-theme="dark"] .krv-case-card:hover {
+  border-color: #315fe8;
+}
+html[data-theme="dark"] .krv-case-card__media {
+  background: #0b1220;
+  border-bottom-color: rgba(148, 163, 184, 0.12);
+}
+

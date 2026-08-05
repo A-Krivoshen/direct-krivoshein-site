@@ -1,0 +1,331 @@
+/**
+ * Real social proof: clients + Yandex reviews widget
+ *
+ * Yandex maps-reviews-widget hard-caps .badge at max-width:760px and
+ * left-aligns it inside the iframe body (#f3f1ed). A full-bleed outer
+ * card therefore shows a large empty right panel. We:
+ *  - center a card capped near 760-1000px
+ *  - on wide containers, scale the 760px badge to fill the shell
+ *  - keep mobile fluid full-width
+ */
+
+.krv-proof {
+  --proof-max: 1360px;
+  width: 100%;
+  max-width: var(--proof-max);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vw, 2.75rem) clamp(0.85rem, 2.5vw, 1.75rem) clamp(2rem, 4vw, 3rem);
+  box-sizing: border-box;
+}
+
+.krv-proof__head {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto 1.25rem;
+}
+.krv-proof__eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #315fe8;
+  margin-bottom: 0.5rem;
+}
+.krv-proof__head h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.45rem, 1.2rem + 1vw, 2rem);
+  letter-spacing: -0.02em;
+  color: var(--krv-text, #172133);
+}
+.krv-proof__head p {
+  margin: 0;
+  color: var(--krv-muted, #52627d);
+  line-height: 1.5;
+}
+
+.krv-proof__rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem 1.25rem;
+  margin: 1rem auto 1.35rem;
+}
+.krv-proof__badge {
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 150px;
+  height: 50px;
+  background: transparent;
+  flex-shrink: 0;
+}
+.krv-proof__rating-link {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #315fe8;
+  text-decoration: none;
+}
+.krv-proof__rating-link:hover { text-decoration: underline; }
+
+/* Clients grid - full section width */
+.krv-clients {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 0.7rem;
+  margin-bottom: 1.35rem;
+  width: 100%;
+}
+.krv-client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 108px;
+  padding: 0.8rem 0.65rem;
+  background: #fff;
+  border: 1px solid var(--krv-line, #d8e0ee);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 6px 18px rgba(23, 33, 51, 0.04);
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+a.krv-client:hover {
+  border-color: #b7cbff;
+  box-shadow: 0 12px 28px rgba(49, 95, 232, 0.12);
+  transform: translateY(-2px);
+}
+.krv-client__logo {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.krv-client__logo img {
+  max-width: 100%;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0.15);
+}
+a.krv-client:hover .krv-client__logo img { filter: none; }
+.krv-client__name {
+  font-size: 0.72rem;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--krv-muted, #52627d);
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== Yandex reviews =====
+ * Yandex .badge max-width is 760px and left-aligned in the iframe.
+ * Card is capped at 760px and centered on the page - no empty right panel.
+ */
+.krv-yandex-reviews {
+  --yw-h: 620px;
+  width: 100%;
+  max-width: 760px; /* hard match Yandex badge */
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--krv-line, #d8e0ee);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(23, 33, 51, 0.06);
+  isolation: isolate;
+}
+
+.krv-yandex-reviews__shell {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  height: var(--yw-h);
+  /* center iframe if anything is narrower than the shell */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.krv-yandex-reviews__frame {
+  display: block;
+  border: 0;
+  background: #fff;
+  width: 100%;
+  max-width: 760px;
+  height: var(--yw-h);
+  margin: 0 auto;
+  transform: none;
+}
+
+.krv-yandex-reviews__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.1rem;
+  border-top: 1px solid var(--krv-line, #d8e0ee);
+  background: linear-gradient(180deg, #f7f9fc, #eef3fb);
+  font-size: 0.85rem;
+  color: var(--krv-muted, #52627d);
+}
+.krv-yandex-reviews__foot a {
+  color: #315fe8;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.krv-yandex-reviews__foot a:hover { text-decoration: underline; }
+
+/* -- Large desktop -- */
+@media (min-width: 1100px) {
+  .krv-proof {
+    max-width: min(1440px, 96vw);
+    padding-left: clamp(1rem, 2vw, 2rem);
+    padding-right: clamp(1rem, 2vw, 2rem);
+  }
+  .krv-yandex-reviews {
+    --yw-h: 640px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .krv-clients {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* -- Tablet -- */
+@media (max-width: 900px) {
+  .krv-yandex-reviews {
+    --yw-h: 580px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* -- Mobile: adaptive full-width -- */
+@media (max-width: 640px) {
+  .krv-proof {
+    max-width: 100%;
+    padding-left: max(0.65rem, env(safe-area-inset-left, 0px));
+    padding-right: max(0.65rem, env(safe-area-inset-right, 0px));
+    padding-top: 1.25rem;
+    padding-bottom: 1.75rem;
+  }
+  .krv-clients {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin-bottom: 1rem;
+  }
+  .krv-client {
+    min-height: 96px;
+    padding: 0.65rem 0.45rem;
+    border-radius: 12px;
+  }
+  .krv-yandex-reviews {
+    border-radius: 14px;
+    max-width: 100%;
+    --yw-h: min(640px, 78dvh);
+  }
+  .krv-yandex-reviews__shell {
+    min-height: 480px;
+    max-height: 720px;
+    height: var(--yw-h);
+  }
+  .krv-yandex-reviews__frame {
+    min-height: 480px;
+    max-height: 720px;
+    height: var(--yw-h);
+    transform: none;
+    width: 100%;
+  }
+  .krv-yandex-reviews__foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.8rem;
+  }
+  .krv-yandex-reviews__foot a {
+    white-space: normal;
+  }
+  .krv-proof__rating {
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+}
+
+/* very small phones */
+@media (max-width: 380px) {
+  .krv-yandex-reviews {
+    --yw-h: min(560px, 75dvh);
+  }
+  .krv-yandex-reviews__shell,
+  .krv-yandex-reviews__frame {
+    min-height: 440px;
+  }
+}
+
+/* Dark */
+html[data-theme="dark"] .krv-client,
+html[data-theme="dark"] .krv-yandex-reviews {
+  background: var(--krv-card, #121a2b);
+  border-color: var(--krv-line, #243049);
+}
+html[data-theme="dark"] .krv-client__name,
+html[data-theme="dark"] .krv-proof__head p,
+html[data-theme="dark"] .krv-yandex-reviews__foot {
+  color: var(--krv-mute, #a8b6d4);
+}
+html[data-theme="dark"] .krv-proof__head h2 {
+  color: var(--krv-ink, #e8eefc);
+}
+html[data-theme="dark"] .krv-yandex-reviews__shell,
+html[data-theme="dark"] .krv-yandex-reviews__frame {
+  background: #0f172a;
+}
+html[data-theme="dark"] .krv-yandex-reviews__foot {
+  background: linear-gradient(180deg, #121a2b, #0f172a);
+  border-top-color: var(--krv-line, #243049);
+}
+html[data-theme="dark"] .krv-client__logo img {
+  filter: grayscale(0.1) brightness(1.05);
+}
+html[data-theme="dark"] a.krv-client:hover {
+  border-color: #3d5a9a;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+html[data-theme="dark"] .krv-proof__eyebrow,
+html[data-theme="dark"] .krv-proof__rating-link,
+html[data-theme="dark"] .krv-yandex-reviews__foot a {
+  color: #6b93ff;
+}
+html[data-theme="dark"] .krv-proof__rating-link:hover,
+html[data-theme="dark"] .krv-yandex-reviews__foot a:hover {
+  color: #8aacff;
+  text-decoration: underline;
+}
+html[data-theme="dark"] a.krv-client:hover .krv-client__name {
+  color: #c8d6f0;
+}
+
+
+/* P1 logo-only wall */
+.krv-client__name { display: none !important; }
+.krv-client {
+  min-height: 84px;
+  padding: 0.85rem 0.7rem;
+  gap: 0;
+}

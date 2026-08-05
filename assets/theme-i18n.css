@@ -1,0 +1,768 @@
+/**
+ * Theme (day/night) + language switcher UI
+ * Light: default :root tokens in art-design.css
+ * Dark: overrides below + CSS variables
+ * Auto: 07:00–19:59 light, 20:00–06:59 dark (local time), unless user chose via toggle
+ */
+
+/* ── Theme switcher / lang switcher in nav ── */
+.krv-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.krv-switch {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--krv-line, #e7ecf5);
+  border-radius: 999px;
+  background: var(--krv-card, #fff);
+  overflow: hidden;
+  height: 2.15rem;
+}
+.krv-switch button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--krv-mute, #52627d);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0 0.65rem;
+  min-height: 2.15rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+}
+.krv-switch button.is-active {
+  background: var(--krv-accent, #315fe8);
+  color: #fff;
+}
+.krv-switch button:focus-visible {
+  outline: 2px solid rgba(49, 95, 232, 0.45);
+  outline-offset: -2px;
+}
+.krv-theme-btn {
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 999px;
+  border: 1px solid var(--krv-line, #e7ecf5);
+  background: var(--krv-card, #fff);
+  color: var(--krv-ink, #172133);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.krv-theme-btn:hover {
+  border-color: var(--krv-chip-border, #c9d9ff);
+  background: var(--krv-accent-soft, #eef3fb);
+}
+
+@media (max-width: 640px) {
+  .krv-controls {
+    gap: 0.3rem;
+  }
+  .krv-switch button {
+    padding: 0 0.5rem;
+    font-size: 0.68rem;
+  }
+  body.art-lb nav .text-xl {
+    display: none !important;
+  }
+}
+
+/* ═══════════ LIGHT (explicit, matches :root) ═══════════ */
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* ═══════════ DARK THEME ═══════════ */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --krv-bg: #0b1220;
+  --krv-card: #121a2b;
+  --krv-ink: #e8eefc;
+  --krv-mute: #a8b6d4;
+  --krv-mute-2: #8b9bb8;
+  --krv-line: #243049;
+  --krv-line-2: #2e3c58;
+  --krv-accent: #315fe8;
+  --krv-accent-dark: #244ac2;
+  --krv-accent-soft: #1a2744;
+  --krv-ok: #34d399;
+  --krv-dark: #0a101c;
+  --krv-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  --krv-shadow-md: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --krv-shadow-cta: 0 14px 34px rgba(49, 95, 232, 0.35);
+  --krv-nav-bg: rgba(11, 18, 32, 0.94);
+  --krv-bar-bg: rgba(11, 18, 32, 0.97);
+  --krv-hover-line: #3d5a9a;
+  --krv-chip-border: #3d5a9a;
+  --krv-on-accent: #ffffff;
+  --krv-panel-dark-from: #0a101c;
+  --krv-panel-dark-to: #152238;
+  --krv-panel-dark-text: #e8eefc;
+  --krv-panel-dark-mute: rgba(200, 214, 240, 0.88);
+  --krv-btn: #315fe8;
+  --krv-btn-hover: #244ac2;
+  --krv-link: #8aacff;
+}
+
+/* Page base */
+html[data-theme="dark"] body.art-lb {
+  background: var(--krv-bg) !important;
+  color: var(--krv-ink) !important;
+}
+
+html[data-theme="dark"] body.art-lb ::selection {
+  background: rgba(107, 147, 255, 0.35);
+  color: #fff;
+}
+
+/* Surfaces — utility classes (vars already swap; keep !important for Tailwind) */
+html[data-theme="dark"] body.art-lb .bg-white,
+html[data-theme="dark"] body.art-lb .bg-slate-50,
+html[data-theme="dark"] body.art-lb .bg-slate-100,
+html[data-theme="dark"] body.art-lb .hover\:bg-slate-50:hover {
+  background-color: var(--krv-card) !important;
+  color: var(--krv-ink) !important;
+}
+
+html[data-theme="dark"] body.art-lb .border-slate-100,
+html[data-theme="dark"] body.art-lb .border-slate-200,
+html[data-theme="dark"] body.art-lb .border-slate-300,
+html[data-theme="dark"] body.art-lb .border-krv {
+  border-color: var(--krv-line) !important;
+}
+
+/* Text hierarchy */
+html[data-theme="dark"] body.art-lb .text-slate-900,
+html[data-theme="dark"] body.art-lb .text-slate-800,
+html[data-theme="dark"] body.art-lb .text-slate-700,
+html[data-theme="dark"] body.art-lb h1,
+html[data-theme="dark"] body.art-lb h2,
+html[data-theme="dark"] body.art-lb h3,
+html[data-theme="dark"] body.art-lb h4,
+html[data-theme="dark"] body.art-lb .font-semibold:not(.bg-krv):not(.text-white):not(.drslon-hero__btn--primary),
+html[data-theme="dark"] body.art-lb .font-display:not(.text-white),
+html[data-theme="dark"] body.art-lb .text-3xl.font-semibold,
+html[data-theme="dark"] body.art-lb .text-4xl.font-semibold {
+  color: var(--krv-ink) !important;
+}
+
+/* Never paint blue CTA labels with ink/mute — pure white on brand blue */
+html[data-theme="dark"] body.art-lb a.bg-krv,
+html[data-theme="dark"] body.art-lb a.bg-krv.font-semibold,
+html[data-theme="dark"] body.art-lb a.bg-krv.text-sm,
+html[data-theme="dark"] body.art-lb a.bg-krv.text-white,
+html[data-theme="dark"] body.art-lb #servers a.bg-krv,
+html[data-theme="dark"] body.art-lb #pricing a.bg-krv,
+html[data-theme="dark"] body.art-lb a[class*="bg-krv"]:not(.bg-krv-soft) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] body.art-lb .text-slate-600,
+html[data-theme="dark"] body.art-lb .text-slate-500,
+html[data-theme="dark"] body.art-lb .text-slate-400,
+html[data-theme="dark"] body.art-lb .text-slate-300,
+html[data-theme="dark"] body.art-lb p,
+html[data-theme="dark"] body.art-lb li,
+html[data-theme="dark"] body.art-lb .text-sm:not(.text-white):not(.text-krv):not(.text-emerald-400):not(.text-emerald-500):not(.text-emerald-600) {
+  color: var(--krv-mute) !important;
+}
+
+/* Brand accent — slightly brighter on dark for contrast */
+html[data-theme="dark"] body.art-lb .text-krv,
+html[data-theme="dark"] body.art-lb main a.text-krv {
+  color: var(--krv-link, var(--krv-accent)) !important;
+}
+html[data-theme="dark"] body.art-lb .text-krv-dark,
+html[data-theme="dark"] body.art-lb main a.text-krv:hover {
+  color: var(--krv-link, var(--krv-accent-dark)) !important;
+}
+html[data-theme="dark"] body.art-lb .bg-krv-soft,
+html[data-theme="dark"] body.art-lb .bg-blue-50,
+html[data-theme="dark"] body.art-lb .w-12.h-12.bg-krv-soft {
+  background: var(--krv-accent-soft) !important;
+  color: var(--krv-accent) !important;
+}
+html[data-theme="dark"] body.art-lb .w-12.h-12.bg-krv-soft i {
+  color: var(--krv-accent) !important;
+}
+html[data-theme="dark"] body.art-lb .text-emerald-400,
+html[data-theme="dark"] body.art-lb .text-emerald-500,
+html[data-theme="dark"] body.art-lb .text-emerald-600,
+html[data-theme="dark"] body.art-lb .text-emerald-700 {
+  color: var(--krv-ok) !important;
+}
+
+/* Nav */
+html[data-theme="dark"] body.art-lb nav {
+  background: var(--krv-nav-bg) !important;
+  border-bottom-color: var(--krv-line) !important;
+}
+html[data-theme="dark"] body.art-lb nav .font-display,
+html[data-theme="dark"] body.art-lb nav .text-2xl {
+  color: var(--krv-ink) !important;
+}
+html[data-theme="dark"] body.art-lb nav .text-slate-500,
+html[data-theme="dark"] body.art-lb nav .text-xl {
+  color: var(--krv-mute) !important;
+}
+html[data-theme="dark"] body.art-lb nav a.inline-flex,
+html[data-theme="dark"] body.art-lb nav a[class*="border"] {
+  background: var(--krv-card) !important;
+  border-color: var(--krv-line-2) !important;
+  color: var(--krv-ink) !important;
+}
+html[data-theme="dark"] body.art-lb nav a.inline-flex:hover,
+html[data-theme="dark"] body.art-lb nav a[class*="border"]:hover {
+  background: var(--krv-accent-soft) !important;
+  border-color: var(--krv-chip-border) !important;
+  color: #c7d7ff !important;
+}
+
+/* Subnav */
+html[data-theme="dark"] .krv-subnav {
+  background: var(--krv-nav-bg);
+  border-bottom-color: var(--krv-line);
+}
+html[data-theme="dark"] .krv-subnav a {
+  color: var(--krv-mute);
+}
+html[data-theme="dark"] .krv-subnav a:hover,
+html[data-theme="dark"] .krv-subnav a.is-active {
+  color: #c7d7ff;
+  background: var(--krv-accent-soft);
+  border-color: var(--krv-hover-line);
+}
+
+/* Primary / secondary CTAs */
+html[data-theme="dark"] body.art-lb .bg-krv,
+html[data-theme="dark"] body.art-lb a.bg-krv,
+html[data-theme="dark"] body.art-lb a[class*="bg-krv"]:not(.bg-krv-soft) {
+  background: linear-gradient(145deg, #315fe8 0%, #315fe8 100%) !important;
+  color: #fff !important;
+}
+html[data-theme="dark"] body.art-lb a.bg-krv:hover,
+html[data-theme="dark"] body.art-lb a[class*="bg-krv"]:not(.bg-krv-soft):hover {
+  background: #315fe8 !important;
+  color: #fff !important;
+}
+html[data-theme="dark"] body.art-lb a.border.border-slate-300,
+html[data-theme="dark"] body.art-lb a[class*="border-slate-300"],
+html[data-theme="dark"] body.art-lb a[class*="border-slate"] {
+  background: var(--krv-card) !important;
+  border-color: var(--krv-line-2) !important;
+  color: var(--krv-ink) !important;
+}
+html[data-theme="dark"] body.art-lb a.border.border-slate-300:hover,
+html[data-theme="dark"] body.art-lb a[class*="border-slate-300"]:hover {
+  background: var(--krv-accent-soft) !important;
+  border-color: var(--krv-chip-border) !important;
+  color: #c7d7ff !important;
+}
+
+/* Hero pills */
+html[data-theme="dark"] body.art-lb .inline-flex.items-center.gap-x-2.bg-white.border,
+html[data-theme="dark"] body.art-lb .inline-flex.items-center.gap-x-2.border.border-slate-200,
+html[data-theme="dark"] body.art-lb .inline-flex.items-center.gap-x-2.bg-white.border span,
+html[data-theme="dark"] body.art-lb .inline-flex.items-center.gap-x-2.border span {
+  background: var(--krv-card) !important;
+  border-color: var(--krv-line) !important;
+  color: var(--krv-mute) !important;
+}
+
+/* Cards */
+html[data-theme="dark"] body.art-lb .bg-white.border,
+html[data-theme="dark"] body.art-lb div.bg-white.border,
+html[data-theme="dark"] body.art-lb .border.border-slate-200.rounded-3xl,
+html[data-theme="dark"] body.art-lb .bg-white.border:hover,
+html[data-theme="dark"] body.art-lb .border.border-slate-200.rounded-3xl:hover {
+  background: var(--krv-card) !important;
+  border-color: var(--krv-line) !important;
+  color: var(--krv-ink) !important;
+}
+html[data-theme="dark"] body.art-lb .bg-white.border:hover,
+html[data-theme="dark"] body.art-lb .border.border-slate-200.rounded-3xl:hover {
+  border-color: var(--krv-hover-line) !important;
+}
+html[data-theme="dark"] body.art-lb .bg-white.border h1,
+html[data-theme="dark"] body.art-lb .bg-white.border h2,
+html[data-theme="dark"] body.art-lb .bg-white.border h3,
+html[data-theme="dark"] body.art-lb .bg-white.border .font-semibold,
+html[data-theme="dark"] body.art-lb .bg-white.border .font-display,
+html[data-theme="dark"] body.art-lb .border.border-slate-200 .font-semibold,
+html[data-theme="dark"] body.art-lb .border.border-slate-200 h3 {
+  color: var(--krv-ink) !important;
+}
+html[data-theme="dark"] body.art-lb .bg-white.border p,
+html[data-theme="dark"] body.art-lb .bg-white.border .text-sm,
+html[data-theme="dark"] body.art-lb .bg-white.border .text-slate-600,
+html[data-theme="dark"] body.art-lb .border.border-slate-200 p,
+html[data-theme="dark"] body.art-lb .border.border-slate-200 .text-sm,
+html[data-theme="dark"] body.art-lb .border.border-slate-200 .text-slate-600 {
+  color: var(--krv-mute) !important;
+}
+
+/* Dark slate panels stay dark-on-dark readable */
+html[data-theme="dark"] body.art-lb .bg-slate-900,
+html[data-theme="dark"] body.art-lb .bg-slate-900.text-white {
+  background: linear-gradient(160deg, var(--krv-panel-dark-from) 0%, var(--krv-panel-dark-to) 100%) !important;
+  color: var(--krv-panel-dark-text) !important;
+  border-color: var(--krv-line) !important;
+}
+html[data-theme="dark"] body.art-lb .bg-slate-900 h2,
+html[data-theme="dark"] body.art-lb .bg-slate-900 h3,
+html[data-theme="dark"] body.art-lb .bg-slate-900 .font-semibold,
+html[data-theme="dark"] body.art-lb .bg-slate-900 .text-white {
+  color: #fff !important;
+}
+html[data-theme="dark"] body.art-lb .bg-slate-900 p,
+html[data-theme="dark"] body.art-lb .bg-slate-900 li,
+html[data-theme="dark"] body.art-lb .bg-slate-900 .text-sm,
+html[data-theme="dark"] body.art-lb .bg-slate-900 .text-slate-300 {
+  color: var(--krv-panel-dark-mute) !important;
+}
+
+/* Blue CTA blocks: keep white text on brand blue */
+html[data-theme="dark"] body.art-lb div.bg-krv,
+html[data-theme="dark"] body.art-lb .bg-krv.rounded-3xl {
+  background: linear-gradient(145deg, #315fe8 0%, #315fe8 55%, #315fe8 100%) !important;
+  color: #fff !important;
+}
+html[data-theme="dark"] body.art-lb div.bg-krv h2,
+html[data-theme="dark"] body.art-lb div.bg-krv h3,
+html[data-theme="dark"] body.art-lb div.bg-krv .font-display,
+html[data-theme="dark"] body.art-lb div.bg-krv .font-semibold,
+html[data-theme="dark"] body.art-lb div.bg-krv span,
+html[data-theme="dark"] body.art-lb div.bg-krv p,
+html[data-theme="dark"] body.art-lb div.bg-krv .text-sm,
+html[data-theme="dark"] body.art-lb div.bg-krv .text-white {
+  color: #fff !important;
+}
+html[data-theme="dark"] body.art-lb div.bg-krv a.bg-white,
+html[data-theme="dark"] body.art-lb div.bg-krv a[class*="bg-white"] {
+  background: #fff !important;
+  color: #315fe8 !important;
+  border-color: #fff !important;
+}
+html[data-theme="dark"] body.art-lb div.bg-krv a.border:not(.bg-white) {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  color: #fff !important;
+}
+
+/* Footer */
+html[data-theme="dark"] body.art-lb footer {
+  background: var(--krv-card) !important;
+  border-top-color: var(--krv-line) !important;
+}
+html[data-theme="dark"] body.art-lb footer,
+html[data-theme="dark"] body.art-lb footer p,
+html[data-theme="dark"] body.art-lb footer span,
+html[data-theme="dark"] body.art-lb footer a,
+html[data-theme="dark"] body.art-lb footer .krv-footer-legal,
+html[data-theme="dark"] body.art-lb footer .text-slate-300 {
+  color: var(--krv-mute) !important;
+}
+html[data-theme="dark"] body.art-lb footer a:hover {
+  color: var(--krv-accent) !important;
+}
+
+/* Mobile CTA bar */
+html[data-theme="dark"] .mobile-cta-bar {
+  background: var(--krv-bar-bg) !important;
+  border-top-color: var(--krv-line) !important;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35);
+}
+html[data-theme="dark"] .mobile-cta-bar .cta-secondary {
+  background: var(--krv-card);
+  color: var(--krv-ink);
+  border-color: var(--krv-line-2);
+}
+html[data-theme="dark"] .mobile-cta-bar .cta-secondary:hover {
+  background: var(--krv-accent-soft);
+  border-color: var(--krv-chip-border);
+  color: #c7d7ff;
+}
+html[data-theme="dark"] .mobile-cta-bar .cta-primary {
+  background: var(--krv-btn);
+  color: #fff;
+}
+
+/* Premium components */
+html[data-theme="dark"] .krv-faq details,
+html[data-theme="dark"] .krv-review,
+html[data-theme="dark"] .krv-case__step {
+  background: var(--krv-card);
+  border-color: var(--krv-line);
+  box-shadow: var(--krv-shadow);
+}
+html[data-theme="dark"] .krv-faq details[open],
+html[data-theme="dark"] .krv-review:hover {
+  border-color: var(--krv-hover-line);
+}
+html[data-theme="dark"] .krv-faq summary {
+  color: var(--krv-ink);
+}
+html[data-theme="dark"] .krv-faq summary:hover {
+  color: var(--krv-accent);
+}
+html[data-theme="dark"] .krv-faq__a {
+  color: var(--krv-mute);
+}
+html[data-theme="dark"] .krv-faq summary::after {
+  background: var(--krv-accent-soft);
+  color: var(--krv-accent);
+}
+html[data-theme="dark"] .krv-review p,
+html[data-theme="dark"] .krv-review__who span,
+html[data-theme="dark"] .krv-case__step span {
+  color: var(--krv-mute) !important;
+}
+html[data-theme="dark"] .krv-review__who strong,
+html[data-theme="dark"] .krv-case__step strong {
+  color: var(--krv-ink);
+}
+html[data-theme="dark"] .krv-price__value {
+  color: var(--krv-ink);
+}
+html[data-theme="dark"] .krv-price__cur,
+html[data-theme="dark"] .krv-price__note {
+  color: var(--krv-mute);
+}
+html[data-theme="dark"] .krv-section--alt {
+  background: var(--krv-card);
+  border-color: var(--krv-line);
+}
+html[data-theme="dark"] .krv-section__head h2 {
+  color: var(--krv-ink);
+}
+html[data-theme="dark"] .krv-section__head p {
+  color: var(--krv-mute);
+}
+html[data-theme="dark"] .krv-section__head .eyebrow {
+  color: var(--krv-link, var(--krv-accent));
+}
+html[data-theme="dark"] .krv-hero__visual {
+  background: linear-gradient(160deg, var(--krv-card) 0%, var(--krv-accent-soft) 100%);
+  border-color: var(--krv-line);
+  box-shadow: var(--krv-shadow-md);
+}
+html[data-theme="dark"] .krv-hero__badge {
+  background: var(--krv-card);
+  border-color: var(--krv-line);
+  color: var(--krv-ink);
+}
+html[data-theme="dark"] .krv-hero__pricechip {
+  background: var(--krv-accent-soft);
+  color: #b7cbff;
+  border-color: var(--krv-hover-line);
+}
+html[data-theme="dark"] .krv-case__main {
+  background: linear-gradient(160deg, #0a101c 0%, #152238 100%);
+  border: 1px solid var(--krv-line);
+}
+
+/* Controls */
+html[data-theme="dark"] .krv-switch,
+html[data-theme="dark"] .krv-theme-btn {
+  background: var(--krv-card);
+  border-color: var(--krv-line);
+  color: var(--krv-ink);
+}
+html[data-theme="dark"] .krv-theme-btn:hover {
+  background: var(--krv-accent-soft);
+  border-color: var(--krv-chip-border);
+  color: #c7d7ff;
+}
+html[data-theme="dark"] .krv-switch button {
+  color: var(--krv-mute);
+}
+html[data-theme="dark"] .krv-switch button.is-active {
+  background: var(--krv-accent);
+  color: #fff;
+}
+
+/* Trust row / misc muted spans */
+html[data-theme="dark"] body.art-lb .flex.items-center.gap-x-5.mt-7 span {
+  color: var(--krv-mute) !important;
+}
+
+/* Pricing top accent stays brand blue */
+html[data-theme="dark"] body.art-lb #pricing .border.border-slate-200,
+html[data-theme="dark"] body.art-lb #packages .border.border-slate-200,
+html[data-theme="dark"] body.art-lb #support .border.border-slate-200,
+html[data-theme="dark"] body.art-lb #servers .border.border-slate-200 {
+  border-top-color: var(--krv-accent) !important;
+  border-left-color: var(--krv-line) !important;
+  border-right-color: var(--krv-line) !important;
+  border-bottom-color: var(--krv-line) !important;
+}
+
+/* text-white only on dark/blue panels — don't recolor globally */
+html[data-theme="dark"] body.art-lb .bg-slate-900 .text-white,
+html[data-theme="dark"] body.art-lb div.bg-krv .text-white,
+html[data-theme="dark"] body.art-lb a.bg-krv,
+html[data-theme="dark"] body.art-lb a.bg-krv .text-white {
+  color: #fff !important;
+}
+
+/* smooth theme transition (subtle) */
+html.theme-anim body.art-lb,
+html.theme-anim body.art-lb nav,
+html.theme-anim body.art-lb .bg-white,
+html.theme-anim body.art-lb .krv-subnav,
+html.theme-anim body.art-lb footer,
+html.theme-anim .mobile-cta-bar {
+  transition: background-color 0.25s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* DrSlon token aliases for dark theme (bridge art-design ↔ tokens) */
+html[data-theme="dark"] {
+  --krv-text: var(--krv-ink, #e8eefc);
+  --krv-muted: var(--krv-mute, #a8b6d4);
+  --krv-soft: var(--krv-accent-soft, #1a2744);
+  --krv-soft-2: var(--krv-accent-soft, #1a2744);
+  --krv-line-strong: var(--krv-line-2, #2e3c58);
+}
+
+
+/* ═══════════ DrSlon dark: keep brand blue (#315fe8), full hover coverage ═══════════ */
+html[data-theme="dark"] {
+  --krv-accent: #315fe8;
+  --krv-accent-dark: #244ac2;
+  --krv-accent-soft: #1a2744;
+  --krv-link: #6b93ff;
+  --krv-btn: #315fe8;
+  --krv-btn-hover: #244ac2;
+}
+
+html[data-theme="dark"] body.art-lb .hover\:bg-slate-100:hover,
+html[data-theme="dark"] body.art-lb .hover\:bg-white:hover,
+html[data-theme="dark"] body.art-lb .hover\:bg-slate-50:hover {
+  background-color: var(--krv-accent-soft) !important;
+  color: var(--krv-ink) !important;
+}
+
+html[data-theme="dark"] body.art-lb .hover\:text-krv:hover,
+html[data-theme="dark"] body.art-lb .hover\:text-krv-dark:hover,
+html[data-theme="dark"] body.art-lb a:hover.text-krv {
+  color: #6b93ff !important;
+}
+
+html[data-theme="dark"] body.art-lb .hover\:underline:hover {
+  text-decoration-color: #315fe8;
+}
+
+html[data-theme="dark"] body.art-lb .hover\:shadow-md:hover,
+html[data-theme="dark"] body.art-lb .hover\:shadow-sm:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+}
+
+html[data-theme="dark"] body.art-lb a:focus-visible,
+html[data-theme="dark"] body.art-lb button:focus-visible {
+  outline: 2px solid rgba(49, 95, 232, 0.65);
+  outline-offset: 2px;
+}
+
+/* Primary buttons stay brand blue in dark */
+html[data-theme="dark"] body.art-lb .bg-krv,
+html[data-theme="dark"] body.art-lb a.bg-krv,
+html[data-theme="dark"] .drslon-hero__btn--primary {
+  background: #315fe8 !important;
+  color: #fff !important;
+}
+html[data-theme="dark"] body.art-lb a.bg-krv:hover,
+html[data-theme="dark"] body.art-lb .hover\:bg-krv-dark:hover,
+html[data-theme="dark"] .drslon-hero__btn--primary:hover {
+  background: #244ac2 !important;
+  color: #fff !important;
+}
+
+/* Links default */
+html[data-theme="dark"] body.art-lb main a:not(.bg-krv):not(.drslon-hero__btn--primary):not(.drslon-hero__btn--ghost) {
+  color: #6b93ff;
+}
+html[data-theme="dark"] body.art-lb main a:not(.bg-krv):not(.drslon-hero__btn):hover {
+  color: #8aacff;
+}
+
+/* Footer */
+html[data-theme="dark"] body.art-lb footer {
+  background: var(--krv-card) !important;
+  border-top-color: var(--krv-line) !important;
+  color: var(--krv-mute) !important;
+}
+html[data-theme="dark"] body.art-lb footer a:hover {
+  color: #6b93ff !important;
+}
+
+/* Mobile CTA bar */
+html[data-theme="dark"] .mobile-cta-bar {
+  background: var(--krv-bar-bg) !important;
+  border-top-color: var(--krv-line) !important;
+}
+
+/* Matrix layer under content.
+ * IMPORTANT: do NOT force position:relative on ALL body children —
+ * that kills nav.sticky / .krv-subnav sticky on desktop in dark mode.
+ */
+#krv-matrix-canvas {
+  pointer-events: none !important;
+}
+/* skip-link must stay absolute (off-screen); relative would push nav down ~25px */
+html[data-theme="dark"] body.art-lb > *:not(#krv-matrix-canvas):not(nav):not(.krv-subnav):not(.skip-link):not(.krv-assistant):not(.mobile-cta-bar):not(.krv-cookie):not(#krv-cookie) {
+  position: relative;
+  z-index: 1;
+}
+html[data-theme="dark"] body.art-lb > a.skip-link {
+  position: absolute !important;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+}
+html[data-theme="dark"] body.art-lb > a.skip-link:focus {
+  left: 0;
+}
+/* Keep main header + subnav sticky above matrix */
+html[data-theme="dark"] body.art-lb > nav.sticky,
+html[data-theme="dark"] body.art-lb > nav.bg-white {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+}
+html[data-theme="dark"] body.art-lb > .krv-subnav {
+  position: sticky !important;
+  z-index: 40 !important;
+}
+
+/* Dark header readability — titles / domain / theme toggle */
+html[data-theme="dark"] body.art-lb nav .krv-nav-title .font-display,
+html[data-theme="dark"] body.art-lb nav .krv-nav-title .text-2xl {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+html[data-theme="dark"] body.art-lb nav .krv-nav-title .text-slate-500,
+html[data-theme="dark"] body.art-lb nav .krv-nav-title .text-xl {
+  color: #c7d7ff !important;
+  -webkit-text-fill-color: #c7d7ff !important;
+  opacity: 1 !important;
+}
+html[data-theme="dark"] body.art-lb nav .krv-theme-btn {
+  background: #152238 !important;
+  border-color: #3d5a9a !important;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] body.art-lb nav .krv-switch {
+  background: #152238 !important;
+  border-color: #3d5a9a !important;
+}
+html[data-theme="dark"] body.art-lb nav .krv-switch button {
+  color: #a8b6d4 !important;
+}
+html[data-theme="dark"] body.art-lb nav .krv-switch button.is-active {
+  background: #315fe8 !important;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] body.art-lb nav .krv-nav-cta,
+html[data-theme="dark"] body.art-lb nav a.inline-flex {
+  background: #152238 !important;
+  border-color: #3d5a9a !important;
+  color: #e8eefc !important;
+}
+html[data-theme="dark"] body.art-lb nav .krv-nav-cta:hover,
+html[data-theme="dark"] body.art-lb nav a.inline-flex:hover {
+  background: #1a2744 !important;
+  border-color: #5b8cff !important;
+  color: #ffffff !important;
+}
+
+
+/* Hero ghost/primary — never inherit mute/slate in dark */
+html[data-theme="dark"] body.art-lb .drslon-hero a.drslon-hero__btn--ghost {
+  color: #eef3ff !important;
+  background: rgba(26, 39, 68, 0.95) !important;
+  border-color: #4a6bb5 !important;
+}
+html[data-theme="dark"] body.art-lb .drslon-hero a.drslon-hero__btn--ghost:hover {
+  color: #fff !important;
+  background: #315fe8 !important;
+  border-color: #315fe8 !important;
+}
+html[data-theme="dark"] body.art-lb .drslon-hero a.drslon-hero__btn--ghost i {
+  color: #9cbcff !important;
+}
+html[data-theme="dark"] body.art-lb .drslon-hero a.drslon-hero__btn--ghost:hover i {
+  color: #fff !important;
+}
+
+
+/* === 20260805 polish: full-dark hero + hide assistant on mobile === */
+
+/* Hero: true dark canvas in dark mode (no light bleed) */
+html[data-theme="dark"] body.art-lb .drslon-hero-wrap {
+  background: #0b1220;
+}
+html[data-theme="dark"] body.art-lb .drslon-hero {
+  border-color: #1e2a44;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(49, 95, 232, 0.28), transparent 42%),
+    radial-gradient(circle at 92% 8%, rgba(82, 161, 239, 0.14), transparent 36%),
+    radial-gradient(circle at 78% 92%, rgba(26, 87, 141, 0.2), transparent 44%),
+    linear-gradient(155deg, #0b1220 0%, #10192c 48%, #132038 100%) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+html[data-theme="dark"] body.art-lb .drslon-hero__title {
+  color: #f0f5ff !important;
+}
+html[data-theme="dark"] body.art-lb .drslon-hero__lead,
+html[data-theme="dark"] body.art-lb .drslon-hero__sub {
+  color: #b4c2de !important;
+}
+html[data-theme="dark"] body.art-lb .drslon-hero__panel,
+html[data-theme="dark"] body.art-lb .drslon-hero__visual {
+  background: rgba(12, 20, 36, 0.72);
+  border-color: #2a3a58;
+}
+
+/* Privacy header controls */
+header .krv-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Hide floating assistant on small screens (mobile CTA bar remains) */
+@media (max-width: 767.98px) {
+  .krv-assistant,
+  #krv-assistant,
+  [class*="krv-assistant"],
+  iframe[src*="krv-assistant"],
+  div[id^="krv-asst"],
+  .krv-asst,
+  #krv-asst-root {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+

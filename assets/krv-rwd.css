@@ -1,0 +1,877 @@
+/**
+ * KRV responsive UX pack (desktop / tablet / iPhone)
+ * Brand locked: #315fe8 #244ac2 #172133 #f7f9fc
+ * Breakpoints: phone <768 | tablet 768-1023 | desktop 1024+
+ */
+
+/* ── Base: no horizontal rubber-band from layout ── */
+html {
+  overflow-x: clip;
+}
+body.art-lb {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Skip-link off-screen without polluting layout metrics */
+.skip-link {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: fixed !important;
+  left: 0.75rem !important;
+  top: 0.75rem !important;
+  width: auto !important;
+  height: auto !important;
+  clip: auto;
+  z-index: 100000;
+  padding: 0.7rem 1rem;
+  background: #315fe8;
+  color: #fff !important;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(49, 95, 232, 0.35);
+}
+
+/* ── Touch targets (Apple HIG ~44pt) ── */
+.krv-switch button,
+.krv-lang-btn {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  padding: 0 0.7rem !important;
+  font-size: 0.75rem !important;
+}
+.krv-theme-btn {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+}
+.krv-switch {
+  height: 44px !important;
+}
+body.art-lb .krv-subnav a {
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.55rem 0.85rem !important;
+  font-size: 0.9rem !important;
+}
+body.art-lb nav .krv-nav-cta,
+body.art-lb nav a.inline-flex.krv-nav-cta {
+  min-height: 44px !important;
+}
+.krv-social-strip__rating,
+.krv-social-strip a,
+.krv-proof__rating-link {
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.35rem 0 !important;
+}
+.mobile-cta-bar a {
+  min-height: 48px !important;
+  min-width: 44px !important;
+  padding-top: 0.7rem !important;
+  padding-bottom: 0.7rem !important;
+  font-size: 0.95rem !important;
+}
+
+/* iOS: prevent focus zoom on form controls */
+input,
+select,
+textarea,
+button {
+  font-size: max(16px, 1em);
+}
+.krv-qual select,
+.krv-qual input[type="text"],
+.krv-qual input,
+.krv-qual textarea {
+  font-size: 16px !important;
+  min-height: 48px !important;
+  border-radius: 12px;
+}
+
+/* ── Nav cluster ── */
+body.art-lb > nav.sticky,
+body.art-lb > nav.bg-white {
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
+}
+body.art-lb nav .max-w-screen-xl {
+  max-width: 80rem;
+}
+body.art-lb nav .krv-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  min-width: 0;
+}
+body.art-lb nav .krv-nav-brand {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.krv-controls {
+  gap: 0.35rem !important;
+}
+
+/* ── Subnav: scroll-snap friendly on phone ── */
+body.art-lb .krv-subnav {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+body.art-lb .krv-subnav::-webkit-scrollbar { display: none; }
+body.art-lb .krv-subnav__inner {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.15rem;
+  padding: 0.25rem 0.75rem;
+  width: max-content;
+  min-width: 100%;
+  justify-content: flex-start;
+}
+@media (min-width: 768px) {
+  body.art-lb .krv-subnav__inner {
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+}
+
+/* ── PHONE (<768) ── */
+@media (max-width: 767.98px) {
+  body.art-lb {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .mobile-cta-bar {
+    display: flex !important;
+    padding-bottom: calc(0.45rem + env(safe-area-inset-bottom, 0px)) !important;
+    padding-left: calc(0.65rem + env(safe-area-inset-left, 0px));
+    padding-right: calc(0.65rem + env(safe-area-inset-right, 0px));
+    gap: 0.5rem;
+    z-index: 60;
+  }
+  #krv-cookie.krv-cookie {
+    bottom: calc(4.6rem + env(safe-area-inset-bottom, 0px)) !important;
+    left: 0.65rem;
+    right: 0.65rem;
+    width: auto;
+    max-width: none;
+    z-index: 55;
+  }
+
+  /* Nav: brand + controls; hide long subtitle already in ui-polish */
+  body.art-lb nav .flex.items-center.justify-between {
+    gap: 0.4rem !important;
+  }
+  body.art-lb nav .krv-logo--nav {
+    height: 2.75rem !important;
+    max-width: 3.1rem !important;
+  }
+  body.art-lb nav .krv-nav-title .font-display,
+  body.art-lb nav .krv-nav-title .text-2xl {
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+  }
+  /* hide primary nav CTA on very small - mobile bar covers it */
+  body.art-lb nav .krv-nav-cta {
+    display: none !important;
+  }
+
+  /* Hero compact for first screen */
+  .drslon-hero-wrap {
+    padding-inline: 0.85rem;
+  }
+  .drslon-hero {
+    padding: 1.1rem 1rem 1.25rem !important;
+    border-radius: 1rem !important;
+  }
+  .drslon-hero__title {
+    font-size: clamp(1.55rem, 6.2vw, 1.95rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em;
+  }
+  .drslon-hero__lead,
+  .krv-offer-line {
+    font-size: 0.95rem !important;
+    line-height: 1.45 !important;
+  }
+  .drslon-hero__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem !important;
+    width: 100%;
+  }
+  .drslon-hero__btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+    white-space: normal !important;
+    text-align: center;
+  }
+  .drslon-hero__stats.krv-hero-trust {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .drslon-hero__stat {
+    padding: 0.65rem 0.75rem !important;
+  }
+  .krv-social-strip {
+    margin-inline: 0.85rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  /* Sections breathing */
+  body.art-lb section,
+  body.art-lb .max-w-screen-xl {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  /* Client logos: fewer columns, larger hit area */
+  .krv-clients {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+  }
+  .krv-client {
+    min-height: 56px;
+  }
+  .krv-client__logo img {
+    max-height: 36px;
+    width: auto;
+    margin-inline: auto;
+  }
+
+  /* Pricing cards full width */
+  #pricing .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* FAQ readable */
+  .krv-faq details,
+  details.krv-faq,
+  #faq details {
+    padding-block: 0.35rem;
+  }
+  #faq summary,
+  .krv-faq summary {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  /* Qualifier full bleed comfort */
+  .krv-qual-section {
+    padding-inline: 0.85rem;
+  }
+  .krv-qual {
+    padding: 1.15rem 1rem;
+  }
+  .krv-qual__actions {
+    flex-direction: column;
+  }
+  .krv-qual__btn {
+    width: 100%;
+  }
+
+  /* Footer service links wrap */
+  footer nav {
+    justify-content: center !important;
+    row-gap: 0.45rem !important;
+  }
+  footer nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.4rem;
+  }
+}
+
+/* SE / narrow phones */
+@media (max-width: 380px) {
+  .drslon-hero__title {
+    font-size: 1.4rem !important;
+  }
+  .krv-clients {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  body.art-lb nav .krv-nav-title .font-display {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ── TABLET (768–1023): not a stretched phone ── */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  /* Hide sticky mobile bar: nav CTA available */
+  .mobile-cta-bar {
+    display: none !important;
+  }
+  body.has-mobile-cta {
+    padding-bottom: 0 !important;
+  }
+  body.art-lb nav .krv-nav-cta {
+    display: inline-flex !important;
+    min-height: 44px !important;
+    font-size: 0.875rem !important;
+    padding: 0.5rem 0.95rem !important;
+  }
+
+  /* Hero becomes split earlier than desktop 900 */
+  .drslon-hero.drslon-hero--split {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.1fr) minmax(240px, 0.9fr) !important;
+    gap: 1.15rem !important;
+    align-items: center;
+    padding: 1.35rem 1.35rem !important;
+  }
+  .drslon-hero.drslon-hero--split .drslon-hero__inner {
+    max-width: none;
+  }
+  .drslon-hero__title {
+    font-size: clamp(1.75rem, 3.2vw, 2.25rem) !important;
+    line-height: 1.12 !important;
+  }
+  .drslon-hero__cta {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 0.65rem !important;
+  }
+  .drslon-hero__btn {
+    width: auto !important;
+    min-height: 48px !important;
+  }
+  .drslon-hero__stats.krv-hero-trust {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.65rem !important;
+  }
+  .krv-social-strip {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Grids: kill awkward single-col asym until real desktop */
+  body.art-lb .krv-asym-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+  body.art-lb .krv-asym-grid > :first-child {
+    grid-column: auto !important;
+  }
+  /* 3-card packages: 2+1 better than stacked 1-col */
+  body.art-lb .krv-asym-grid.md\:grid-cols-3,
+  body.art-lb .grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  #pricing .grid.md\:grid-cols-2,
+  body.art-lb #pricing .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .krv-case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .krv-clients {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Section rhythm */
+  body.art-lb section.max-w-screen-xl,
+  body.art-lb .max-w-screen-xl.px-5 {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+  body.art-lb h2 {
+    letter-spacing: -0.02em;
+  }
+
+  .krv-qual {
+    max-width: 36rem;
+  }
+  .krv-qual__actions {
+    flex-direction: row;
+  }
+}
+
+/* iPad landscape / small laptop (1024–1279) */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .mobile-cta-bar { display: none !important; }
+  body.has-mobile-cta { padding-bottom: 0 !important; }
+
+  .drslon-hero.drslon-hero--split {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr) !important;
+    gap: 1.5rem !important;
+  }
+  body.art-lb .krv-asym-grid {
+    grid-template-columns: 1.15fr 0.95fr 0.95fr !important;
+  }
+  body.art-lb .krv-asym-grid > :first-child {
+    grid-column: auto !important;
+  }
+  .krv-clients {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ── DESKTOP 1280+ ── */
+@media (min-width: 1280px) {
+  .mobile-cta-bar { display: none !important; }
+  body.has-mobile-cta { padding-bottom: 0 !important; }
+  .drslon-hero.drslon-hero--split {
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr) !important;
+  }
+  body.art-lb nav {
+    min-height: 64px;
+  }
+  body.art-lb .krv-subnav a {
+    padding-inline: 1rem !important;
+  }
+}
+
+/* ── Hover only for fine pointers ── */
+@media (hover: hover) and (pointer: fine) {
+  body.art-lb .krv-subnav a:hover {
+    color: #315fe8;
+  }
+  .drslon-hero__btn--primary:hover {
+    background: #244ac2;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  #krv-matrix-canvas { display: none !important; }
+}
+
+/* ── Dark theme: keep brand blue, improve contrast ── */
+html[data-theme="dark"] .krv-switch {
+  border-color: #2e3c58;
+  background: #121a2b;
+}
+html[data-theme="dark"] .krv-theme-btn {
+  border-color: #2e3c58;
+  background: #121a2b;
+  color: #e8eefc;
+}
+html[data-theme="dark"] body.art-lb .krv-subnav a {
+  color: #c8d6f0;
+}
+html[data-theme="dark"] .mobile-cta-bar {
+  background: rgba(11, 18, 32, 0.96);
+  border-top-color: #243049;
+}
+html[data-theme="dark"] .krv-qual select,
+html[data-theme="dark"] .krv-qual input {
+  background: #0b1220;
+  color: #e8eefc;
+  border-color: #2e3c58;
+}
+
+/* Focus rings - brand blue */
+:focus-visible {
+  outline: 2px solid #315fe8;
+  outline-offset: 2px;
+}
+.krv-switch button:focus-visible {
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+/* Prevent wide iframes (Yandex widgets) from blowing layout */
+iframe {
+  max-width: 100%;
+}
+.krv-proof__badge {
+  max-width: 100%;
+}
+
+/* Images never force overflow */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Tablet extras from audit T-CRIT / T-HIGH ── */
+
+/* Asym grids: never force 1-col on tablet portrait */
+@media (min-width: 640px) and (max-width: 899.98px) {
+  body.art-lb .krv-asym-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+  body.art-lb .krv-asym-grid > :first-child {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  body.art-lb #benefits .krv-asym-grid.md\:grid-cols-3,
+  body.art-lb #benefits .grid.md\:grid-cols-3,
+  body.art-lb .grid.krv-asym-grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Equal 3-col mid desktop; fancy asym only large */
+@media (min-width: 900px) and (max-width: 1099.98px) {
+  body.art-lb .krv-asym-grid.krv-keep-equal,
+  body.art-lb .krv-keep-equal.krv-asym-grid,
+  body.art-lb .krv-asym-grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  body.art-lb .krv-asym-grid > :first-child {
+    grid-column: auto !important;
+  }
+}
+
+/* VPS servers / dense product grids */
+@media (min-width: 768px) and (max-width: 1279.98px) {
+  body[data-product="vps"] #servers .grid,
+  body[data-product="vps"] .grid.lg\:grid-cols-5,
+  body[data-product="vps"] .grid.md\:grid-cols-5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  body[data-product="direct"] #pricing .grid.lg\:grid-cols-4,
+  body[data-product="direct"] .grid.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* How steps: 2x2 until wide desktop */
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+  body.art-lb #how .grid.lg\:grid-cols-4,
+  body.art-lb #how .grid.sm\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Cases: avoid orphan third card gap on tablet */
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  body.art-lb .krv-case-grid > :first-child {
+    grid-column: 1 / -1;
+  }
+  body.art-lb .krv-case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Popular badge clip fix */
+body.art-lb .absolute.-top-3,
+body.art-lb [class*="popular"],
+body.art-lb .krv-price__badge,
+body.art-lb .rounded-full.absolute {
+  z-index: 2;
+  max-width: calc(100% - 1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Density tokens tablet */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  body.art-lb {
+    --sec-y: 2.25rem;
+    --hero-y: 1.5rem;
+  }
+  body.art-lb section.py-8,
+  body.art-lb section.py-10,
+  body.art-lb .py-8.md\:py-10 {
+    padding-top: var(--sec-y);
+    padding-bottom: var(--sec-y);
+  }
+}
+
+/* Hero visual min height so split doesn't collapse */
+@media (min-width: 768px) {
+  .drslon-hero__visual {
+    min-height: 220px;
+  }
+  .drslon-hero__shot img {
+    border-radius: 12px;
+  }
+}
+
+/* Force 16px on site forms only */
+body.art-lb input, body.art-lb select, body.art-lb textarea { font-size: 16px !important; }
+
+
+/* ── Desktop a11y pack (from audit) ── */
+.skip-link {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: fixed !important;
+  left: 0.75rem !important;
+  top: 0.75rem !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  clip: auto !important;
+  overflow: visible !important;
+  padding: 0.75rem 1.1rem !important;
+  z-index: 100000 !important;
+  background: #315fe8 !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  box-shadow: 0 10px 28px rgba(49, 95, 232, 0.4) !important;
+}
+html[data-theme="dark"] .skip-link:focus,
+html[data-theme="dark"] .skip-link:focus-visible {
+  position: fixed !important;
+  z-index: 100000 !important;
+  background: #315fe8 !important;
+  color: #fff !important;
+}
+
+.krv-social-strip {
+  margin-top: 0.85rem !important;
+}
+
+/* Compact sticky chrome a bit */
+@media (min-width: 1024px) {
+  body.art-lb nav .krv-logo--nav {
+    height: 2.75rem !important;
+    max-width: 3.25rem !important;
+  }
+  body.art-lb nav .flex.items-center.justify-between {
+    min-height: 3.5rem !important;
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.35rem !important;
+  }
+  body.art-lb .krv-subnav a {
+    padding-top: 0.45rem !important;
+    padding-bottom: 0.45rem !important;
+  }
+}
+
+body.art-lb .krv-subnav a:focus-visible,
+body.art-lb #faq summary:focus-visible,
+.krv-qual__btn:focus-visible,
+.krv-qual input:focus-visible,
+.krv-qual select:focus-visible {
+  outline: 2px solid #315fe8 !important;
+  outline-offset: 3px !important;
+}
+
+/* Cookie: less occlusion on first paint */
+@media (min-width: 768px) {
+  #krv-cookie.krv-cookie.is-visible {
+    max-width: 28rem;
+    left: auto;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+
+
+/* ── Mobile audit ROI pack (after all CSS — load last) ── */
+:root {
+  --krv-mobile-cta-h: 4.75rem;
+  --krv-mobile-cookie-gap: 0.85rem;
+}
+
+@media (max-width: 767.98px) {
+  body.has-mobile-cta.art-lb,
+  body.art-lb.has-mobile-cta {
+    padding-bottom: calc(var(--krv-mobile-cta-h) + env(safe-area-inset-bottom, 0px) + 0.35rem) !important;
+  }
+
+  .mobile-cta-bar {
+    display: flex !important;
+    min-height: calc(var(--krv-mobile-cta-h) - 0.5rem);
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 70 !important;
+  }
+
+  /* Cookie stacked above CTA with real gap */
+  #krv-cookie.krv-cookie,
+  .krv-cookie {
+    bottom: calc(var(--krv-mobile-cta-h) + var(--krv-mobile-cookie-gap) + env(safe-area-inset-bottom, 0px)) !important;
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+    z-index: 65 !important;
+    padding: 0.75rem 0.85rem !important;
+    gap: 0.55rem !important;
+  }
+  .krv-cookie p {
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .krv-cookie__btn,
+  .krv-cookie__link {
+    min-height: 44px !important;
+    height: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.55rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  .krv-cookie__link {
+    padding-inline: 0.75rem !important;
+  }
+
+  /* Hard-hide assistant on phone */
+  .krv-assistant,
+  #krv-assistant,
+  #krv-asst-root,
+  [class*="krv-asst"],
+  iframe[src*="krv-assistant"] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Conversion / proof links — tappable */
+  body.art-lb main a[href*="yandex"],
+  body.art-lb main a[href*="t.me"],
+  body.art-lb main a[href*="max.ru"],
+  body.art-lb main a[href*="krivoshein.site/contacts"],
+  body.art-lb .krv-case a,
+  body.art-lb .krv-proof a,
+  body.art-lb a.krv-proof__rating-link,
+  body.art-lb .krv-social-strip a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding-block: 0.35rem;
+  }
+
+  /* Subnav scroll affordance */
+  body.art-lb .krv-subnav {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 18px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 18px), transparent 100%);
+  }
+  body.art-lb .krv-subnav__inner {
+    scroll-snap-type: x proximity;
+    padding-inline: 1rem;
+  }
+  body.art-lb .krv-subnav a {
+    scroll-snap-align: start;
+  }
+
+  /* Slightly tighter top chrome */
+  body.art-lb .krv-subnav {
+    min-height: 0;
+  }
+  body.art-lb .krv-subnav a {
+    min-height: 44px !important;
+    padding-block: 0.4rem !important;
+  }
+}
+
+/* Ensure desktop/tablet cookie not fighting mobile token */
+@media (min-width: 768px) {
+  #krv-cookie.krv-cookie,
+  .krv-cookie {
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
+    max-width: 26rem !important;
+    z-index: 90 !important;
+  }
+  .krv-cookie__btn,
+  .krv-cookie__link {
+    min-height: 44px !important;
+    height: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+}
+
+
+
+/* ── Medium UX polish ── */
+@media (max-width: 380px) {
+  body.art-lb .krv-subnav a {
+    padding-inline: 0.55rem !important;
+    font-size: 0.82rem !important;
+  }
+  /* shorter visual weight on SE */
+  body.art-lb .krv-subnav__inner a:nth-child(n+5) {
+    /* keep all but slightly denser */
+  }
+}
+
+@media (min-width: 1024px) {
+  body.art-lb > nav.sticky,
+  body.art-lb > nav.bg-white {
+    min-height: 56px;
+  }
+  body.art-lb nav .flex.items-center.justify-between.min-h-16 {
+    min-height: 3.25rem !important;
+  }
+  body.art-lb .krv-subnav {
+    min-height: 40px;
+  }
+  body.art-lb .krv-subnav a {
+    min-height: 40px !important;
+    padding-block: 0.35rem !important;
+  }
+  body.art-lb nav .krv-logo--nav {
+    height: 2.5rem !important;
+    max-width: 3rem !important;
+  }
+}
+
+/* Neutralize conflicting ui-polish shrink if rwd missing - belt & suspenders */
+@media (max-width: 767.98px) {
+  body.art-lb .krv-theme-btn,
+  .krv-theme-btn {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  body.art-lb .krv-switch button,
+  .krv-lang-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+}

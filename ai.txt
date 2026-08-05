@@ -1,0 +1,13 @@
+# ai.txt — direct.krivoshein.site
+# Full: https://direct.krivoshein.site/llms.txt
+# Agents: https://direct.krivoshein.site/agents.md
+# OpenAPI: https://direct.krivoshein.site/openapi.json
+# agent.json: https://direct.krivoshein.site/.well-known/agent.json
+# Hub: https://krivoshein.site/llms.txt
+# Contacts: https://krivoshein.site/contacts/
+# Telegram: https://t.me/DrSlon
+# MAX: https://max.ru/id770603253213_1_bot
+# Rate: 2000 RUB/h · contract · non-cash · RU/EN
+# Service: Аудит, настройка и ведение Яндекс.Директ без слива бюджета.
+# Content-Signal: search=yes, ai-input=yes, ai-train=no, citationRequired=yes
+# Updated: 2026-08-05

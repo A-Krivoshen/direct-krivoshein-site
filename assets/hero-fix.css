@@ -1,0 +1,82 @@
+/* Single-column premium hero — no empty right half */
+.krv-hero-single {
+  width: 100%;
+  max-width: 46rem; /* ~736px readable premium column, not half-empty grid */
+}
+@media (min-width: 1024px) {
+  .krv-hero-single {
+    max-width: 52rem; /* wider on desktop so not "stuck left with void" */
+  }
+}
+.krv-hero-single h1 {
+  max-width: 18ch;
+}
+@media (min-width: 640px) {
+  .krv-hero-single h1 {
+    max-width: 22ch;
+  }
+}
+.krv-hero-single h1 br {
+  display: block;
+}
+@media (min-width: 768px) {
+  /* fewer forced breaks feel less cramped on wide screens */
+  .krv-hero-single h1 {
+    max-width: 20ch;
+  }
+}
+.krv-hero__pricechip {
+  display: inline-flex;
+  align-items: center;
+  background: #eef3fb;
+  color: #315fe8;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #d7e7ff;
+  line-height: 1.3;
+}
+/* Kill old two-column hero leftovers */
+.krv-hero:not(.krv-hero--stack) {
+  display: block !important;
+}
+.krv-hero--stack {
+  display: block !important;
+  grid-template-columns: none !important;
+}
+.krv-hero__visual {
+  display: none !important; /* removed from layout */
+}
+.krv-hero__copy {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Tighter sections everywhere */
+body.art-lb main > div[class*="max-w-screen-xl"][class*="py-"],
+body.art-lb main > div[class*="max-w-screen-xl"][class*="pt-"] {
+  padding-top: clamp(1.5rem, 3vw, 2.5rem) !important;
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+body.art-lb .krv-section {
+  padding-top: clamp(1.5rem, 3vw, 2.5rem) !important;
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+body.art-lb .text-center.mb-10,
+body.art-lb .text-center.mb-8,
+body.art-lb .text-center.mb-6 {
+  margin-bottom: 1.15rem !important;
+}
+body.art-lb .grid {
+  gap: 0.9rem !important;
+}
+body.art-lb .mb-6 {
+  margin-bottom: 0.85rem !important;
+}
+
+/* Lead text not tiny column */
+body.art-lb .krv-hero-single p {
+  max-width: 40rem !important;
+}

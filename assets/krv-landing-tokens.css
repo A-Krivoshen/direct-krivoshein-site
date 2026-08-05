@@ -1,0 +1,128 @@
+/**
+ * KRV landing design tokens — aligned with DrSlon Blog theme
+ * Source: krivoshein.site / wp-content/themes/drslon-blog-theme/theme.json
+ * Shared by: wordpress / vps / direct / bots / landing / ai-ready
+ */
+:root {
+  /* Surfaces (drslon palette) */
+  --krv-bg: #f7f9fc;
+  --krv-card: #ffffff;
+  --krv-soft: #eef3fb;
+  --krv-soft-2: #eef3fb;
+  --krv-line: #d8e0ee;
+  --krv-line-strong: #c5d0e3;
+  --krv-text: #172133;
+  --krv-muted: #52627d;
+  --krv-accent: #315fe8;
+  --krv-accent-dark: #244ac2;
+  --krv-accent-soft: #eef3fb;
+  --krv-code-bg: #f1f5fb;
+
+  /* Shadows — soft like drslon cards */
+  --krv-shadow: 0 10px 30px rgba(23, 33, 51, 0.08);
+  --krv-shadow-soft: 0 6px 22px rgba(23, 33, 51, 0.05);
+  --krv-shadow-cta: 0 14px 34px rgba(49, 95, 232, 0.24);
+
+  /* Layout */
+  --krv-content: 1040px;
+  --krv-wide: 1460px;
+  --krv-max: 1120px;
+  --krv-radius: 14px;
+  --krv-radius-sm: 10px;
+  --krv-radius-pill: 999px;
+
+  /* Type scale (fluid, from theme.json) */
+  --krv-fs-xs: 0.875rem;
+  --krv-fs-sm: 1rem;
+  --krv-fs-md: 1.125rem;
+  --krv-fs-lg: 1.5rem;
+  --krv-fs-xl: 2rem;
+  --krv-fs-xxl: clamp(2rem, 1.6rem + 1.2vw, 2.75rem);
+
+  /* Font stacks — same as drslon sans/mono */
+  --krv-font-sans: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --krv-font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--krv-font-sans);
+  color: var(--krv-text);
+  background: var(--krv-bg);
+  font-size: var(--krv-fs-sm);
+  line-height: 1.6;
+}
+
+.font-display,
+h1, h2, h3, h4 {
+  font-family: var(--krv-font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--krv-text);
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--krv-fs-xxl); }
+h2 { font-size: clamp(1.35rem, 1.15rem + 0.7vw, var(--krv-fs-xl)); }
+h3 { font-size: clamp(1.15rem, 1.05rem + 0.35vw, var(--krv-fs-lg)); }
+
+code, kbd, pre, samp {
+  font-family: var(--krv-font-mono);
+}
+
+/* Utility hooks */
+.krv-accent { color: var(--krv-accent); }
+.krv-accent-bg { background-color: var(--krv-accent); }
+.krv-accent-soft-bg { background-color: var(--krv-accent-soft); }
+.krv-line { border-color: var(--krv-line); }
+.krv-muted { color: var(--krv-muted); }
+.krv-shadow { box-shadow: var(--krv-shadow); }
+.krv-shadow-soft { box-shadow: var(--krv-shadow-soft); }
+.krv-shadow-cta { box-shadow: var(--krv-shadow-cta); }
+
+/* Cards like drslon featured/list */
+.krv-card,
+.card-krv {
+  background: var(--krv-card);
+  border: 1px solid var(--krv-line);
+  border-radius: var(--krv-radius);
+  box-shadow: var(--krv-shadow-soft);
+}
+
+/* Primary CTA — drslon accent */
+.krv-btn-primary,
+a.krv-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.72rem 1.15rem;
+  border-radius: 10px;
+  background: var(--krv-accent);
+  color: #fff !important;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  box-shadow: var(--krv-shadow-cta);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.krv-btn-primary:hover {
+  background: var(--krv-accent-dark);
+}
+
+/* Bridge Tailwind utility names used in landings → drslon palette */
+.text-krv,
+.text-krv-dark { color: var(--krv-accent) !important; }
+.bg-krv { background-color: var(--krv-accent) !important; }
+.bg-krv-dark { background-color: var(--krv-accent-dark) !important; }
+.bg-krv-soft { background-color: var(--krv-accent-soft) !important; }
+.border-krv { border-color: var(--krv-accent) !important; }
+.text-krv-muted { color: var(--krv-muted) !important; }
+.hover\:bg-krv-dark:hover { background-color: var(--krv-accent-dark) !important; }
+.hover\:text-krv:hover,
+.hover\:text-krv-dark:hover { color: var(--krv-accent) !important; }

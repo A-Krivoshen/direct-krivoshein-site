@@ -1,0 +1,22 @@
+{
+  "name": "Директ | Кривошеин",
+  "short_name": "Директ",
+  "description": "Настройка и ведение Яндекс.Директ: аудит от 10 000 ₽, настройка от 20 000 ₽, ведение от 25 000 ₽/мес.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5181fe",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png?v=20260716",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png?v=20260716",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

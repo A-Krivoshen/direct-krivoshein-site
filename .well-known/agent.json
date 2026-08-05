@@ -1,0 +1,103 @@
+{
+  "name": "direct.krivoshein.site",
+  "description": "Аудит, настройка и ведение Яндекс.Директ без слива бюджета.",
+  "url": "https://direct.krivoshein.site/",
+  "version": "2026-08-05",
+  "provider": {
+    "name": "Алексей Кривошеин",
+    "organization": "ИП Кривошеин Алексей Сергеевич",
+    "url": "https://krivoshein.site/",
+    "email": "aleksey@krivoshein.site",
+    "telephone": "+79636641615"
+  },
+  "language": [
+    "ru",
+    "en"
+  ],
+  "defaultLanguage": "ru",
+  "contact": {
+    "telegram": "https://t.me/DrSlon",
+    "max": "https://max.ru/id770603253213_1_bot",
+    "email": "aleksey@krivoshein.site",
+    "phone": "+79636641615",
+    "page": "https://krivoshein.site/contacts/",
+    "preferred": [
+      "telegram",
+      "max"
+    ]
+  },
+  "commercial": {
+    "hourlyRateRub": 2000,
+    "currency": "RUB",
+    "contract": true,
+    "nonCash": true,
+    "primaryConsultationFree": true,
+    "experienceYears": 12,
+    "pricingNote": "Ориентиры, не публичная оферта.",
+    "offers": [
+      {
+        "name": "Аудит",
+        "priceHint": "от 10 000 ₽"
+      },
+      {
+        "name": "Настройка",
+        "priceHint": "от 20 000 ₽"
+      },
+      {
+        "name": "Ведение",
+        "priceHint": "по смете"
+      }
+    ]
+  },
+  "documentation": {
+    "llms": "https://direct.krivoshein.site/llms.txt",
+    "llmsFull": "https://direct.krivoshein.site/llms-full.txt",
+    "aiIndex": "https://direct.krivoshein.site/ai.txt",
+    "agents": "https://direct.krivoshein.site/agents.md",
+    "openapi": "https://direct.krivoshein.site/openapi.json",
+    "apiCatalog": "https://direct.krivoshein.site/.well-known/api-catalog",
+    "sitemap": "https://direct.krivoshein.site/sitemap.xml",
+    "privacy": "https://direct.krivoshein.site/privacy.html",
+    "contacts": "https://krivoshein.site/contacts/",
+    "ecosystemHub": "https://krivoshein.site/llms.txt"
+  },
+  "capabilities": {
+    "markdownDiscovery": true,
+    "jsonLd": true,
+    "openApi": true,
+    "skills": [
+      "yandex-direct",
+      "ppc",
+      "context-ads",
+      "analytics",
+      "conversion"
+    ]
+  },
+  "usagePolicy": {
+    "search": true,
+    "aiInput": true,
+    "aiTrain": false,
+    "citationRequired": true
+  },
+  "relatedSites": [
+    "https://krivoshein.site/",
+    "https://landing.krivoshein.site/",
+    "https://wordpress.krivoshein.site/",
+    "https://vps.krivoshein.site/",
+    "https://bots.krivoshein.site/",
+    "https://direct.krivoshein.site/",
+    "https://ai-ready.krivoshein.site/",
+    "https://cybertools.cc/",
+    "https://domaintools.site/",
+    "https://study.krivoshein.site",
+    "https://support.krivoshein.site",
+    "https://fortesting.ru"
+  ],
+  "updated": "2026-07-29",
+  "contentSignal": {
+    "search": true,
+    "aiInput": true,
+    "aiTrain": false,
+    "citationRequired": true
+  }
+}

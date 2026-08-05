@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1200 420" role="img" aria-label="Яндекс.Директ">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#121a2b"/>
+      <stop offset="100%" stop-color="#152238"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#315fe8"/>
+      <stop offset="100%" stop-color="#5b8cff"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#243049" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="420" rx="28" fill="url(#grid)" opacity="0.45"/>
+  <circle cx="980" cy="90" r="160" fill="#315fe8" opacity="0.18"/>
+  <circle cx="1080" cy="320" r="120" fill="#5b8cff" opacity="0.12"/>
+  <rect x="56" y="72" width="120" height="10" rx="5" fill="url(#accent)"/>
+  <text x="56" y="130" fill="#e8eefc" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="40" font-weight="700" letter-spacing="-0.03em">Яндекс.Директ</text>
+  <text x="56" y="178" fill="#a8b6d4" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="20">Аудит, настройка и ведение Яндекс.Директ без слива бюджета.</text>
+  <rect x="56" y="220" width="240" height="48" rx="24" fill="#315fe8"/>
+  <text x="176" y="251" text-anchor="middle" fill="#ffffff" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="600">от 10 000 ₽</text>
+  <text x="56" y="310" fill="#7aa2ff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16">https://direct.krivoshein.site</text>
+  <text x="56" y="350" fill="#64748b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15">ИП Кривошеин А.С. · brand #315fe8 · RU/EN · AI-ready</text>
+  <rect x="820" y="140" width="280" height="180" rx="16" fill="#121a2b" stroke="#315fe8" stroke-width="2" opacity="0.95"/>
+  <rect x="848" y="168" width="140" height="12" rx="6" fill="#315fe8"/>
+  <rect x="848" y="196" width="220" height="8" rx="4" fill="#2e3c58"/>
+  <rect x="848" y="216" width="180" height="8" rx="4" fill="#2e3c58"/>
+  <rect x="848" y="248" width="100" height="36" rx="18" fill="#315fe8"/>
+  <rect x="960" y="248" width="100" height="36" rx="18" fill="none" stroke="#5b8cff" stroke-width="2"/>
+</svg>

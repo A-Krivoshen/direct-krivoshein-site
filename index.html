@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <script>
+  (function(){try{
+    var t=null;
+    try{var _q=new URLSearchParams(location.search).get('theme');if(_q==='light'||_q==='dark')t=_q;}catch(e){}
+    if(t!=='light'&&t!=='dark'){try{var m=document.cookie.match(/(?:^|;\s*)krv_theme=(light|dark)/);if(m)t=m[1];}catch(e){}}
+    if(t!=='light'&&t!=='dark'){try{t=localStorage.getItem('krv_theme');}catch(e){}}
+    if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<20)?'light':'dark';}
+    document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');
+    // Language: only apply stored if user chose manually; else leave default, JS+geo will set
+    var manual=localStorage.getItem('krv_lang_manual')==='1';
+    var l=localStorage.getItem('krv_lang');
+    if(manual&&(l==='ru'||l==='en')) document.documentElement.setAttribute('lang',l);
+    else {
+      // quick browser hint (no geo in FOUC)
+      var nav=(navigator.languages&&navigator.languages[0])||navigator.language||'';
+      nav=String(nav).toLowerCase();
+      if(/^(ru|be|uk|kk|ky|uz)/.test(nav)) document.documentElement.setAttribute('lang','ru');
+      else if(nav) document.documentElement.setAttribute('lang','en');
+    }
+  }catch(e){}})();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="yandex-verification" content="246fc3936e7bc629">
+  <meta name="theme-color" content="#315fe8">
+
+  <!-- Icons: transparent PNG preferred (no white plate) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260716u">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260716u">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20260716u">
+  <link rel="icon" type="image/png" href="/favicon.png?v=20260716u">
+  <link rel="shortcut icon" href="/favicon.ico?v=20260716u">
+  <link rel="icon" href="/favicon.ico?v=20260716u" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260716u">
+  <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png?v=20260726f">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=20260726f">
+  <link rel="mask-icon" href="/android-chrome-192x192.png?v=20260716u" color="#315fe8">
+
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Настройка и ведение Яндекс.Директ: аудит от 10 000 ₽, настройка от 20 000 ₽, ведение от 25 000 ₽/мес.">
+  <title>Яндекс.Директ для малого бизнеса | Кривошеин</title>
+  <link rel="canonical" href="https://direct.krivoshein.site/">
+  <!-- AI discovery -->
+  <link rel="describedby" href="https://direct.krivoshein.site/llms.txt" type="text/plain">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="https://direct.krivoshein.site/llms.txt">
+  <link rel="alternate" type="text/plain" title="llms-full.txt" href="https://direct.krivoshein.site/llms-full.txt">
+  <link rel="alternate" type="text/markdown" title="agents.md" href="https://direct.krivoshein.site/agents.md">
+  <link rel="alternate" type="application/json" title="openapi.json" href="https://direct.krivoshein.site/openapi.json">
+  <link rel="alternate" type="application/json" title="agent.json" href="https://direct.krivoshein.site/.well-known/agent.json">
+  <meta name="ai-content-declaration" content="ai-assisted-human-reviewed">
+  <meta name="author" content="ИП Кривошеин Алексей Сергеевич">
+  <meta name="citation_author" content="Krivoshein Aleksey">
+  <link rel="author" href="https://direct.krivoshein.site/humans.txt">
+
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Директ | Кривошеин">
+  <meta property="og:title" content="Яндекс.Директ для малого бизнеса">
+  <meta property="og:description" content="Аудит, настройка и ведение Яндекс.Директ без слива бюджета. Сертифицированный специалист.">
+  <meta property="og:url" content="https://direct.krivoshein.site/">
+  <meta property="og:image" content="https://direct.krivoshein.site/og.jpg">
+  <meta property="og:image:secure_url" content="https://direct.krivoshein.site/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Яндекс.Директ для малого бизнеса">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Яндекс.Директ для малого бизнеса">
+  <meta name="twitter:description" content="Аудит, настройка и ведение Яндекс.Директ без слива бюджета. Сертифицированный специалист.">
+  <meta name="twitter:image" content="https://direct.krivoshein.site/og.jpg">
+  <link rel="manifest" href="/site.webmanifest">
+  <!-- CSS: Tailwind utilities + studio art direction -->
+  <link rel="preload" href="/assets/app.css" as="style">
+  <link rel="preload" href="/assets/art-design.css" as="style">
+  <link rel="stylesheet" href="/assets/fonts/onest.css">
+  <link rel="stylesheet" href="/assets/fonts/mono.css">
+  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="/assets/fa/css/all.min.css">
+  <link rel="stylesheet" href="/assets/art-design.css">
+  <link rel="stylesheet" href="/assets/premium.css">
+  <link rel="stylesheet" href="/assets/theme-i18n.css?v=20260805lift">
+  <link rel="stylesheet" href="/assets/krv-lift.css?v=20260805lift">
+<link rel="stylesheet" href="/assets/krv-bundle.css?v=20260805c">
+<!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Настройка и ведение Яндекс.Директ для малого бизнеса",
+    "description": "Аудит, настройка и ведение рекламы в Яндекс.Директ. Аудит от 10 000 ₽, настройка от 20 000 ₽, ведение от 25 000 ₽/мес. Сертифицированный специалист.",
+    "url": "https://direct.krivoshein.site/",
+    "provider": {
+      "@type": "Person",
+      "name": "Алексей Кривошеин",
+      "url": "https://krivoshein.site/",
+      "sameAs": ["https://yandex.ru/adv/expert/certificates?certId=301983"]
+    },
+    "areaServed": "RU",
+    "serviceType": "Яндекс.Директ реклама",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Аудит рекламы",
+        "price": "10000",
+        "priceCurrency": "RUB",
+        "description": "Проверка текущей кампании, нахождение ошибок и слива бюджета."
+      },
+      {
+        "@type": "Offer",
+        "name": "Настройка с нуля",
+        "price": "20000",
+        "priceCurrency": "RUB",
+        "description": "Полная настройка рекламной кампании."
+      },
+      {
+        "@type": "Offer",
+        "name": "Ведение и оптимизация",
+        "price": "25000",
+        "priceCurrency": "RUB",
+        "description": "Еженедельная оптимизация и отчёты (в месяц)."
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ИП Кривошеин Алексей Сергеевич",
+  "url": "https://krivoshein.site/",
+  "logo": "/logo.png",
+  "sameAs": [
+    "https://github.com/A-Krivoshen",
+    "https://krivoshein.site/"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Алексей Кривошеин",
+    "url": "https://krivoshein.site/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько нужно времени, чтобы появились первые заявки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычно первые результаты появляются в течение 1-2 недель после запуска."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли платить за настройку отдельно, если я заказываю ведение?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, настройка оплачивается один раз. Ведение - это ежемесячная работа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Вы работаете только с малым бизнесом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В основном да. Мне комфортно работать с небольшими компаниями."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="/assets/cookie-pwa.css">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Яндекс.Директ">
+  <!-- AI agent discovery -->
+  <link rel="describedby" href="https://direct.krivoshein.site/llms.txt" type="text/markdown" title="llms.txt">
+  <link rel="describedby" href="https://direct.krivoshein.site/llms-full.txt" type="text/markdown" title="llms-full.txt">
+  <link rel="describedby" href="https://direct.krivoshein.site/agents.md" type="text/markdown" title="agents.md">
+  <link rel="alternate" href="https://direct.krivoshein.site/ai.txt" type="text/plain" title="ai.txt">
+  <link rel="alternate" href="https://direct.krivoshein.site/openapi.json" type="application/json" title="OpenAPI">
+  <link rel="alternate" href="https://direct.krivoshein.site/.well-known/agent.json" type="application/json" title="agent.json">
+  <link rel="api-catalog" href="https://direct.krivoshein.site/.well-known/api-catalog" type="application/linkset+json">
+  <link rel="stylesheet" href="/assets/krv-rwd.css?v=20260805ai">
+  <!-- AI schema pack -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Яндекс.Директ",
+  "url": "https://direct.krivoshein.site/",
+  "inLanguage": [
+    "ru-RU",
+    "en"
+  ],
+  "description": "Аудит, настройка и ведение Яндекс.Директ без слива бюджета.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ИП Кривошеин Алексей Сергеевич",
+    "url": "https://krivoshein.site/"
+  }
+}
+  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Кривошеин",
+      "item": "https://krivoshein.site/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Яндекс.Директ",
+      "item": "https://direct.krivoshein.site/"
+    }
+  ]
+}
+  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Яндекс.Директ",
+  "url": "https://direct.krivoshein.site/",
+  "image": "https://direct.krivoshein.site/og.jpg",
+  "description": "Аудит, настройка и ведение Яндекс.Директ без слива бюджета.",
+  "areaServed": "RU",
+  "availableLanguage": [
+    "Russian",
+    "English"
+  ],
+  "priceRange": "₽₽",
+  "telephone": "+79636641615",
+  "email": "aleksey@krivoshein.site",
+  "sameAs": [
+    "https://t.me/DrSlon",
+    "https://max.ru/id770603253213_1_bot",
+    "https://krivoshein.site/",
+    "https://github.com/A-Krivoshen"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Алексей Кривошеин",
+    "url": "https://krivoshein.site/"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "availableLanguage": [
+        "Russian",
+        "English"
+      ],
+      "url": "https://krivoshein.site/contacts/",
+      "email": "aleksey@krivoshein.site",
+      "telephone": "+79636641615"
+    }
+  ]
+}
+  </script>
+</head>
+<body class="has-mobile-cta art-lb" data-product="direct">
+  <a class="skip-link" href="#main">К содержанию</a>
+
+  <!-- NAV -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-screen-xl mx-auto px-5">
+            <div class="flex items-center justify-between gap-3 min-h-16 py-2">
+        <div class="krv-nav-brand">
+          <a href="https://direct.krivoshein.site">
+            <img src="/logo.png?v=20260716" alt="Krivoshein" width="56" height="66" class="krv-logo krv-logo--nav" decoding="async">
+          </a>
+          <div class="krv-nav-title">
+            <span class="font-display text-2xl font-semibold tracking-tight">direct</span>
+            <span class="text-slate-500 text-xl">.krivoshein.site</span>
+          </div>
+        </div>
+        <div class="krv-nav-right">
+          <a href="https://krivoshein.site/contacts/" 
+             class="krv-nav-cta inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold bg-krv text-white border border-transparent hover:bg-krv-dark rounded-2xl transition-all shadow-krv-cta">
+            Обсудить рекламу
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- PREMIUM SUBNAV -->
+  <nav class="krv-subnav" aria-label="Разделы страницы">
+    <div class="krv-subnav__inner">
+      <a href="#pricing">Цены</a>
+      <a href="#case">Кейс</a>
+      <a href="#how">Процесс</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
+<main id="main">
+<!-- HERO -->
+  <div class="drslon-hero-wrap">
+    <section class="drslon-hero drslon-hero--split" aria-label="Яндекс.Директ">
+      <div class="drslon-hero__inner">
+        <div class="drslon-hero__chip">
+          <span class="drslon-hero__chip-dot" aria-hidden="true"></span>
+          <span>Яндекс.Директ · заявки</span>
+        </div>
+        <h1 class="drslon-hero__title">Яндекс.Директ<br>без слива бюджета</h1>
+        <p class="drslon-hero__lead">Настройка кампаний, минус-слова и посадочные. Чтобы заявки из Директа шли дешевле.</p>
+        <p class="krv-offer-line">Аудит или настройка Яндекс.Директ без слива бюджета. Прозрачные отчёты.</p>
+        <div class="drslon-hero__cta">
+          <a class="drslon-hero__btn drslon-hero__btn--primary" href="https://t.me/DrSlon" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+            Написать в Telegram
+          </a>
+          <a class="drslon-hero__btn drslon-hero__btn--ghost" href="https://max.ru/id770603253213_1_bot" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+            Написать в MAX
+          </a>
+        </div>
+      </div>
+
+      <aside class="drslon-hero__visual" aria-label="Кейс Директ">
+        <div class="drslon-hero__shot">
+          <img fetchpriority="high" src="/assets/cases/direct-hero.svg" alt="Кейс: 192 заявки по 299 рублей" width="960" height="600" loading="eager" decoding="async">
+        </div>
+        <div class="drslon-hero__panel drslon-hero__panel--compact">
+          <div class="drslon-hero__panel-kicker">Кейс</div>
+          <div class="drslon-hero__panel-title">192 заявки / мес</div>
+          <div class="drslon-hero__panel-price">299 ₽ за лид</div>
+        </div>
+      </aside>
+    </section>
+
+      <div class="drslon-hero__stats krv-hero-trust" role="list" aria-label="Ключевые факты">
+        <div class="drslon-hero__stat" role="listitem">
+          <span class="drslon-hero__stat-value">12+</span>
+          <span class="drslon-hero__stat-label">лет в ИТ и веб</span>
+        </div>
+        <div class="drslon-hero__stat" role="listitem">
+          <span class="drslon-hero__stat-value">2000 ₽/h</span>
+          <span class="drslon-hero__stat-label">прозрачная ставка</span>
+        </div>
+        <div class="drslon-hero__stat" role="listitem">
+          <span class="drslon-hero__stat-value">RU / EN</span>
+          <span class="drslon-hero__stat-label">двуязычная работа</span>
+        </div>
+      </div>
+      <div class="krv-social-strip">
+        <a class="krv-social-strip__rating" href="https://yandex.ru/maps/org/ip_krivoshein_aleksey_sergeyevich/100156734340/reviews/" target="_blank" rel="noopener noreferrer">
+          <span class="krv-social-strip__stars" aria-hidden="true">★★★★★</span>
+          <span>Отзывы на Яндекс Картах</span>
+        </a>
+        <p class="krv-social-strip__note">Реальные отзывы об ИП Кривошеин А.С. - без выдуманных цитат. <a href="#reviews">Перейти к отзывам</a></p>
+      </div>
+
+  </div>
+
+
+  <!-- ПРОБЛЕМА -->
+  <div class="max-w-screen-xl mx-auto px-5 py-8 md:py-10 lg:py-12 border-t border-slate-200">
+    <div class="max-w-2xl mb-6 md:mb-5 md:mb-6">
+      <h2 class="font-display text-3xl tracking-tight font-semibold mt-3">Почему в Директе часто сливают бюджет</h2>
+    </div>
+
+    <div class="grid krv-asym-grid md:grid-cols-3 gap-5">
+      <div class="krv-reveal bg-white p-6 md:p-7 rounded-3xl border border-slate-200 hover:shadow-sm transition-all" data-reveal-delay="1">
+        <h3 class="font-semibold text-xl">Нет времени разбираться</h3>
+        <p class="mt-3 text-slate-600">Владелец сам пытается настроить рекламу между делами и теряет деньги на нецелевых кликах.</p>
+      </div>
+      <div class="krv-reveal bg-white p-6 md:p-7 rounded-3xl border border-slate-200 hover:shadow-sm transition-all" data-reveal-delay="2">
+        <h3 class="font-semibold text-xl">Сложные настройки</h3>
+        <p class="mt-3 text-slate-600">Много тонкостей: минус-слова, корректировки ставок, гео, время показа. Легко ошибиться.</p>
+      </div>
+      <div class="krv-reveal bg-white p-6 md:p-7 rounded-3xl border border-slate-200 hover:shadow-sm transition-all" data-reveal-delay="3">
+        <h3 class="font-semibold text-xl">Нет прозрачности</h3>
+        <p class="mt-3 text-slate-600">Часто не понимаешь, за что именно платят и какие результаты реально получаешь.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- УСЛУГИ И ЦЕНЫ -->
+  <div id="pricing" class="max-w-screen-xl mx-auto px-5 py-8 md:py-10 lg:py-12 bg-white border-y border-slate-200 krv-reveal">
+    <div class="text-center mb-6 md:mb-5 md:mb-6">
+      <h2 class="font-display text-3xl tracking-tight font-semibold mt-3">Что я предлагаю малому бизнесу</h2>
+      <p class="text-sm text-slate-600 max-w-md mx-auto">Реальные заявки по разумной цене. Пример - 192 заявки за месяц при стоимости 299 ₽ за лид.</p>
+    </div>
+
+    <div class="grid krv-keep-equal md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+      <div class="border border-slate-200 rounded-3xl p-6 flex flex-col hover:shadow-sm transition-all">
+        <div class="flex-1">
+          <div class="font-semibold text-lg">Аудит рекламы</div>
+          <div class="mt-1 text-3xl font-semibold tracking-tight">от 10 000 ₽</div>
+          <div class="mt-4 text-sm text-slate-600">Проверяю текущую кампанию, нахожу слив бюджета и даю план, как в кейсе снизить цену заявки.</div>
+        
+        </div>
+        <a href="https://krivoshein.site/contacts/?from=direct-pricing"
+           class="mt-auto pt-5 block text-center bg-krv shadow-krv-cta hover:bg-krv-dark transition-colors text-white font-semibold py-3 rounded-2xl text-sm">
+          Обсудить рекламу
+        </a>
+            </div>
+
+      <div class="border border-slate-200 rounded-3xl p-6 flex flex-col hover:shadow-sm transition-all">
+        <div class="flex-1">
+          <div class="font-semibold text-lg">Настройка с нуля</div>
+          <div class="mt-1 text-3xl font-semibold tracking-tight">от 20 000 ₽</div>
+          <div class="mt-4 text-sm text-slate-600">Полная настройка рекламной кампании под ваши услуги или товары.</div>
+        
+        </div>
+        <a href="https://krivoshein.site/contacts/?from=direct-pricing"
+           class="mt-auto pt-5 block text-center bg-krv shadow-krv-cta hover:bg-krv-dark transition-colors text-white font-semibold py-3 rounded-2xl text-sm">
+          Обсудить рекламу
+        </a>
+            </div>
+
+      <div class="border-2 border-krv rounded-3xl p-6 flex flex-col relative hover:shadow-sm transition-all">
+        <div class="absolute -top-3 right-6 bg-krv text-white text-xs font-bold px-4 h-7 flex items-center rounded-3xl tracking-wider">ПОПУЛЯРНО</div>
+        <div class="flex-1">
+          <div class="font-semibold text-lg">Ведение и оптимизация</div>
+          <div class="mt-1 text-3xl font-semibold tracking-tight">от 25 000 ₽<span class="text-base font-normal">/мес</span></div>
+          <div class="mt-4 text-sm text-slate-600">Еженедельная оптимизация, минус-слова, A/B-тесты. Результат как в реальном кейсе - 192 заявки по 299 ₽ за лид.</div>
+        
+        </div>
+        <a href="https://krivoshein.site/contacts/?from=direct-pricing"
+           class="mt-auto pt-5 block text-center bg-krv shadow-krv-cta hover:bg-krv-dark transition-colors text-white font-semibold py-3 rounded-2xl text-sm">
+          Обсудить рекламу
+        </a>
+            </div>
+
+      <div class="border border-slate-200 rounded-3xl p-6 flex flex-col hover:shadow-sm transition-all">
+        <div class="flex-1">
+          <div class="font-semibold text-lg">Консультация</div>
+          <div class="mt-1 text-3xl font-semibold tracking-tight">от 2 000 ₽<span class="text-base font-normal">/час</span></div>
+          <div class="mt-4 text-sm text-slate-600">Разбор вашей ситуации, ответы на вопросы, помощь в принятии решений.</div>
+        
+        </div>
+        <a href="https://krivoshein.site/contacts/?from=direct-pricing"
+           class="mt-auto pt-5 block text-center bg-krv shadow-krv-cta hover:bg-krv-dark transition-colors text-white font-semibold py-3 rounded-2xl text-sm">
+          Обсудить рекламу
+        </a>
+            </div>
+    </div>
+  </div>
+
+  <!-- ПОЧЕМУ Я -->
+  <div class="max-w-screen-xl mx-auto px-5 py-8 md:py-10 lg:py-12">
+    <div class="max-w-2xl mb-5 md:mb-6">
+      <h2 class="font-display text-3xl tracking-tight font-semibold mt-3">Опыт + прозрачность + доказанный результат</h2>
+    </div>
+
+    <div class="grid krv-asym-grid md:grid-cols-3 gap-5">
+      <div class="krv-reveal bg-white p-6 md:p-7 rounded-3xl border border-slate-200 hover:shadow-sm transition-all" data-reveal-delay="1">
+        <div class="w-12 h-12 bg-krv-soft text-krv rounded-2xl flex items-center justify-center mb-5">
+          <i class="fa-solid fa-certificate"></i>
+        </div>
+        <h3 class="font-semibold text-xl">Сертификат Яндекса</h3>
+        <p class="mt-3 text-slate-600">Официально подтверждённая квалификация по Яндекс.Директ.</p>
+        <a href="https://yandex.ru/adv/expert/certificates?certId=301983&lastname=Кривошеин" target="_blank" 
+           class="inline-flex items-center text-sm text-krv mt-4 hover:underline">
+          Посмотреть сертификат <i class="fa-solid fa-external-link-alt ml-1.5 text-xs"></i>
+        </a>
+      </div>
+
+      <div class="krv-reveal bg-white p-6 md:p-7 rounded-3xl border border-slate-200 hover:shadow-sm transition-all" data-reveal-delay="2">
+        <div class="w-12 h-12 bg-krv-soft text-krv rounded-2xl flex items-center justify-center mb-5">
+          <i class="fa-solid fa-handshake"></i>
+        </div>
+        <h3 class="font-semibold text-xl">Работаю с малым бизнесом</h3>
+        <p class="mt-3 text-slate-600">Понимаю специфику небольших компаний: ограниченный бюджет и важность каждой заявки.</p>
+      </div>
+
+      <div class="krv-reveal bg-white p-6 md:p-7 rounded-3xl border border-slate-200 hover:shadow-sm transition-all" data-reveal-delay="3">
+        <div class="w-12 h-12 bg-krv-soft text-krv rounded-2xl flex items-center justify-center mb-5">
+          <i class="fa-solid fa-file-contract"></i>
+        </div>
+        <h3 class="font-semibold text-xl">Прозрачность и отчётность</h3>
+        <p class="mt-3 text-slate-600">Всё по договору. Регулярные отчёты и понятные рекомендации.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- КЕЙС -->
+  <div class="max-w-screen-xl mx-auto px-5 py-8 md:py-10 lg:py-12">
+    <div class="max-w-2xl mb-5 md:mb-6">
+      <h2 class="font-display text-3xl tracking-tight font-semibold mt-3">Как настройка Директа принесла 192 заявки</h2>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-3xl p-7 md:p-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="font-semibold text-lg">ООО «АЦЦНИИТМАШ»</h3>
+          <p class="text-sm text-slate-600 mt-1">Научные исследования и технологические разработки</p>
+
+          <div class="mt-5 grid grid-cols-2 gap-4 text-sm">
+            <div class="bg-slate-50 rounded-2xl p-4">
+              <div class="text-2xl font-semibold tracking-tighter">192</div>
+              <div class="text-slate-600">заявки за месяц</div>
+            </div>
+            <div class="bg-slate-50 rounded-2xl p-4">
+              <div class="text-2xl font-semibold tracking-tighter">299 ₽</div>
+              <div class="text-slate-600">стоимость заявки</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-sm text-slate-600">
+          <p class="font-medium text-slate-700">Что было сделано:</p>
+          <ul class="mt-2 space-y-1 text-sm">
+            <li>• Анализ аудитории и точный таргетинг</li>
+            <li>• Минус-слова + оптимизация ключей</li>
+            <li>• A/B-тесты объявлений</li>
+            <li>• Ретаргетинг + гео-настройка</li>
+          </ul>
+          <p class="mt-3 text-xs text-slate-500">Бюджет 57 386 ₽ • CTR 1,93%</p>
+
+          <a href="https://krivoshein.site/kak-nastroyka-reklamy-v-yandeks-direkt-pomogla-ooo-atstsniitmash-privlech-bolshe-klientov/" target="_blank"
+             class="inline-flex items-center mt-4 text-sm font-medium text-krv hover:text-krv-dark">
+            Читать полный кейс <i class="fa-solid fa-external-link-alt ml-1.5 text-xs"></i>
+          </a>
+          <p class="mt-1 text-xs text-emerald-600">Реальный клиент. Идеально работает вместе с поддержкой WP сайта.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- БОНУС -->
+  <div class="max-w-screen-xl mx-auto px-5 py-8 md:py-10 lg:py-12 bg-white border-y border-slate-200">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="font-display text-3xl tracking-tight font-semibold mt-3">Получите бонус на первую рекламную кампанию</h2>
+      <p class="mt-4 text-lg text-slate-600">По моей партнёрской ссылке Яндекс даёт бонус новым рекламодателям.</p>
+      
+      <a href="https://ya.cc/8m2qtL" target="_blank"
+         class="mt-6 inline-flex items-center justify-center gap-x-3 bg-emerald-600 hover:bg-emerald-700 transition-all text-white font-semibold px-10 min-h-14 py-3.5 rounded-3xl text-lg">
+        Получить бонус на первую кампанию
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <p class="mt-3 text-sm text-slate-500">Ссылка ведёт на страницу Яндекс.Директ с бонусом</p>
+    </div>
+  </div>
+
+  
+  <!-- PREMIUM CASE -->
+        <div class="krv-price-notes">
+      <p>Входит: аудит/настройка кампаний, структура, цели, рекомендации.</p>
+      <p>Не входит: рекламный бюджет в Яндексе, дизайн лендинга (можно отдельно).</p>
+    </div>
+<section class="krv-section krv-section--alt krv-reveal" id="case">
+    <div class="krv-section__wrap">
+      <div class="krv-section__head">
+        <h2>Кейс и результат</h2>
+        <p>Коротко: задача → решение → измеримый эффект.</p>
+      </div>
+      <div class="krv-case">
+        <div class="krv-case__main">
+          <h3>192 заявки из Яндекс.Директ</h3>
+          <p>Пересобрали семантику, объявления и минус-слова. Убрали слив на нецелевые запросы - кампания начала приносить обращения, а не просто клики.</p>
+          <div class="krv-case__metrics">
+          <div class="krv-case__metric"><strong>192</strong><span>заявки</span></div>
+          <div class="krv-case__metric"><strong>1-2 нед.</strong><span>первые результаты</span></div>
+          <div class="krv-case__metric"><strong>от 20 000 ₽</strong><span>настройка</span></div>
+          </div>
+          <a href="https://krivoshein.site/contacts/" target="_blank" rel="noopener">Обсудить рекламу</a>
+        </div>
+        <div class="krv-case__side">
+        <div class="krv-case__step"><b>Шаг</b><strong>Задача</strong><span>Снизить стоимость заявки</span></div>
+        <div class="krv-case__step"><b>Шаг</b><strong>Решение</strong><span>Аудит + пересборка кампаний</span></div>
+        <div class="krv-case__step"><b>Шаг</b><strong>Результат</strong><span>Заявки, а не «пустые» клики</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF: real clients + Yandex reviews -->
+  <section class="krv-proof krv-reveal" id="reviews" aria-label="Клиенты и отзывы">
+    <div class="krv-proof__head">
+      <h2>Клиенты и отзывы на Яндексе</h2>
+      <p>Не вымышленные цитаты - логотипы проектов из портфолио и виджет отзывов Яндекс Карт (ИП Кривошеин А.С.).</p>
+    </div>
+
+    <div class="krv-proof__rating">
+      <iframe class="krv-proof__badge" src="https://yandex.ru/sprav/widget/rating-badge/100156734340?type=rating" title="Рейтинг на Яндекс Картах" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="krv-proof__rating-link" href="https://yandex.ru/maps/org/ip_krivoshein_aleksey_sergeyevich/100156734340/reviews/" target="_blank" rel="noopener noreferrer">Смотреть все отзывы на Яндексе</a>
+    </div>
+
+    <div class="krv-clients" role="list">
+      <a class="krv-client" href="https://lumistek.ru/" target="_blank" rel="noopener noreferrer nofollow" title="LUMISTEK">
+        <div class="krv-client__logo"><img src="/assets/proof/lumistek.svg" alt="LUMISTEK" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://www.softcomlan.com/" target="_blank" rel="noopener noreferrer nofollow" title="Softcomlan">
+        <div class="krv-client__logo"><img src="/assets/proof/screenshot_20251014.png" alt="Softcomlan" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://стоматолог-мурашова.рф/" target="_blank" rel="noopener noreferrer nofollow" title="Стоматолог-Мурашова">
+        <div class="krv-client__logo"><img src="/assets/proof/screenshot_2-1.png" alt="Стоматолог-Мурашова" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://rogovo-hram.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Храм в Рогово">
+        <div class="krv-client__logo"><img src="/assets/proof/rogovo.webp" alt="Храм в Рогово" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://solovie.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Соловьи.Ай.Ти">
+        <div class="krv-client__logo"><img src="/assets/proof/solov.png" alt="Соловьи.Ай.Ти" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://tleader.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Технолидер">
+        <div class="krv-client__logo"><img src="/assets/proof/full-logo.png" alt="Технолидер" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://realestate.cambobiz.co/" target="_blank" rel="noopener noreferrer nofollow" title="Cambobiz">
+        <div class="krv-client__logo"><img src="/assets/proof/base_icon.png" alt="Cambobiz" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://skd73.ru/" target="_blank" rel="noopener noreferrer nofollow" title="СКД">
+        <div class="krv-client__logo"><img src="/assets/proof/kandinsky.png" alt="СКД" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://groupst.ru/" target="_blank" rel="noopener noreferrer nofollow" title="GroupST">
+        <div class="krv-client__logo"><img src="/assets/proof/header-logo.png" alt="GroupST" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://fornovogas.kz/" target="_blank" rel="noopener noreferrer nofollow" title="Форновогаз Казахстан">
+        <div class="krv-client__logo"><img src="/assets/proof/logo_fornovogas.png" alt="Форновогаз Казахстан" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://agnks.ru/" target="_blank" rel="noopener noreferrer nofollow" title="АГНКС">
+        <div class="krv-client__logo"><img src="/assets/proof/agnks-logo-191x54-1.png" alt="АГНКС" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://designersfromrussia.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Designers from Russia">
+        <div class="krv-client__logo"><img src="/assets/proof/new_dfr_logo_to_site.png" alt="Designers from Russia" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://accp-cniitmash.ru/" target="_blank" rel="noopener noreferrer nofollow" title="ЦНИИТМАШ (аттестация)">
+        <div class="krv-client__logo"><img src="/assets/proof/lodi-lodi.svg" alt="ЦНИИТМАШ (аттестация)" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://форновогаз.рф/" target="_blank" rel="noopener noreferrer nofollow" title="Fornovo Gas">
+        <div class="krv-client__logo"><img src="/assets/proof/logo_fornovogas.png" alt="Fornovo Gas" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+      <a class="krv-client" href="https://accniitmash.ru/" target="_blank" rel="noopener noreferrer nofollow" title="Аттестационный центр ЦНИИТМАШ">
+        <div class="krv-client__logo"><img src="/assets/proof/logo.gif" alt="Аттестационный центр ЦНИИТМАШ" loading="lazy" decoding="async" width="120" height="48"></div>
+</a>
+    </div>
+
+    <div class="krv-yandex-reviews">
+      <div class="krv-yandex-reviews__shell">
+      <iframe class="krv-yandex-reviews__frame"
+        src="https://yandex.ru/maps-reviews-widget/100156734340?comments"
+        title="Отзывы клиентов на Яндекс Картах"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="krv-yandex-reviews__foot">
+        <span>Виджет официальных отзывов Яндекс Карт · org/100156734340</span>
+        <a href="https://yandex.ru/maps/org/ip_krivoshein_aleksey_sergeyevich/100156734340/reviews/" target="_blank" rel="noopener noreferrer">Открыть на Яндексе</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ЭТО РАБОТАЕТ -->
+  <div id="how" class="max-w-screen-xl mx-auto px-5 py-8 md:py-10 lg:py-12 krv-reveal">
+    <div class="max-w-xl mb-6 md:mb-5 md:mb-6">
+      <h2 class="font-display text-3xl tracking-tight font-semibold">Как это работает</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="flex gap-x-4">
+        <div class="w-9 h-9 bg-krv text-white rounded-2xl flex-shrink-0 flex items-center justify-center font-semibold text-sm">01</div>
+        <div>
+          <div class="font-semibold">Обсуждаем задачу</div>
+          <div class="text-sm text-slate-600 mt-1">Что продаёте, какой бюджет, какие цели.</div>
+        </div>
+      </div>
+      <div class="flex gap-x-4">
+        <div class="w-9 h-9 bg-krv text-white rounded-2xl flex-shrink-0 flex items-center justify-center font-semibold text-sm">02</div>
+        <div>
+          <div class="font-semibold">Проверяю / настраиваю</div>
+          <div class="text-sm text-slate-600 mt-1">Делаю аудит текущей рекламы или настраиваю новую кампанию с нуля.</div>
+        </div>
+      </div>
+      <div class="flex gap-x-4">
+        <div class="w-9 h-9 bg-krv text-white rounded-2xl flex-shrink-0 flex items-center justify-center font-semibold text-sm">03</div>
+        <div>
+          <div class="font-semibold">Запускаем и оптимизируем</div>
+          <div class="text-sm text-slate-600 mt-1">Как в реальном кейсе - добиваемся низкой цены заявки и стабильного потока.</div>
+        </div>
+      </div>
+      <div class="flex gap-x-4">
+        <div class="w-9 h-9 bg-krv text-white rounded-2xl flex-shrink-0 flex items-center justify-center font-semibold text-sm">04</div>
+        <div>
+          <div class="font-semibold">Отчитываюсь</div>
+          <div class="text-sm text-slate-600 mt-1">Регулярные отчёты + рекомендации, чтобы вы видели результат, а не только расход.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FAQ -->
+  <div id="faq" class="max-w-screen-xl mx-auto px-5 pb-10 md:pb-12 krv-reveal">
+    <h2 class="font-display text-3xl tracking-tight font-semibold mb-5 md:mb-6">Частые вопросы</h2>
+    <div class="krv-faq">
+      <details open>
+        <summary>Сколько нужно времени, чтобы появились первые заявки?</summary>
+        <div class="krv-faq__a">Обычно первые результаты появляются в течение 1-2 недель после запуска.</div>
+      </details>
+      <details>
+        <summary>Нужно ли платить за настройку отдельно, если я заказываю ведение?</summary>
+        <div class="krv-faq__a">Да, настройка оплачивается один раз. Ведение - это ежемесячная работа.</div>
+      </details>
+      <details>
+        <summary>Вы работаете только с малым бизнесом?</summary>
+        <div class="krv-faq__a">В основном да. Мне комфортно работать с небольшими компаниями.</div>
+      </details>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="max-w-screen-xl mx-auto px-5 py-8 md:py-10 lg:py-12">
+    <div class="bg-krv shadow-krv-cta rounded-3xl px-6 md:px-10 py-8 md:py-10 text-white">
+      <div class="max-w-xl">
+        <h2 class="font-display text-3xl tracking-tight font-semibold">Готовы получать заявки из Директа?</h2>
+        <p class="mt-4 text-lg text-white">Обсудим задачу, проверю текущую рекламу или настрою кампанию с нуля.</p>
+      </div>
+      <div class="mt-5 md:mt-6">
+        <a href="https://krivoshein.site/contacts/"
+           class="inline-flex items-center justify-center gap-x-3 bg-white text-krv-dark hover:bg-slate-100 transition-all font-semibold px-8 md:px-10 min-h-14 py-3.5 rounded-3xl text-base md:text-lg w-full sm:w-auto">Обсудить рекламу<i class="fa-solid fa-arrow-right"></i></a>
+        
+      </div>
+    </div>
+  </div>
+
+
+<!-- FOOTER -->
+  </main>
+
+  <section class="krv-qual-section" id="brief" aria-label="Короткий бриф">
+    <div id="krv-qual" class="krv-qual">
+      <h2>Короткий бриф</h2>
+      <p class="krv-qual__lead">Выберите задачу - открою Telegram с готовым текстом сообщения.</p>
+      <label for="krv-qual-need">Что нужно?</label>
+      <select id="krv-qual-need">
+            <option value="Аудит текущих кампаний">Аудит текущих кампаний</option>
+            <option value="Запуск с нуля">Запуск с нуля</option>
+            <option value="Ведение помесячно">Ведение помесячно</option>
+      </select>
+      <label for="krv-qual-note">Комментарий (необязательно)</label>
+      <input id="krv-qual-note" type="text" maxlength="200" placeholder="Срок, ссылка на сайт, бюджет - если есть" autocomplete="off">
+      <div class="krv-qual__actions">
+        <a class="krv-qual__btn" id="krv-qual-go" href="https://t.me/DrSlon" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+        <a class="krv-qual__btn krv-qual__btn--ghost" href="https://max.ru/id770603253213_1_bot" target="_blank" rel="noopener noreferrer">Или в MAX</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-200 py-8">
+    <div class="max-w-screen-xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-y-4">
+        <div class="flex items-center gap-x-3">
+          <img src="/logo.png?v=20260716" alt="Krivoshein" width="48" height="56" class="krv-logo krv-logo--footer" decoding="async">
+          <span class="text-sm text-slate-600">ИП Кривошеин Алексей Сергеевич</span>
+        </div>
+        <div class="text-sm text-slate-500 text-center md:text-right">
+          Работаю по договору • Безналичный расчёт
+        </div>
+      </div>
+      <nav class="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-slate-400" aria-label="Другие услуги">
+        <a href="https://bots.krivoshein.site/" class="hover:text-krv transition-colors">Боты</a>
+        <span class="text-slate-300" aria-hidden="true">·</span>
+        <a href="https://vps.krivoshein.site/" class="hover:text-krv transition-colors">VPS</a>
+        <span class="text-slate-300" aria-hidden="true">·</span>
+        <span class="text-slate-500">Директ</span>
+        <span class="text-slate-300" aria-hidden="true">·</span>
+        <a href="https://wordpress.krivoshein.site/" class="hover:text-krv transition-colors">WordPress</a>
+        <span class="text-slate-300" aria-hidden="true">·</span>
+        <a href="https://ai-ready.krivoshein.site/" class="hover:text-krv transition-colors">AI-ready</a>
+      </nav>
+    <p class="krv-footer-legal">ИП Кривошеин А. С. · Работа по договору · Безнал и закрывающие · aleksey@krivoshein.site · <a href="/privacy.html">Конфиденциальность</a> · <a href="/llms.txt">llms.txt</a></p>
+    </div>
+    <!-- ai:llms https://direct.krivoshein.site/llms.txt -->
+  </footer>
+
+  <!-- MOBILE CTA BAR -->
+  <div class="mobile-cta-bar" role="region" aria-label="Быстрая заявка">
+    <a class="cta-secondary" href="https://t.me/DrSlon" target="_blank" rel="noopener noreferrer">Telegram</a>
+    <a class="cta-primary" href="https://krivoshein.site/contacts/">Обсудить рекламу</a>
+  </div>
+
+  
+  <div id="krv-cookie" class="krv-cookie" role="dialog" aria-label="Уведомление о cookies" hidden>
+    <p>
+      Мы используем cookies и обезличенную аналитику Яндекс&nbsp;Метрики для улучшения сайта.
+      Персональные данные через этот лендинг не собираем.
+      <a href="/privacy.html">Политика конфиденциальности</a>
+    </p>
+    <div class="krv-cookie__actions">
+      <button type="button" class="krv-cookie__btn" id="krv-cookie-ok">Понятно</button>
+      <a class="krv-cookie__link" href="/privacy.html">Подробнее</a>
+    </div>
+  </div>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=110134518', 'ym');
+    ym(110134518, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/110134518" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <!-- KRV AI Assistant -->
+  <script src="https://support.krivoshein.site/widget/krv-assistant.js?v=20260730r" defer data-api="https://support.krivoshein.site/api/v1" data-side="right"></script>
+
+<script src="/assets/cookie-pwa.js" defer></script>
+  <script src="/assets/premium.js" defer></script>
+  <script>window.__KRV_METRIKA_ID=110134518;</script>
+<script src="/assets/krv-lift.js?v=20260805rwd5" defer></script>
+  <script src="/assets/theme-i18n.js?v=20260805rwd4" defer></script>
+  <script id="krv-matrix-gate">
+  (function(){
+    try {
+      if (window.matchMedia('(max-width:767.98px), (prefers-reduced-motion: reduce)').matches) return;
+      var s=document.createElement('script');
+      s.src='/assets/krv-matrix.js'; s.defer=true;
+      document.body.appendChild(s);
+    } catch(e) {}
+  })();
+  </script>
+  <script src="/assets/krv-motion.js?v=20260805c" defer></script>
+</body>
+</html>

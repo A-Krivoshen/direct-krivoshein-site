@@ -1,0 +1,144 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "direct.krivoshein.site public discovery",
+    "description": "Аудит, настройка и ведение Яндекс.Директ без слива бюджета.",
+    "version": "2026-08-05",
+    "contact": {
+      "name": "Алексей Кривошеин / ИП",
+      "email": "aleksey@krivoshein.site",
+      "url": "https://krivoshein.site/contacts/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://direct.krivoshein.site"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "HTML landing",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "LLM summary markdown",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/llms-full.txt": {
+      "get": {
+        "summary": "Full LLM dump",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ai.txt": {
+      "get": {
+        "summary": "AI index pointers",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/agents.md": {
+      "get": {
+        "summary": "Agent instructions",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "summary": "This OpenAPI document",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/humans.txt": {
+      "get": {
+        "summary": "humans.txt",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/privacy.html": {
+      "get": {
+        "summary": "Privacy policy",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "summary": "Sitemap",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/.well-known/agent.json": {
+      "get": {
+        "summary": "Agent card",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/.well-known/api-catalog": {
+      "get": {
+        "summary": "API catalog",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/.well-known/security.txt": {
+      "get": {
+        "summary": "security.txt",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Ecosystem hub",
+    "url": "https://krivoshein.site/llms.txt"
+  }
+}

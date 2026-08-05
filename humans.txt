@@ -1,0 +1,12 @@
+/* TEAM */
+Owner: Aleksey Krivoshein / ИП Кривошеин Алексей Сергеевич
+Contact: aleksey@krivoshein.site
+Telegram: https://t.me/DrSlon
+Site: https://direct.krivoshein.site/
+Hub: https://krivoshein.site/
+
+/* SITE */
+Last update: 2026-08-05
+Standards: HTML5, JSON-LD, llms.txt, OpenAPI 3.1, agent.json, IndexNow
+Language: RU (primary), EN (UI toggle)
+Doctype: HTML5

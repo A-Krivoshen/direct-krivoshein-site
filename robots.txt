@@ -1,0 +1,73 @@
+# direct.krivoshein.site — AI-agent ready · updated 2026-08-05
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+Allow: /agents.md
+Allow: /openapi.json
+Allow: /humans.txt
+Allow: /privacy.html
+Allow: /sitemap.xml
+Allow: /.well-known/
+
+Disallow: /wp-admin/
+Disallow: /admin
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+Sitemap: https://direct.krivoshein.site/sitemap.xml
+
+# Discovery
+# https://direct.krivoshein.site/ai.txt
+# https://direct.krivoshein.site/llms.txt
+# https://direct.krivoshein.site/agents.md
+# https://direct.krivoshein.site/openapi.json
+# https://direct.krivoshein.site/.well-known/agent.json

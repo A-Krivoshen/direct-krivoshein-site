@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-label="Кейс Яндекс.Директ 192 заявки">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#eef3fb"/><stop offset="100%" stop-color="#f7f9fc"/></linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect x="64" y="64" width="832" height="472" rx="20" fill="#fff" stroke="#d8e0ee"/>
+  <text x="100" y="120" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#172133">Кампания · малый бизнес</text>
+  <rect x="100" y="160" width="240" height="140" rx="16" fill="#eef3fb"/>
+  <text x="124" y="210" font-family="system-ui,sans-serif" font-size="42" font-weight="800" fill="#315fe8">192</text>
+  <text x="124" y="250" font-family="system-ui,sans-serif" font-size="15" fill="#52627d">заявки / месяц</text>
+  <rect x="360" y="160" width="240" height="140" rx="16" fill="#eef3fb"/>
+  <text x="384" y="210" font-family="system-ui,sans-serif" font-size="42" font-weight="800" fill="#172133">299 ₽</text>
+  <text x="384" y="250" font-family="system-ui,sans-serif" font-size="15" fill="#52627d">цена заявки</text>
+  <rect x="620" y="160" width="240" height="140" rx="16" fill="#eef3fb"/>
+  <text x="644" y="210" font-family="system-ui,sans-serif" font-size="42" font-weight="800" fill="#172133">-38%</text>
+  <text x="644" y="250" font-family="system-ui,sans-serif" font-size="15" fill="#52627d">слив запросов</text>
+  <rect x="100" y="340" width="760" height="16" rx="8" fill="#e8eef8"/>
+  <rect x="100" y="340" width="520" height="16" rx="8" fill="#315fe8"/>
+  <text x="100" y="400" font-family="system-ui,sans-serif" font-size="15" fill="#52627d">Минус-слова · семантика · посадочные · отчётность</text>
+  <rect x="100" y="440" width="220" height="40" rx="12" fill="#315fe8"/>
+  <text x="130" y="466" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#fff">Директ без слива</text>
+</svg>
