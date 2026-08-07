@@ -817,31 +817,21 @@
   </div>
 
   
-  <div id="krv-cookie" class="krv-cookie" role="dialog" aria-label="Уведомление о cookies" hidden>
+    <div id="krv-cookie" class="krv-cookie" role="region" aria-label="Уведомление о cookies и аналитике" hidden>
     <p>
-      Мы используем cookies и обезличенную аналитику Яндекс&nbsp;Метрики для улучшения сайта.
-      Персональные данные через этот лендинг не собираем.
+      Мы используем cookies, локальное хранилище, PWA-кэш и (после вашего согласия) Яндекс&nbsp;Метрику
+      (в т.ч. карта кликов и Вебвизор) для статистики и улучшения сайта.
+      Чат-помощник на сайте может отправлять текст диалога на наш сервер поддержки.
+      Поля «короткого брифа» не сохраняются на сервере лендинга — они подставляются в сообщение Telegram.
       <a href="privacy.html">Политика конфиденциальности</a>
     </p>
     <div class="krv-cookie__actions">
-      <button type="button" class="krv-cookie__btn" id="krv-cookie-ok">Понятно</button>
+      <button type="button" class="krv-cookie__btn" id="krv-cookie-ok">Принимаю</button>
       <a class="krv-cookie__link" href="privacy.html">Подробнее</a>
     </div>
   </div>
 
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=110134518', 'ym');
-    ym(110134518, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/110134518" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
-  <!-- KRV AI Assistant -->
+<!-- KRV AI Assistant -->
   <script src="https://support.krivoshein.site/widget/krv-assistant.js?v=20260730r" defer data-api="https://support.krivoshein.site/api/v1" data-side="right"></script>
 
 <script src="assets/cookie-pwa.js" defer></script>

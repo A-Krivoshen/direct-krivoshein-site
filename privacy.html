@@ -2,13 +2,11 @@
 <html lang="ru">
 <head>
   <script>
-  /* GitHub Pages / subpath staging: set base prefix. On *.krivoshein.site stays "/". */
   (function () {
     try {
       var m = location.pathname.match(/^\/([a-z0-9-]+-krivoshein-site)(?=\/|$)/i);
       var base = m ? ("/" + m[1] + "/") : "/";
       window.__KRV_BASE__ = base;
-      // Expose helper for scripts
       window.krvUrl = function (path) {
         path = String(path || "");
         if (!path) return base;
@@ -26,11 +24,10 @@
     }
   })();
   </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Политика конфиденциальности - Яндекс.Директ | ИП Кривошеин А.С.</title>
-  <meta name="description" content="Политика конфиденциальности https://direct.krivoshein.site. ИП Кривошеин А.С. не собирает персональные данные через формы лендинга. Используется обезличенная аналитика Яндекс Метрики.">
+  <meta name="description" content="Политика конфиденциальности https://direct.krivoshein.site. Оператор: ИП Кривошеин А.С. Cookies, Яндекс Метрика по согласию, чат-помощник, партнёрские ссылки.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://direct.krivoshein.site/privacy.html">
   <link rel="icon" type="image/png" href="favicon-32x32.png">
@@ -38,7 +35,6 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#315fe8">
   <link rel="stylesheet" href="assets/fonts/inter.css">
-  <link rel="stylesheet" href="assets/fonts/mono.css">
   <link rel="stylesheet" href="assets/cookie-pwa.css">
   <style>
     :root { --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#64748b; --line:#e2e8f0; --accent:#315fe8; --dark:#0f172a; }
@@ -70,103 +66,131 @@
 <body>
   <header>
     <div class="wrap">
-      <a href="./">← Яндекс.Директ</a>
+      <a href="./">← Директ</a>
       <a href="https://krivoshein.site/contacts/">Контакты</a>
     </div>
   </header>
   <main>
     <div class="wrap">
       <h1>Политика конфиденциальности</h1>
-      <p class="lead">Порядок обработки информации на сайте <a href="https://direct.krivoshein.site/">direct.krivoshein.site</a> (Настройка и ведение рекламы в Яндекс.Директе.)</p>
+      <p class="lead">Порядок обработки информации на сайте <a href="https://direct.krivoshein.site/">direct.krivoshein.site</a> (Аудит, настройка и ведение Яндекс.Директ).</p>
       <div class="meta">
         <span>Оператор: ИП Кривошеин Алексей Сергеевич</span>
-        <span>Дата: 17.07.2026</span>
-        <span>Версия: 1.0</span>
+        <span>ОГРНИП 321774600479249 · ИНН 770603253213</span>
+        <span>Дата: 07.08.2026</span>
+        <span>Версия: 2.0</span>
       </div>
 
       <article class="card hi">
         <h2>1. Кратко</h2>
-        <p><strong>Через этот лендинг персональные данные посетителей не собираются</strong> (нет форм заявки, регистрации и личных кабинетов на самом лендинге).</p>
-        <p>Используется <strong>обезличенная веб-аналитика Яндекс&nbsp;Метрики</strong> (счётчик №&nbsp;110134518) для оценки посещаемости и улучшения сайта.</p>
-        <p>Заявки и переписка возможны через внешние каналы (сайт <a href="https://krivoshein.site/contacts/">krivoshein.site/contacts</a>, e-mail, мессенджеры) - их обработка регулируется отдельно.</p>
+        <p>Оператор обрабатывает технические и статистические данные посетителей, а также сведения, которые вы сами передаёте при обращении (e-mail, мессенджеры, чат на сайте).</p>
+        <p><strong>Яндекс&nbsp;Метрика</strong> (счётчик №&nbsp;110134518, в т.ч. карта кликов и Вебвизор) подключается <strong>только после нажатия «Принимаю»</strong> в уведомлении о cookies.</p>
+        <p>На лендинге нет серверной формы заявки с сохранением ПДн в базе Оператора. Блок «короткий бриф» формирует текст для Telegram/контактов у вас в браузере.</p>
       </article>
 
       <article class="card">
-        <h2>2. Оператор</h2>
-        <p><strong>ИП Кривошеин Алексей Сергеевич</strong></p>
+        <h2>2. Оператор (владелец сайта)</h2>
+        <p><strong>Индивидуальный предприниматель Кривошеин Алексей Сергеевич</strong></p>
         <ul>
+          <li>ОГРНИП: 321774600479249</li>
+          <li>ИНН: 770603253213</li>
           <li>Сайт: <a href="https://krivoshein.site/">krivoshein.site</a></li>
           <li>E-mail: <a href="mailto:aleksey@krivoshein.site">aleksey@krivoshein.site</a></li>
+          <li>Телефон: <a href="tel:+79636641615">+7 (963) 664-16-15</a></li>
           <li>Контакты: <a href="https://krivoshein.site/contacts/">krivoshein.site/contacts</a></li>
-          <li>Telegram: <a href="https://t.me/DrSlon" target="_blank" rel="noopener">t.me/DrSlon</a></li>
+          <li>Telegram: <a href="https://t.me/DrSlon" target="_blank" rel="noopener noreferrer">t.me/DrSlon</a></li>
+          <li>MAX: <a href="https://max.ru/id770603253213_1_bot" target="_blank" rel="noopener noreferrer">max.ru</a></li>
         </ul>
+        <p>Правовая основа в РФ: Федеральный закон от 27.07.2006 №&nbsp;152-ФЗ «О персональных данных» (в применимой части), согласие субъекта, договор/преддоговорные действия, законный интерес Оператора в обеспечении работы и безопасности сайта.</p>
       </article>
 
       <article class="card">
         <h2>3. Область применения</h2>
-        <p>Политика действует для сайта <strong>https://direct.krivoshein.site/</strong> и связанных страниц, включая настоящий документ.</p>
-        <p>При переходе на сторонние сервисы (Яндекс, Telegram, Re:plain и др.) действуют их собственные правила.</p>
+        <p>Политика действует для <strong>https://direct.krivoshein.site/</strong>, страницы privacy, PWA/service worker этого сайта и встроенного чат-помощника, обращающегося к <code>support.krivoshein.site</code>.</p>
+        <p>При переходе на сторонние сайты (Яндекс, Telegram, MAX, хостинг-провайдеры, партнёрские витрины) действуют их собственные политики. Оператор не контролирует обработку данных на чужих площадках.</p>
       </article>
 
       <article class="card">
         <h2>4. Какие данные обрабатываются</h2>
-        <p><strong>4.1. Персональные данные.</strong> Лендинг не запрашивает имя, телефон, e-mail и иные персональные данные через собственные формы - таких форм на лендинге нет.</p>
-        <p><strong>4.2. Обезличенная аналитика (Яндекс&nbsp;Метрика).</strong> Могут обрабатываться технические сведения: факт и время визита, URL страниц, referrer, тип устройства/браузера, приблизительный регион по IP, cookie-идентификаторы, данные о взаимодействии со страницей (clickmap, webvisor) - в статистических целях, без установления личности Оператором лендинга.</p>
+        <p><strong>4.1. Данные, которые вы передаёте добровольно:</strong> содержание сообщений в Telegram/MAX/e-mail/телефону; текст, отправленный через виджет чат-помощника; комментарий в «коротком брифе» (уходит в черновик сообщения мессенджера, на сервер лендинга не пишется).</p>
+        <p><strong>4.2. Технические данные сайта:</strong> IP-адрес и заголовки запроса на уровне веб-сервера (логи доступа, защита от злоупотреблений); cookie и localStorage (в т.ч. отметка согласия <code>krv-cookie-ok</code>, тема/язык интерфейса); кэш PWA (service worker) для офлайн-доступа к статике.</p>
+        <p><strong>4.3. Яндекс&nbsp;Метрика (после согласия):</strong> факт и время визита, URL, referrer, сведения об устройстве/браузере, приблизительный регион, cookie-идентификаторы Метрики, карта кликов, <strong>Вебвизор</strong> (запись взаимодействия со страницей). Обработчик: ООО «ЯНДЕКС». Политика Яндекса и opt-out: <a href="https://yandex.ru/support/metrika/general/opt-out.html" target="_blank" rel="noopener noreferrer">справка Метрики</a>.</p>
+        <p><strong>4.4. Чат-помощник:</strong> текст запросов/ответов и служебные идентификаторы сессии могут передаваться на <code>https://support.krivoshein.site/api/v1</code> для ответа ассистента. Не передавайте в чат пароли, платёжные реквизиты и избыточные специальные категории ПДн.</p>
       </article>
 
       <article class="card">
-        <h2>5. Цели</h2>
+        <h2>5. Цели обработки</h2>
         <ul>
-          <li>оценка посещаемости и эффективности страниц;</li>
-          <li>улучшение структуры, контента и удобства сайта;</li>
-          <li>обеспечение работоспособности и безопасности.</li>
+          <li>обеспечение работы, безопасности и развития сайта;</li>
+          <li>статистика посещаемости и улучшение контента/UX (Метрика — после согласия);</li>
+          <li>связь по заявкам на услуги, консультации и поддержка;</li>
+          <li>исполнение договора и бухгалтерских обязанностей;</li>
+          <li>информирование о партнёрских/реферальных предложениях, если вы переходите по таким ссылкам.</li>
         </ul>
       </article>
 
       <article class="card">
-        <h2>6. Cookies</h2>
-        <p>Сайт и/или Яндекс&nbsp;Метрика могут сохранять cookie и данные локального хранилища (в т.ч. отметку «Понятно» в cookie-баннере). Отключить cookie можно в настройках браузера. Opt-out Метрики: <a href="https://yandex.ru/support/metrika/general/opt-out.html" target="_blank" rel="noopener">инструкция Яндекса</a>.</p>
+        <h2>6. Cookies, согласие и отказ</h2>
+        <p>До нажатия «Принимаю» скрипт Яндекс&nbsp;Метрики <strong>не загружается</strong>. Кнопка означает согласие на cookies/локальное хранилище, PWA-кэш и аналитику Метрики (включая Вебвизор) в объёме раздела 4.</p>
+        <p>Вы можете очистить cookies и localStorage в браузере — баннер появится снова, Метрика не будет работать до нового согласия. Отключить Метрику также можно средствами Яндекса (opt-out по ссылке выше).</p>
+        <p>Технические логи веб-сервера могут собираться независимо как необходимая мера работоспособности и безопасности.</p>
       </article>
 
       <article class="card">
-        <h2>7. Передача третьим лицам</h2>
-        <p>Обезличенные данные аналитики обрабатываются сервисом Яндекс&nbsp;Метрика (ООО «ЯНДЕКС»). Оператор не продаёт персональные данные посетителей лендинга.</p>
+        <h2>7. Передача третьим лицам и партнёры</h2>
+        <p>Данные могут передаваться: ООО «ЯНДЕКС» (Метрика после согласия); инфраструктурным провайдерам хостинга/CDN; мессенджерам, которыми вы сами пишете Оператору.</p>
+        <p>На страницах могут быть <strong>партнёрские / реферальные ссылки</strong> на сервисы третьих лиц (например, облако/VPS). Оператор может получать вознаграждение за переходы/заказы. Это не означает передачу ваших ПДн Оператором партнёру до вашего перехода и действий на сайте партнёра.</p>
+        <p>Оператор не продаёт базы персональных данных посетителей.</p>
       </article>
 
       <article class="card">
-        <h2>8. Права и контакты</h2>
-        <p>По вопросам Политики и аналитики: <a href="mailto:aleksey@krivoshein.site">aleksey@krivoshein.site</a> · <a href="https://krivoshein.site/contacts/">контакты</a>.</p>
+        <h2>8. Сроки хранения</h2>
+        <ul>
+          <li>согласие cookies (localStorage) — до удаления вами или смены политики;</li>
+          <li>данные Метрики — в сроки, установленные Яндексом и настройками счётчика;</li>
+          <li>логи сервера — обычно до 30–90 суток (если иное не требуется для безопасности/разбирательств);</li>
+          <li>переписка по заявкам — срок ведения переговоров/договора и сроки, обязательные по закону (в т.ч. бухгалтерские).</li>
+        </ul>
       </article>
 
       <article class="card">
-        <h2>9. Изменения</h2>
-        <p>Актуальная версия: <a href="https://direct.krivoshein.site/privacy.html">https://direct.krivoshein.site/privacy.html</a>.</p>
+        <h2>9. Права субъекта ПДн</h2>
+        <p>Вы можете запросить информацию об обработке, уточнение, блокирование или удаление данных, обрабатываемых Оператором, а также отозвать согласие (где оно применимо), написав на <a href="mailto:aleksey@krivoshein.site">aleksey@krivoshein.site</a>. Ответ — в сроки, предусмотренные 152-ФЗ.</p>
+        <p>Жалоба на обработку ПДн может быть подана в Роскомнадзор.</p>
+      </article>
+
+      <article class="card">
+        <h2>10. Защита данных</h2>
+        <p>Используются разумные организационные и технические меры: HTTPS, ограничение доступа к серверам, актуальные обновления ПО, минимизация собираемых данных на лендинге.</p>
+      </article>
+
+      <article class="card">
+        <h2>11. Изменения</h2>
+        <p>Актуальная версия всегда доступна по адресу <a href="https://direct.krivoshein.site/privacy.html">https://direct.krivoshein.site/privacy.html</a>. Существенные изменения даты/версии указываются в шапке документа.</p>
       </article>
     </div>
   </main>
   <footer>
     <div class="wrap">
-      © 2026 ИП Кривошеин А.С. · <a href="./">На лендинг</a> · <a href="https://krivoshein.site/">krivoshein.site</a>
+      © 2026 ИП Кривошеин А.С. · ОГРНИП 321774600479249 · <a href="./">На лендинг</a> · <a href="https://krivoshein.site/">krivoshein.site</a>
     </div>
   </footer>
 
-  <div id="krv-cookie" class="krv-cookie" role="dialog" aria-label="Уведомление о cookies" hidden>
-    <p>Используем cookies и обезличенную Яндекс&nbsp;Метрику. Персональные данные через лендинг не собираем. <a href="privacy.html">Конфиденциальность</a></p>
+  <div id="krv-cookie" class="krv-cookie" role="region" aria-label="Уведомление о cookies и аналитике" hidden>
+    <p>
+      Мы используем cookies, локальное хранилище, PWA-кэш и (после вашего согласия) Яндекс&nbsp;Метрику
+      (в т.ч. карта кликов и Вебвизор) для статистики и улучшения сайта.
+      Чат-помощник на сайте может отправлять текст диалога на наш сервер поддержки.
+      Поля «короткого брифа» не сохраняются на сервере лендинга — они подставляются в сообщение Telegram.
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </p>
     <div class="krv-cookie__actions">
-      <button type="button" class="krv-cookie__btn" id="krv-cookie-ok">Понятно</button>
+      <button type="button" class="krv-cookie__btn" id="krv-cookie-ok">Принимаю</button>
+      <a class="krv-cookie__link" href="privacy.html">Подробнее</a>
     </div>
   </div>
-  <script src="assets/cookie-pwa.js" defer></script>
 
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    ym(110134518, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/110134518" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <script>window.__KRV_METRIKA_ID=110134518;</script>
+  <script src="assets/cookie-pwa.js" defer></script>
 </body>
 </html>
