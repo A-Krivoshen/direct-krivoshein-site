@@ -17,7 +17,10 @@
     banner.classList.add('is-visible');
   }
 
-  /** Load Yandex.Metrika only after explicit cookie/analytics acceptance. */
+  /**
+   * Яндекс.Метрика грузится всегда (статистика посещаемости).
+   * Баннер — уведомление об обработке; кнопка только скрывает его.
+   */
   function loadMetrika() {
     var id = window.__KRV_METRIKA_ID;
     if (!id || window.__krvMetrikaLoaded) return;
@@ -54,19 +57,19 @@
     });
   }
 
-  function accept() {
-    try { localStorage.setItem(KEY, '1'); } catch (e) {}
-    hide();
-    loadMetrika();
-    registerSW();
-  }
+  // Метрика и SW — сразу (РФ, учёт посещаемости)
+  loadMetrika();
+  registerSW();
 
   if (ok) {
     hide();
-    loadMetrika();
-    registerSW();
   } else {
     show();
   }
-  if (btn) btn.addEventListener('click', accept);
+  if (btn) {
+    btn.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+      hide();
+    });
+  }
 })();
