@@ -77,7 +77,7 @@ Language: кнопки **RU | EN** в шапке (localStorage).
 ## Контакты
 
 - Telegram: [t.me/DrSlon](https://t.me/DrSlon)
-- MAX: [max.ru](https://max.ru/id770603253213_1_bot)
+- MAX: [krivoshein.site/max](https://krivoshein.site/max)
 - Хаб: [krivoshein.site/contacts](https://krivoshein.site/contacts/)
 - Email: aleksey@krivoshein.site
 

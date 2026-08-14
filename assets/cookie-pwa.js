@@ -57,9 +57,24 @@
     });
   }
 
-  // Метрика и SW — сразу (РФ, учёт посещаемости)
-  loadMetrika();
-  registerSW();
+  function armMetrika() {
+    var fired = false;
+    function go() {
+      if (fired) return;
+      fired = true;
+      loadMetrika();
+      ["scroll", "pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+        window.removeEventListener(ev, go, true);
+      });
+    }
+    ["scroll", "pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+      window.addEventListener(ev, go, { capture: true, passive: true });
+    });
+    setTimeout(go, 5000);
+  }
+
+  // Do not register the service worker on these landings.
+  armMetrika();
 
   if (ok) {
     hide();

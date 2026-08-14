@@ -287,3 +287,19 @@ html[data-theme="dark"] .krv-qual-section {
   color: #fff;
   border-radius: 8px;
 }
+
+.krv-reviews-load {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1.1rem;
+  border: 0;
+  border-radius: 14px;
+  background: var(--krv-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.krv-reviews-load:hover { background: var(--krv-accent-dark); }
