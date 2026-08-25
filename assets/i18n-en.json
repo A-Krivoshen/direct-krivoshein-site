@@ -1193,5 +1193,18 @@
   "Открыть пример llms.txt": "Open a sample llms.txt",
   "Чтобы агенты не гадали": "So agents do not guess",
   "Индекс, разметка, FAQ": "Index, markup, FAQ",
-  "Файлы открываются по URL": "The files open at a URL"
+  "Файлы открываются по URL": "The files open at a URL",
+  "Сайт, который видят нейропоиск и боты": "A site neural search and bots can see",
+  "Реклама приводит трафик. Если ассистенты не читают посадочную — заявки уходят к тем, у кого есть разметка.": "Ads bring traffic. If assistants cannot read the landing, leads go to sites with markup.",
+  "WordPress тоже нужно готовить к нейропоиску: разметка, FAQ, llms.txt.": "WordPress also needs neural-search prep: markup, FAQ, llms.txt.",
+  "Бот отвечает в чате. AI-ready делает так, чтобы вас находили в нейропоиске.": "The bot answers in chat. AI-ready makes you findable in neural search.",
+  "Сервер под ключ. Чтобы контент видели ChatGPT, Grok и Яндекс Нейро — нужна структура.": "The server is ready. For ChatGPT, Grok and Yandex Neuro to see the content, you need structure.",
+  "Лендинг для людей и для нейропоиска: структура, FAQ, файлы для агентов.": "A landing for people and for neural search: structure, FAQ, files for agents.",
+  "llms.txt и agents.md": "llms.txt and agents.md",
+  "Schema.org / JSON-LD": "Schema.org / JSON-LD",
+  "FAQ под ответы ботов": "FAQ for bot answers",
+  "Подготовка от 10 000 ₽": "Prep from 10,000 ₽",
+  "Этот сайт — пример": "This site is the example",
+  "Файлы, которые уже видят агенты": "Files agents already read",
+  "Откройте так же, как это сделает Grok, ChatGPT или поисковый бот.": "Open them the same way Grok, ChatGPT or a search bot would."
 }
