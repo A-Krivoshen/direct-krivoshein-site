@@ -303,3 +303,6 @@ html[data-theme="dark"] .krv-qual-section {
   cursor: pointer;
 }
 .krv-reviews-load:hover { background: var(--krv-accent-dark); }
+.krv-reviews-load[hidden] {
+  display: none !important;
+}

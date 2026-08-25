@@ -83,6 +83,7 @@
       }
       if (shell) shell.removeAttribute("hidden");
       btn.setAttribute("hidden", "");
+      root.classList.add("is-open");
     });
   }
 
