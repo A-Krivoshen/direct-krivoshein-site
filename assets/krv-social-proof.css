@@ -144,21 +144,6 @@ a.krv-client:hover .krv-client__logo img { filter: none; }
   isolation: isolate;
 }
 
-/* display:flex on the shell and inline-flex on the load button
-   beat the UA [hidden] { display:none }. Force hidden to win. */
-.krv-yandex-reviews [hidden],
-.krv-yandex-reviews.is-open > .krv-reviews-load {
-  display: none !important;
-}
-
-.krv-yandex-reviews .krv-reviews-load {
-  display: flex;
-  width: calc(100% - 2.2rem);
-  max-width: 100%;
-  margin: 1.15rem auto;
-  box-sizing: border-box;
-}
-
 .krv-yandex-reviews__shell {
   position: relative;
   width: 100%;
@@ -252,7 +237,7 @@ a.krv-client:hover .krv-client__logo img { filter: none; }
   .krv-yandex-reviews {
     border-radius: 14px;
     max-width: 100%;
-    --yw-h: min(520px, calc(100dvh - 11rem));
+    --yw-h: min(640px, 78dvh);
   }
   .krv-yandex-reviews__shell {
     min-height: 480px;
@@ -343,12 +328,4 @@ html[data-theme="dark"] a.krv-client:hover .krv-client__name {
   min-height: 84px;
   padding: 0.85rem 0.7rem;
   gap: 0;
-}
-
-/* White lockups that vanish on #fff cards */
-.krv-client img[alt="GroupST"] {
-  background: #0f172a;
-  border-radius: 8px;
-  padding: 0.4rem 0.55rem;
-  box-sizing: border-box;
 }

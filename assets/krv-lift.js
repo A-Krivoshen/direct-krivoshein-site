@@ -18,7 +18,7 @@
     $$('a[href*="t.me/DrSlon"], a[href*="telegram"]').forEach(function (a) {
       a.addEventListener("click", function () { goal("cta_telegram"); }, { passive: true });
     });
-    $$('a[href*="max.ru"], a[href*="krivoshein.site/max"]').forEach(function (a) {
+    $$('a[href*="max.ru"]').forEach(function (a) {
       a.addEventListener("click", function () { goal("cta_max"); }, { passive: true });
     });
     $$('a[href*="#pricing"], a[href$="#pricing"]').forEach(function (a) {
@@ -69,22 +69,6 @@
       goal("qual_submit");
     });
     refresh();
-  }
-
-  function bindReviews() {
-    var btn = document.getElementById("krv-reviews-load");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      var root = btn.closest("[data-krv-reviews]") || btn.parentElement;
-      var shell = root.querySelector(".krv-yandex-reviews__shell");
-      var frame = root.querySelector("iframe[data-src]");
-      if (frame && !frame.getAttribute("src")) {
-        frame.setAttribute("src", frame.getAttribute("data-src"));
-      }
-      if (shell) shell.removeAttribute("hidden");
-      btn.setAttribute("hidden", "");
-      root.classList.add("is-open");
-    });
   }
 
   /* Lazy matrix: keep script but hide canvas on mobile/reduce - CSS handles; pause if canvas hidden */
@@ -145,7 +129,6 @@
   ready(function () {
     bindGoals();
     bindQualifier();
-    bindReviews();
     softMatrix();
     hideAssistantMobile();
   });

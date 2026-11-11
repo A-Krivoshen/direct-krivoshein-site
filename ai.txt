@@ -6,7 +6,7 @@
 # Hub: https://krivoshein.site/llms.txt
 # Contacts: https://krivoshein.site/contacts/
 # Telegram: https://t.me/DrSlon
-# MAX: https://krivoshein.site/max
+# MAX: https://max.ru/id770603253213_1_bot
 # Rate: 2000 RUB/h · contract · non-cash · RU/EN
 # Service: Аудит, настройка и ведение Яндекс.Директ без слива бюджета.
 # Content-Signal: search=yes, ai-input=yes, ai-train=no, citationRequired=yes

@@ -347,7 +347,7 @@
   }
 
   function loadDict(cb) {
-    fetch((window.krvUrl ? krvUrl("assets/i18n-en.json?v=20260807priv-v23") : "/assets/i18n-en.json?v=20260807priv-v23"), { credentials: "same-origin" })
+    fetch((window.krvUrl ? krvUrl("assets/i18n-en.json?v=20260805lift") : "/assets/i18n-en.json?v=20260805lift"), { credentials: "same-origin" })
       .then(function (r) { if (!r.ok) throw new Error("dict"); return r.json(); })
       .then(function (d) { dict = d || {}; cb(); })
       .catch(function () { dict = {}; cb(); });

@@ -15,7 +15,7 @@
 
 ## Контакты (preferred)
 1. Telegram: https://t.me/DrSlon
-2. MAX: https://krivoshein.site/max
+2. MAX: https://max.ru/id770603253213_1_bot
 3. Контакты-хаб: https://krivoshein.site/contacts/
 4. Email: aleksey@krivoshein.site
 5. Тел: +7 (963) 664-16-15
