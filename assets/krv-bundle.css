@@ -729,6 +729,14 @@ body.art-lb .relative .absolute ~ .flex-1 > .font-semibold:first-child {
   padding: 0.4rem 0.75rem !important;
 }
 
+/* Touch targets: comfortable tap height on phones and tablets */
+@media (max-width: 820px) {
+  .krv-subnav a {
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+}
+
 /* FAQ summary neat */
 .krv-faq summary {
   padding-right: 2.75rem !important;
