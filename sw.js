@@ -1,5 +1,5 @@
 /* PWA service worker — https://direct.krivoshein.site */
-var CACHE = 'krv-direct-cro-20261114';
+var CACHE = 'krv-direct-talk-20261115';
 var PRECACHE = [
   '/',
   '/privacy.html',

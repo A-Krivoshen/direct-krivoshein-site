@@ -15,12 +15,7 @@
   }
 
   function bindGoals() {
-    $$('a[href*="t.me/DrSlon"], a[href*="telegram"]').forEach(function (a) {
-      a.addEventListener("click", function () { if (!$("[data-krv-brief]")) goal("cta_telegram"); }, { passive: true });
-    });
-    $$('a[href*="max.ru"], a[href*="krivoshein.site/max"]').forEach(function (a) {
-      a.addEventListener("click", function () { if (!$("[data-krv-brief]")) goal("cta_max"); }, { passive: true });
-    });
+    /* Messenger clicks are counted once in contact-talk.js. */
     $$('a[href*="#pricing"], a[href$="#pricing"]').forEach(function (a) {
       a.addEventListener("click", function () { goal("nav_pricing"); }, { passive: true });
     });
@@ -44,7 +39,7 @@
   /* Qualifier -> prefilled Telegram message */
   function bindQualifier() {
     var root = $("#krv-qual");
-    if (!root || root.hasAttribute("data-krv-brief")) return; // New briefs use contact-brief.js.
+    if (!root || root.hasAttribute("data-krv-talk")) return;
     var sel = $("#krv-qual-need");
     var note = $("#krv-qual-note");
     var btn = $("#krv-qual-go");

@@ -1,0 +1,69 @@
+/* Direct contact block. Same card as the previous contact area, without a form. */
+[data-krv-talk] {
+  --talk-text: #172133;
+  --talk-muted: #52627d;
+  --talk-line: #c4cedd;
+  --talk-bg: #fff;
+  --talk-link: #244ac2;
+  color: var(--talk-text);
+  background: var(--talk-bg);
+  max-width: 40rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 1.6rem);
+  border: 1px solid var(--talk-line);
+  border-radius: 1rem;
+  overflow-wrap: anywhere;
+  scroll-margin-top: 8rem;
+}
+html[data-theme="dark"] [data-krv-talk] {
+  --talk-text: #e8eefc;
+  --talk-muted: #b7c5dc;
+  --talk-line: #52627d;
+  --talk-bg: #121a2b;
+  --talk-link: #a6c0ff;
+}
+#brief { scroll-margin-top: 8rem; }
+[data-krv-talk] h2 {
+  color: var(--talk-text);
+  margin: 0 0 .6rem;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+[data-krv-talk] p { color: var(--talk-muted); line-height: 1.6; margin: 0; }
+[data-krv-talk] .krv-talk__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 1rem 0;
+}
+[data-krv-talk] .krv-talk__btn {
+  flex: 1 1 14rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: .8rem 1rem;
+  border-radius: .9rem;
+  background: #315fe8;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+}
+[data-krv-talk] .krv-talk__btn--max { background: #172133; }
+[data-krv-talk] .krv-talk__btn:hover { background: #244ac2; color: #fff; }
+[data-krv-talk] .krv-talk__btn--max:hover { background: #243049; color: #fff; }
+html[data-theme="dark"] [data-krv-talk] .krv-talk__btn--max { background: #243049; }
+[data-krv-talk] .krv-talk__note { margin-top: .25rem; }
+[data-krv-talk] .krv-talk__alt { margin-top: .85rem; }
+[data-krv-talk] .krv-talk__alt a { color: var(--talk-link); }
+[data-krv-talk] a[href^="tel:"] { white-space: nowrap; }
+[data-krv-talk] :is(a, h2):focus-visible {
+  outline: 2px solid #315fe8;
+  outline-offset: 3px;
+}
+[data-krv-talk] [hidden] { display: none !important; }
+@media (max-width: 640px) {
+  [data-krv-talk] .krv-talk__btn { flex-basis: 100%; }
+}
