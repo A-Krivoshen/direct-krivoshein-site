@@ -1229,5 +1229,8 @@
   "192 достижения целей по 299 ₽": "192 goal achievements at 299 RUB each",
   "Часто непонятно, за что именно вы платите и какие результаты реально получаете.": "It is often unclear what you pay for and which results you actually receive.",
   "Есть задача? Давайте обсудим": "Have a task? Let's discuss it",
-  "Напишите в личный диалог. Анкета не нужна.": "Message me directly. No form."
+  "Напишите в личный диалог. Анкета не нужна.": "Message me directly. No form.",
+  "На лендинге нет серверной формы и нет базы анкет. Кнопки Telegram и MAX открывают личный диалог. Черновик сообщения собирается в браузере и на сервер не отправляется.": "This landing has no server form and no questionnaire database. The Telegram and MAX buttons open a personal dialog. A draft is built in the browser and is not sent to the server.",
+  "5.5. Переход в мессенджер:": "5.5. Opening a messenger:",
+  " кнопки открывают личный диалог Telegram или MAX. Черновик в браузере на сервер лендинга не сохраняется.": " the buttons open a personal Telegram or MAX dialog. A browser draft is not stored on the landing server."
 }
