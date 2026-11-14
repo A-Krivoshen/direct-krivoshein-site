@@ -307,6 +307,7 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="assets/contact-brief.css?v=20261114">
 </head>
 <body class="has-mobile-cta art-lb" data-product="direct">
   <a class="skip-link" href="#main">К содержанию</a>
@@ -325,7 +326,7 @@
           </div>
         </div>
         <div class="krv-nav-right">
-          <a href="https://krivoshein.site/contacts/" 
+          <a href="#brief"
              class="krv-nav-cta inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold bg-krv text-white border border-transparent hover:bg-krv-dark rounded-2xl transition-all shadow-krv-cta">
             Обсудить рекламу
           </a>
@@ -441,7 +442,7 @@
           <div class="mt-4 text-sm text-slate-600">Проверяю текущую кампанию, нахожу слив бюджета и даю план, как в кейсе снизить цену заявки.</div>
         
         </div>
-        <a href="https://krivoshein.site/contacts/?from=direct-pricing"
+        <a href="#brief" data-krv-need="audit"
            class="mt-auto pt-5 block text-center bg-krv shadow-krv-cta hover:bg-krv-dark transition-colors text-white font-semibold py-3 rounded-2xl text-sm">
           Обсудить рекламу
         </a>
@@ -454,7 +455,7 @@
           <div class="mt-4 text-sm text-slate-600">Полная настройка рекламной кампании под ваши услуги или товары.</div>
         
         </div>
-        <a href="https://krivoshein.site/contacts/?from=direct-pricing"
+        <a href="#brief" data-krv-need="launch"
            class="mt-auto pt-5 block text-center bg-krv shadow-krv-cta hover:bg-krv-dark transition-colors text-white font-semibold py-3 rounded-2xl text-sm">
           Обсудить рекламу
         </a>
@@ -468,7 +469,7 @@
           <div class="mt-4 text-sm text-slate-600">Еженедельная оптимизация, минус-слова, A/B-тесты. Результат как в реальном кейсе - 192 заявки по 299 ₽ за лид.</div>
         
         </div>
-        <a href="https://krivoshein.site/contacts/?from=direct-pricing"
+        <a href="#brief" data-krv-need="optimize"
            class="mt-auto pt-5 block text-center bg-krv shadow-krv-cta hover:bg-krv-dark transition-colors text-white font-semibold py-3 rounded-2xl text-sm">
           Обсудить рекламу
         </a>
@@ -481,7 +482,7 @@
           <div class="mt-4 text-sm text-slate-600">Разбор вашей ситуации, ответы на вопросы, помощь в принятии решений.</div>
         
         </div>
-        <a href="https://krivoshein.site/contacts/?from=direct-pricing"
+        <a href="#brief" data-krv-need="consult"
            class="mt-auto pt-5 block text-center bg-krv shadow-krv-cta hover:bg-krv-dark transition-colors text-white font-semibold py-3 rounded-2xl text-sm">
           Обсудить рекламу
         </a>
@@ -620,8 +621,8 @@
   <!-- SOCIAL PROOF: real clients + Yandex reviews -->
   <section class="krv-proof krv-reveal" id="reviews" aria-label="Клиенты и отзывы">
     <div class="krv-proof__head">
-      <h2>Клиенты и отзывы на Яндексе</h2>
-      <p>Проекты из портфолио и отзывы клиентов на Яндекс Картах.</p>
+      <h2 data-krv-text="experience">Опыт сотрудничества и отзывы</h2>
+      <p data-krv-text="experienceLead">Компании, с которыми я работал в разные годы. Отзывы обо мне доступны на Яндекс Картах.</p>
     </div>
 
     <div class="krv-proof__rating">
@@ -771,7 +772,7 @@
         <p class="mt-4 text-lg text-white">Обсудим задачу, проверю текущую рекламу или настрою кампанию с нуля.</p>
       </div>
       <div class="mt-5 md:mt-6">
-        <a href="https://krivoshein.site/contacts/"
+        <a href="#brief"
            class="inline-flex items-center justify-center gap-x-3 bg-white text-krv-dark hover:bg-slate-100 transition-all font-semibold px-8 md:px-10 min-h-14 py-3.5 rounded-3xl text-base md:text-lg w-full sm:w-auto">Обсудить рекламу<i class="fa-solid fa-arrow-right"></i></a>
         
       </div>
@@ -797,20 +798,25 @@
   </section>
 
   <section class="krv-qual-section" id="brief" aria-label="Короткий бриф">
-    <div id="krv-qual" class="krv-qual">
-      <h2>Короткий бриф</h2>
-      <p class="krv-qual__lead">Выберите задачу - открою Telegram с готовым текстом сообщения.</p>
-      <label for="krv-qual-need">Что нужно?</label>
+    <div id="krv-qual" class="krv-qual" data-krv-brief data-service="direct">
+      <h2 data-krv-text="title">Коротко расскажите о задаче</h2>
+      <p class="krv-qual__lead" data-krv-text="lead">Можно без технических терминов. Напишите сразу или подготовьте текст ниже.</p>
+      <div class="krv-brief-channels">
+        <a class="krv-brief-channel" href="https://t.me/DrSlon" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a class="krv-brief-channel" href="https://krivoshein.site/max" target="_blank" rel="noopener noreferrer">MAX</a>
+      </div>
+      <p><a href="mailto:aleksey@krivoshein.site">aleksey@krivoshein.site</a> · <a href="tel:+79636641615">+7 (963) 664-16-15</a></p>
+      <label for="krv-qual-need" data-krv-text="need">Что требуется?</label>
       <select id="krv-qual-need">
             <option value="Аудит текущих кампаний">Аудит текущих кампаний</option>
             <option value="Запуск с нуля">Запуск с нуля</option>
             <option value="Ведение помесячно">Ведение помесячно</option>
       </select>
-      <label for="krv-qual-note">Комментарий (необязательно)</label>
-      <input id="krv-qual-note" type="text" maxlength="200" placeholder="Срок, ссылка на сайт, бюджет - если есть" autocomplete="off">
-      <div class="krv-qual__actions">
-        <a class="krv-qual__btn" id="krv-qual-go" href="https://t.me/DrSlon" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
-      </div>
+      <label for="krv-qual-note" data-krv-text="note">Краткое описание (необязательно)</label>
+      <textarea id="krv-qual-note" class="ym-disable-keys" rows="3" maxlength="2000" autocomplete="off"></textarea>
+      <div class="krv-qual__actions"></div>
+      <noscript><p>Подготовка текста требует JavaScript. Напишите напрямую удобным способом выше.</p></noscript>
+      <p class="krv-brief-privacy" data-krv-text="privacy">Текст остаётся в браузере до копирования. Ничего не отправляется автоматически. Не указывайте пароли и секреты.</p>
     </div>
   </section>
 
@@ -844,7 +850,8 @@
   <!-- MOBILE CTA BAR -->
   <div class="mobile-cta-bar" role="region" aria-label="Быстрая заявка">
     <a class="cta-secondary" href="https://t.me/DrSlon" target="_blank" rel="noopener noreferrer">Telegram</a>
-    <a class="cta-primary" href="https://krivoshein.site/contacts/">Обсудить рекламу</a>
+    <a class="cta-secondary" href="https://krivoshein.site/max" target="_blank" rel="noopener noreferrer">MAX</a>
+    <a class="cta-primary" href="#brief">Обсудить</a>
   </div>
 
   
@@ -880,7 +887,7 @@
 <script src="assets/cookie-pwa.js" defer></script>
   <script src="assets/premium.js" defer></script>
   <script>window.__KRV_METRIKA_ID=110134518;</script>
-<script src="assets/krv-lift.js?v=20260825reviews" defer></script>
+<script src="assets/krv-lift.js?v=20261114brief" defer></script>
   <script src="assets/theme-i18n.js?v=20261112clean" defer></script>
   <script id="krv-matrix-gate">
   (function(){
@@ -893,5 +900,6 @@
   })();
   </script>
   <script src="assets/krv-motion.js?v=20260805c" defer></script>
+  <script src="assets/contact-brief.js?v=20261114" defer></script>
 </body>
 </html>
