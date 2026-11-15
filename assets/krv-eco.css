@@ -284,3 +284,11 @@ html body:not(#krvz):not(#krvy) div.flex:has(> svg.krv-i:first-child) { flex-dir
 html body:not(#krvz):not(#krvy) div.flex > svg.krv-i:first-child { margin-top: .2em; }
 html body.art-lb:not(#krvz) main > .max-w-screen-xl > .text-center { margin-left: auto !important; margin-right: auto !important; }
 .krv-yandex-reviews__shell[hidden] { display: none !important; }
+/* Partner logos keep their proportions */
+#host > .flex > img[alt="Amvera"] { width: auto !important; height: 96px !important; max-width: 120px; object-fit: contain; flex: 0 0 auto; align-self: flex-start; }
+@media (min-width: 640px) {
+  #host > .flex { flex-direction: row !important; align-items: center !important; gap: 2rem !important; }
+  #host > .flex > img[alt="Amvera"] { align-self: center; }
+}
+@media (max-width: 639.98px) { #host > .flex > img[alt="Amvera"] { height: 72px !important; } }
+.krv-client img[alt="LUMISTEK"] { transform: scale(1.45); transform-origin: center; }
