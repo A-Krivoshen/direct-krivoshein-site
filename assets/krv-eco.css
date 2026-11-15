@@ -1,0 +1,282 @@
+/* krv-eco: shared look with krivoshein.site (fonts, accent, buttons, header, contact block, footer). Loaded last. */
+:root {
+  --eco-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --eco-accent: #315fe8;
+  --eco-accent-dark: #244ac2;
+  --eco-text: #172133;
+  --eco-muted: #52627d;
+  --eco-line: #c4cedd;
+  --eco-card: #fff;
+  --eco-link: #244ac2;
+}
+html[data-theme="dark"] {
+  --eco-text: #e8eefc;
+  --eco-muted: #b7c5dc;
+  --eco-line: #52627d;
+  --eco-card: #121a2b;
+  --eco-link: #a6c0ff;
+}
+
+/* Fonts as on the main site */
+html body,
+html body :is(h1, h2, h3, h4, h5, h6, p, a, span, li, button, div, section, strong, em, b, small, label, input, textarea, select, summary, td, th, dt, dd, blockquote, figcaption, nav, footer, header, aside):not([class*="fa-"]):not(.fa):not(code):not(pre):not(kbd) {
+  font-family: var(--eco-font) !important;
+}
+
+/* ---------- Header ---------- */
+body .krv-eco-brand { display: flex; align-items: center; gap: .7rem; min-width: 0; }
+body .krv-eco-brand__home { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none !important; min-width: 0; }
+body .krv-eco-brand__logo { width: 44px; height: auto; flex: 0 0 auto; display: block; }
+body .krv-eco-brand__text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+body .krv-eco-brand__name { color: var(--eco-accent); font-weight: 700; font-size: 1.15rem; letter-spacing: -.01em; white-space: nowrap; }
+html[data-theme="dark"] body .krv-eco-brand__name { color: #8fb0ff; }
+body .krv-eco-brand__service { color: var(--eco-muted); font-size: .8rem; font-weight: 500; white-space: nowrap; }
+body nav a.krv-nav-cta.krv-eco-cta,
+body.art-lb nav a.krv-nav-cta.krv-eco-cta {
+  min-height: 40px !important;
+  padding: 0 18px !important;
+  border-radius: 999px !important;
+  background: var(--eco-accent) !important;
+  color: #fff !important;
+  border: 0 !important;
+  font-weight: 600 !important;
+  font-size: .9rem !important;
+  box-shadow: none !important;
+  white-space: nowrap;
+}
+body nav a.krv-nav-cta.krv-eco-cta:hover { background: var(--eco-accent-dark) !important; }
+@media (max-width: 640px) {
+  body .krv-eco-brand__logo { width: 38px; }
+  body .krv-eco-brand__name { font-size: 1.02rem; }
+  body .krv-eco-brand__service { font-size: .74rem; }
+}
+
+/* Section sub-navigation: show that it scrolls instead of cutting words */
+@media (max-width: 760px) {
+  body .krv-subnav__inner {
+    -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+            mask-image: linear-gradient(90deg, #000 85%, transparent);
+    padding-right: 2rem;
+  }
+}
+
+/* ---------- Hero buttons: MAX filled, Telegram outlined, same size ---------- */
+body .drslon-hero__cta { display: flex !important; flex-wrap: wrap; gap: 12px !important; align-items: stretch; }
+body .drslon-hero__cta a.drslon-hero__btn,
+body.art-lb .drslon-hero__cta a.drslon-hero__btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  box-sizing: border-box;
+  min-height: 48px !important;
+  height: auto !important;
+  padding: 0 24px !important;
+  border-radius: 999px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+body .drslon-hero__cta a.drslon-hero__btn--primary,
+body.art-lb .drslon-hero__cta a.drslon-hero__btn--primary,
+html[data-theme="dark"] body.art-lb .drslon-hero__cta a.drslon-hero__btn--primary {
+  background: var(--eco-accent) !important;
+  color: #fff !important;
+  border: 1.5px solid var(--eco-accent) !important;
+}
+body .drslon-hero__cta a.drslon-hero__btn--primary:hover { background: var(--eco-accent-dark) !important; border-color: var(--eco-accent-dark) !important; }
+body .drslon-hero__cta a.drslon-hero__btn--ghost,
+body.art-lb .drslon-hero__cta a.drslon-hero__btn--ghost,
+html[data-theme="dark"] body.art-lb .drslon-hero__cta a.drslon-hero__btn--ghost {
+  background: transparent !important;
+  color: var(--eco-link) !important;
+  border: 1.5px solid var(--eco-accent) !important;
+}
+html[data-theme="dark"] body .drslon-hero__cta a.drslon-hero__btn--ghost { border-color: #6f93ff !important; }
+body .drslon-hero__cta a.drslon-hero__btn--ghost i,
+body .drslon-hero__cta a.drslon-hero__btn--ghost svg { color: inherit !important; }
+body .drslon-hero__cta a.drslon-hero__btn--ghost:hover { background: rgba(49, 95, 232, .08) !important; }
+@media (max-width: 640px) {
+  body .drslon-hero__cta { flex-direction: column; }
+  body .drslon-hero__cta a.drslon-hero__btn { width: 100% !important; min-height: 52px !important; }
+}
+
+/* Mobile bottom bar: same pair */
+body .mobile-cta-bar { gap: 10px !important; }
+body .mobile-cta-bar a {
+  flex: 1 1 0 !important;
+  min-height: 46px !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+  display: inline-flex !important; align-items: center; justify-content: center;
+}
+body .mobile-cta-bar a.krv-eco-max { background: var(--eco-accent) !important; color: #fff !important; border: 1.5px solid var(--eco-accent) !important; }
+body .mobile-cta-bar a.krv-eco-tg { background: var(--eco-card) !important; color: var(--eco-link) !important; border: 1.5px solid var(--eco-accent) !important; }
+
+/* Hero facts: one compact row on phones instead of three tall cards */
+@media (max-width: 640px) {
+  body .drslon-hero__stats.krv-hero-trust {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  body .drslon-hero__stats.krv-hero-trust .drslon-hero__stat {
+    min-width: 0 !important; width: auto !important; margin: 0 !important;
+    padding: 10px 8px !important; text-align: center;
+    display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  }
+  body .drslon-hero__stats.krv-hero-trust .drslon-hero__stat-value { font-size: 1.05rem !important; line-height: 1.2; white-space: nowrap; }
+  body .drslon-hero__stats.krv-hero-trust .drslon-hero__stat-label { font-size: .72rem !important; line-height: 1.25; }
+}
+
+/* ---------- Contact block, same as #brief on krivoshein.site ---------- */
+body [data-krv-talk] {
+  color: var(--eco-text) !important;
+  background: var(--eco-card) !important;
+  max-width: 40rem !important;
+  margin-inline: auto !important;
+  padding: clamp(1.1rem, 3vw, 1.6rem) !important;
+  border: 1px solid var(--eco-line) !important;
+  border-radius: 1rem !important;
+  text-align: center !important;
+  box-shadow: none !important;
+}
+body [data-krv-talk] h2 { color: var(--eco-text) !important; margin: 0 0 .6rem !important; font-size: 1.5rem !important; line-height: 1.25 !important; text-wrap: balance; }
+body [data-krv-talk] .krv-qual__lead { color: var(--eco-muted) !important; max-width: 34rem; margin: 0 auto !important; line-height: 1.6; text-wrap: balance; }
+body [data-krv-talk] .krv-talk__actions { display: flex !important; flex-wrap: nowrap !important; gap: .75rem !important; margin: 1.25rem 0 1rem !important; }
+body [data-krv-talk] .krv-talk__btn {
+  flex: 1 1 0 !important;
+  box-sizing: border-box;
+  display: inline-flex !important; align-items: center; justify-content: center;
+  min-height: 52px !important;
+  padding: 0 1rem !important;
+  border-radius: .9rem !important;
+  border: 1.5px solid var(--eco-accent) !important;
+  background: var(--eco-accent) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  white-space: nowrap;
+  text-decoration: none !important;
+}
+body [data-krv-talk] .krv-talk__btn--max:hover { background: var(--eco-accent-dark) !important; }
+body [data-krv-talk] .krv-talk__btn--secondary { background: transparent !important; color: var(--eco-link) !important; }
+html[data-theme="dark"] body [data-krv-talk] .krv-talk__btn--secondary { border-color: #6f93ff !important; }
+body [data-krv-talk] .krv-talk__btn--secondary:hover { background: rgba(49, 95, 232, .08) !important; }
+body [data-krv-talk] .krv-talk__alt { display: flex !important; flex-wrap: wrap; justify-content: center; gap: .35rem 1.5rem; margin: 1rem 0 0 !important; }
+body [data-krv-talk] .krv-talk__alt a { color: var(--eco-link) !important; white-space: nowrap; }
+@media (max-width: 640px) {
+  body [data-krv-talk] .krv-talk__actions { flex-direction: column; }
+  body [data-krv-talk] .krv-talk__btn { flex: 0 0 auto !important; width: 100%; }
+  body [data-krv-talk] .krv-talk__alt { flex-direction: column; align-items: center; gap: .5rem; }
+}
+
+/* ---------- Footer ---------- */
+body footer.krv-eco-footer { border-top: 1px solid var(--eco-line); padding: 2rem 0 1.5rem; background: transparent; }
+body .krv-eco-footer__inner { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 1.1rem; text-align: center; }
+body .krv-eco-footer__brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none !important; }
+body .krv-eco-footer__brand img { width: 40px; height: auto; }
+body .krv-eco-footer__brand span { color: var(--eco-accent); font-weight: 700; font-size: 1.05rem; }
+html[data-theme="dark"] body .krv-eco-footer__brand span { color: #8fb0ff; }
+body footer.krv-eco-footer .krv-eco-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .5rem; max-width: 46rem; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; }
+body footer.krv-eco-footer .krv-eco-links a,
+body footer.krv-eco-footer .krv-eco-links span {
+  display: inline-flex !important; align-items: center; justify-content: center; box-sizing: border-box;
+  height: 38px !important; min-height: 0 !important; padding: 0 14px !important; margin: 0 !important; line-height: 1 !important;
+  border: 1px solid var(--eco-line); border-radius: 999px;
+  color: var(--eco-text) !important; font-size: .88rem; font-weight: 500;
+  text-decoration: none !important; background: var(--eco-card);
+}
+body .krv-eco-links a:hover { border-color: var(--eco-accent); color: var(--eco-accent) !important; }
+body footer.krv-eco-footer .krv-eco-links span[aria-current] { background: var(--eco-accent) !important; border-color: var(--eco-accent) !important; color: #fff !important; }
+body .krv-eco-footer__legal { display: flex; flex-wrap: wrap; justify-content: center; gap: .3rem 1.25rem; margin: 0 !important; color: var(--eco-muted) !important; font-size: .82rem; line-height: 1.5; }
+body .krv-eco-footer__legal a { color: var(--eco-link) !important; white-space: nowrap; }
+body .krv-eco-footer__legal span { white-space: nowrap; }
+@media (max-width: 640px) {
+  body footer.krv-eco-footer .krv-eco-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  body footer.krv-eco-footer .krv-eco-links a, body footer.krv-eco-footer .krv-eco-links span { height: 42px !important; }
+  body .krv-eco-footer__legal { flex-direction: column; align-items: center; gap: .25rem; }
+  body.has-mobile-cta footer.krv-eco-footer { padding-bottom: 6rem; }
+}
+
+/* ---------- Alignment fixes for the shared landing template ---------- */
+body .krv-social-strip__note { flex: 0 1 auto !important; }
+@media (min-width: 641px) {
+  body .drslon-hero-wrap > .drslon-hero__stats.krv-hero-trust {
+    width: 100% !important; max-width: 1240px !important; margin: 14px auto 0 !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  body .drslon-hero-wrap > .krv-social-strip { width: 100% !important; max-width: 1240px !important; margin: 14px auto 0 !important; box-sizing: border-box; }
+  body .krv-proof { max-width: 1240px !important; margin-inline: auto !important; }
+}
+@media (max-width: 640px) {
+  body > .krv-price-notes, body > main > .krv-price-notes { margin-left: 14px !important; margin-right: 14px !important; }
+}
+
+@media (min-width: 900px) {
+  body .krv-faq { max-width: none !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; align-items: start !important; }
+}
+body .krv-aiready__card { max-width: 1180px !important; margin-inline: auto !important; box-sizing: border-box; }
+/* Case card is dark: its title must be light */
+body .krv-case__main h3 { color: #fff !important; }
+/* Check lists: icon and text on one line */
+body div.flex:has(> i.fa-check:first-child) { flex-direction: row !important; align-items: flex-start !important; }
+body div.flex > i.fa-check:first-child { flex: 0 0 auto !important; width: auto !important; }
+/* Footer contacts: plain inline links, even spacing */
+body footer.krv-eco-footer .krv-eco-footer__legal a { display: inline !important; min-height: 0 !important; padding: 0 !important; margin: 0 !important; color: var(--eco-link) !important; }
+/* Card buttons must not stick to the text above */
+body main .flex-col > :is(div, ul).flex-1 { padding-bottom: 1.1rem !important; }
+body main .flex-col > :is(div, ul).flex-1 { flex: 1 0 auto !important; min-height: auto !important; }
+
+/* Even grids on desktop (no wide first card) */
+@media (min-width: 900px) {
+  html body.art-lb:not(#krvz):not(#krvy) .krv-asym-grid,
+  html body.art-lb:not(#krvz):not(#krvy) #benefits .grid.md\:grid-cols-3,
+  html body.art-lb:not(#krvz):not(#krvy) .grid.md\:grid-cols-3:not(.krv-keep-equal),
+  html body.art-lb:not(#krvz):not(#krvy) .grid.md\:grid-cols-3.gap-5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  html body.art-lb:not(#krvz):not(#krvy) .krv-asym-grid.krv-asym-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  html body.art-lb:not(#krvz):not(#krvy) .krv-asym-grid.krv-asym-4,
+  html body.art-lb:not(#krvz):not(#krvy) .grid.lg\:grid-cols-4:not(.krv-keep-equal) { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  html body.art-lb:not(#krvz):not(#krvy) .grid.sm\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal),
+  html body.art-lb:not(#krvz):not(#krvy) .grid.md\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal) { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  html body.art-lb:not(#krvz):not(#krvy) .krv-asym-grid > :first-child,
+  html body.art-lb:not(#krvz):not(#krvy) #benefits .grid > :first-child,
+  html body.art-lb:not(#krvz):not(#krvy) .grid.md\:grid-cols-3:not(.krv-keep-equal) > :first-child,
+  html body.art-lb:not(#krvz):not(#krvy) .grid.sm\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal) > :first-child,
+  html body.art-lb:not(#krvz):not(#krvy) .grid.md\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal) > :first-child,
+  html body.art-lb:not(#krvz):not(#krvy) .grid.lg\:grid-cols-4:not(.krv-keep-equal) > :first-child {
+    background: var(--krv-card, #fff) !important;
+    border-color: var(--krv-line, #d8e0ee) !important;
+  }
+}
+@media (min-width: 1024px) {
+  html body.art-lb:not(#krvz):not(#krvy) .grid.sm\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal),
+  html body.art-lb:not(#krvz):not(#krvy) .grid.md\:grid-cols-2.lg\:grid-cols-3:not(.krv-keep-equal) { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+@media (min-width: 900px) {
+  html body.art-lb:not(#krvz):not(#krvy) .grid.lg\:grid-cols-4:not(.krv-keep-equal) > .flex:first-child { background: transparent !important; box-shadow: none !important; }
+}
+@media (min-width: 900px) {
+  html body.art-lb:not(#krvz):not(#krvy) .grid.lg\:grid-cols-3:not(.krv-keep-equal):has(> :nth-child(2):last-child),
+  html body.art-lb:not(#krvz):not(#krvy) .grid.md\:grid-cols-3:not(.krv-keep-equal):has(> :nth-child(2):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 420px)) !important; justify-content: center !important;
+  }
+}
+html body:not(#krvz):not(#krvy) div.flex:has(> i.fa-check:first-child) { flex-direction: row !important; align-items: flex-start !important; }
+@media (min-width: 900px) {
+  html body.art-lb:not(#krvz) #pricing > .max-w-5xl.border-2 { max-width: none !important; }
+}
+html body.art-lb:not(#krvz) main > .max-w-screen-xl > .text-center { text-align: center !important; }
+html body.art-lb:not(#krvz) main > .max-w-screen-xl > .text-center > p { margin-left: auto; margin-right: auto; }
+@media (min-width: 768px) {
+  #rag-demo > div { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  #rag-demo > div > div:last-child { width: 14rem; flex-shrink: 0; margin-top: 0; }
+}
+@media (min-width: 900px) {
+  html body.art-lb:not(#krvz) .krv-asym-grid.max-w-4xl { max-width: none !important; }
+}

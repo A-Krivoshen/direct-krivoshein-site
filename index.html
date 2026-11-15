@@ -199,7 +199,7 @@
       "name": "Нужно ли платить за настройку отдельно, если я заказываю ведение?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Да, настройка оплачивается один раз. Ведение - это ежемесячная работа."
+        "text": "Да, настройка оплачивается один раз. Ведение: ежемесячная работа."
       }
     },
     {
@@ -308,6 +308,7 @@
 }
   </script>
   <link rel="stylesheet" href="assets/contact-talk.css?v=20261115">
+  <link rel="stylesheet" href="assets/krv-eco.css?v=20261115eco">
 </head>
 <body class="has-mobile-cta art-lb" data-product="direct">
   <a class="skip-link" href="#main">К содержанию</a>
@@ -316,20 +317,14 @@
   <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-screen-xl mx-auto px-5">
             <div class="flex items-center justify-between gap-3 min-h-16 py-2">
-        <div class="krv-nav-brand">
-          <a href="https://direct.krivoshein.site">
-            <img src="logo.png?v=20260716" alt="Krivoshein" width="56" height="66" class="krv-logo krv-logo--nav" decoding="async">
+        <div class="krv-nav-brand krv-eco-brand">
+          <a class="krv-eco-brand__home" href="https://krivoshein.site/" aria-label="ИТ Решения, главная">
+            <img src="assets/brand/logo-mark.svg" alt="" width="67" height="64" class="krv-eco-brand__logo" decoding="async">
+            <span class="krv-eco-brand__text"><span class="krv-eco-brand__name">ИТ Решения</span><span class="krv-eco-brand__service">Яндекс Директ</span></span>
           </a>
-          <div class="krv-nav-title">
-            <span class="font-display text-2xl font-semibold tracking-tight">direct</span>
-            <span class="text-slate-500 text-xl">.krivoshein.site</span>
-          </div>
         </div>
         <div class="krv-nav-right">
-          <a href="#brief"
-             class="krv-nav-cta inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold bg-krv text-white border border-transparent hover:bg-krv-dark rounded-2xl transition-all shadow-krv-cta">
-            Обсудить рекламу
-          </a>
+          <a href="https://krivoshein.site/max" target="_blank" rel="noopener noreferrer" class="krv-nav-cta krv-eco-cta inline-flex items-center justify-center">Написать в MAX</a>
         </div>
       </div>
     </div>
@@ -357,14 +352,8 @@
         <h1 class="drslon-hero__title">Яндекс.Директ<br>без слива бюджета</h1>
         <p class="drslon-hero__lead">Настройка кампаний, минус-слова и посадочные. Чтобы заявки из Директа шли дешевле.</p>
         <div class="drslon-hero__cta">
-          <a data-krv-telegram class="drslon-hero__btn drslon-hero__btn--primary" href="https://t.me/DrSlon?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.%0A%D0%A3%D1%81%D0%BB%D1%83%D0%B3%D0%B0%3A%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-telegram" aria-hidden="true"></i>
-            Написать в Telegram
-          </a>
-          <a class="drslon-hero__btn drslon-hero__btn--ghost" href="https://krivoshein.site/max" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
-            Написать в MAX
-          </a>
+          <a class="drslon-hero__btn drslon-hero__btn--primary" href="https://krivoshein.site/max" target="_blank" rel="noopener noreferrer">Написать в MAX</a>
+          <a data-krv-telegram class="drslon-hero__btn drslon-hero__btn--ghost" href="https://t.me/DrSlon?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.%0A%D0%A3%D1%81%D0%BB%D1%83%D0%B3%D0%B0%3A%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
         </div>
       </div>
 
@@ -399,7 +388,7 @@
           <span class="krv-social-strip__stars" aria-hidden="true">★★★★★</span>
           <span>Отзывы на Яндекс Картах</span>
         </a>
-        <p class="krv-social-strip__note">Отзывы клиентов на Яндекс Картах. <a href="#reviews">Перейти к отзывам</a></p>
+        <p class="krv-social-strip__note"><a href="#reviews">Перейти к отзывам</a></p>
       </div>
 
   </div>
@@ -466,7 +455,7 @@
         <div class="flex-1">
           <div class="font-semibold text-lg">Ведение и оптимизация</div>
           <div class="mt-1 text-3xl font-semibold tracking-tight">от 25 000 ₽<span class="text-base font-normal">/мес</span></div>
-          <div class="mt-4 text-sm text-slate-600">Еженедельная оптимизация, минус-слова, A/B-тесты. В опубликованном кейсе - 192 достижения целей по 299 ₽ за конверсию. Повторение результата не гарантируется.</div>
+          <div class="mt-4 text-sm text-slate-600">Еженедельная оптимизация, минус-слова, A/B-тесты. В опубликованном кейсе 192 достижения целей по 299 ₽ за конверсию. Повторение результата не гарантируется.</div>
         
         </div>
         <a href="#brief" data-krv-need="optimize"
@@ -560,7 +549,7 @@
             <li>• Ретаргетинг + гео-настройка</li>
           </ul>
           <p class="mt-3 text-xs text-slate-500">Бюджет 57 386 ₽ • CTR 1,93%</p>
-          <p class="mt-2 text-xs text-slate-500">Период: 09.01–07.02.2025. Конверсия означает достижение цели Метрики, не подтверждённого уникального лида.</p>
+          <p class="mt-2 text-xs text-slate-500">Период: с 09.01 по 07.02.2025. Конверсия означает достижение цели Метрики, не подтверждённого уникального лида.</p>
 
           <a href="https://krivoshein.site/kak-nastroyka-reklamy-v-yandeks-direkt-pomogla-ooo-atstsniitmash-privlech-bolshe-klientov/" target="_blank"
              class="inline-flex items-center mt-4 text-sm font-medium text-krv hover:text-krv-dark">
@@ -601,8 +590,8 @@
       </div>
       <div class="krv-case">
         <div class="krv-case__main">
-          <h3>ООО «АЦЦНИИТМАШ» - 192 достижения целей</h3>
-          <p>Пересобрал семантику, объявления и минус-слова. За 09.01–07.02.2025 зафиксировано 192 достижения целей по 299 ₽ при бюджете 57 386 ₽, CTR 1,93%. Уникальность и квалификация обращений этой метрикой не подтверждаются.</p>
+          <h3>ООО «АЦЦНИИТМАШ»: 192 достижения целей</h3>
+          <p>Пересобрал семантику, объявления и минус-слова. С 09.01 по 07.02.2025 зафиксировано 192 достижения целей по 299 ₽ при бюджете 57 386 ₽, CTR 1,93%. Уникальность и квалификация обращений этой метрикой не подтверждаются.</p>
           <div class="krv-case__metrics">
           <div class="krv-case__metric"><strong>192</strong><span>достижения целей</span></div>
           <div class="krv-case__metric"><strong>299 ₽</strong><span>стоимость конверсии</span></div>
@@ -723,7 +712,7 @@
         <div class="w-9 h-9 bg-krv text-white rounded-2xl flex-shrink-0 flex items-center justify-center font-semibold text-sm">03</div>
         <div>
           <div class="font-semibold">Запускаем и оптимизируем</div>
-          <div class="text-sm text-slate-600 mt-1">Как в реальном кейсе - добиваемся низкой цены заявки и стабильного потока.</div>
+          <div class="text-sm text-slate-600 mt-1">Как в реальном кейсе, добиваемся низкой цены заявки и стабильного потока.</div>
         </div>
       </div>
       <div class="flex gap-x-4">
@@ -747,7 +736,7 @@
       </details>
       <details>
         <summary>Нужно ли платить за настройку отдельно, если я заказываю ведение?</summary>
-        <div class="krv-faq__a">Да, настройка оплачивается один раз. Ведение - это ежемесячная работа.</div>
+        <div class="krv-faq__a">Да, настройка оплачивается один раз. Ведение: ежемесячная работа.</div>
       </details>
       <details>
         <summary>Вы работаете только с малым бизнесом?</summary>
@@ -779,7 +768,7 @@
     <div class="krv-aiready__card">
       <p class="krv-aiready__kicker">AI-ready</p>
       <h2 id="krv-aiready-title">Сайт, который видят нейропоиск и боты</h2>
-      <p class="krv-aiready__lead">Реклама приводит трафик. Если ассистенты не читают посадочную — заявки уходят к тем, у кого есть разметка.</p>
+      <p class="krv-aiready__lead">Реклама приводит трафик. Если ассистенты не читают посадочную, заявки уходят к тем, у кого есть разметка.</p>
       <ul class="krv-aiready__facts">
         <li>llms.txt и agents.md</li>
         <li>Schema.org / JSON-LD</li>
@@ -792,54 +781,45 @@
   <section class="krv-qual-section" id="brief" aria-label="Связь">
     <div id="krv-qual" class="krv-qual" data-krv-talk data-service="direct">
       <h2>Есть задача? Давайте обсудим</h2>
-      <p class="krv-qual__lead">Напишите в личный диалог. Анкета не нужна.</p>
+      <p class="krv-qual__lead">Опишите задачу в двух словах, отвечу и назову сроки и цену.</p>
       <div class="krv-talk__actions">
-        <a class="krv-talk__btn" data-krv-telegram href="https://t.me/DrSlon?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.%0A%D0%A3%D1%81%D0%BB%D1%83%D0%B3%D0%B0%3A%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
         <a class="krv-talk__btn krv-talk__btn--max" href="https://krivoshein.site/max" target="_blank" rel="noopener noreferrer">Написать в MAX</a>
+        <a class="krv-talk__btn krv-talk__btn--secondary" data-krv-telegram href="https://t.me/DrSlon?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.%0A%D0%A3%D1%81%D0%BB%D1%83%D0%B3%D0%B0%3A%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
       </div>
       <p class="krv-talk__note" data-krv-talk-note hidden></p>
-      <p class="krv-talk__alt"><a href="mailto:aleksey@krivoshein.site">aleksey@krivoshein.site</a> · <a href="tel:+79636641615">+7 (963) 664-16-15</a></p>
+      <p class="krv-talk__alt"><a href="mailto:aleksey@krivoshein.site">aleksey@krivoshein.site</a><a href="tel:+79636641615">+7 (963) 664-16-15</a></p>
     </div>
   </section>
 
-  <footer class="border-t border-slate-200 py-8">
-    <div class="max-w-screen-xl mx-auto px-5">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-y-4">
-        <div class="flex items-center gap-x-3">
-          <img src="logo.png?v=20260716" alt="Krivoshein" width="48" height="56" class="krv-logo krv-logo--footer" decoding="async">
-          <span class="text-sm text-slate-600">ИП Кривошеин Алексей Сергеевич</span>
-        </div>
-        <div class="text-sm text-slate-500 text-center md:text-right">
-          Работаю по договору • Безналичный расчёт
-        </div>
-      </div>
-      <nav class="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-slate-400" aria-label="Другие услуги">
-        <a href="https://bots.krivoshein.site/" class="hover:text-krv transition-colors">Боты</a>
-        <span class="text-slate-300" aria-hidden="true">·</span>
-        <a href="https://vps.krivoshein.site/" class="hover:text-krv transition-colors">VPS</a>
-        <span class="text-slate-300" aria-hidden="true">·</span>
-        <span class="text-slate-500">Директ</span>
-        <span class="text-slate-300" aria-hidden="true">·</span>
-        <a href="https://wordpress.krivoshein.site/" class="hover:text-krv transition-colors">WordPress</a>
-        <span class="text-slate-300" aria-hidden="true">·</span>
-        <a href="https://ai-ready.krivoshein.site/" class="hover:text-krv transition-colors krv-foot-ai">AI-ready</a>
+  <footer class="krv-eco-footer">
+    <div class="krv-eco-footer__inner">
+      <a class="krv-eco-footer__brand" href="https://krivoshein.site/"><img src="assets/brand/logo-mark.svg" alt="" width="67" height="64" decoding="async"><span>ИТ Решения</span></a>
+      <nav class="krv-eco-links" aria-label="Услуги">
+        <a href="https://krivoshein.site/">Главная</a>
+        <a href="https://landing.krivoshein.site/">Лендинги</a>
+        <a href="https://wordpress.krivoshein.site/">WordPress</a>
+        <a href="https://flask.krivoshein.site/">Flask</a>
+        <a href="https://vps.krivoshein.site/">VPS</a>
+        <a href="https://bots.krivoshein.site/">Боты</a>
+        <span aria-current="page">Директ</span>
+        <a href="https://ai-ready.krivoshein.site/">AI-ready</a>
       </nav>
-    <p class="krv-footer-legal">ИП Кривошеин А. С. · Работа по договору · Безнал и закрывающие · aleksey@krivoshein.site · <a href="privacy.html">Конфиденциальность</a></p>
+      <p class="krv-eco-footer__legal"><span>ИП Кривошеин А. С.</span><span>Работа по договору, безнал и закрывающие документы</span><a href="mailto:aleksey@krivoshein.site">aleksey@krivoshein.site</a><a href="tel:+79636641615">+7 (963) 664-16-15</a><a href="privacy.html">Политика конфиденциальности</a></p>
     </div>
     <!-- ai:llms https://direct.krivoshein.site/llms.txt -->
   </footer>
 
   <!-- MOBILE CTA BAR -->
     <div class="mobile-cta-bar" role="region" aria-label="Связь">
-    <a class="cta-primary" data-krv-telegram href="https://t.me/DrSlon?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.%0A%D0%A3%D1%81%D0%BB%D1%83%D0%B3%D0%B0%3A%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
-    <a class="cta-primary" href="https://krivoshein.site/max" target="_blank" rel="noopener noreferrer">Написать в MAX</a>
+    <a class="cta-primary krv-eco-max" href="https://krivoshein.site/max" target="_blank" rel="noopener noreferrer">Написать в MAX</a>
+    <a class="cta-secondary krv-eco-tg" data-krv-telegram href="https://t.me/DrSlon?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.%0A%D0%A3%D1%81%D0%BB%D1%83%D0%B3%D0%B0%3A%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
   </div>
 
   
         <div id="krv-cookie" class="krv-cookie" role="region" aria-label="Уведомление о cookies и аналитике" hidden>
     <p>
       Сайт использует cookies, локальное хранилище и Яндекс&nbsp;Метрику (в т.ч. карту кликов и Вебвизор)
-      для статистики посещаемости и улучшения сервиса. Оператор — ИП Кривошеин&nbsp;А.&nbsp;С. (РФ).
+      для статистики посещаемости и улучшения сервиса. Оператор: ИП Кривошеин&nbsp;А.&nbsp;С. (РФ).
       Заявки принимаются в Telegram и в личном MAX, отдельной CRM на сайте нет.
       Продолжая пользоваться сайтом, вы подтверждаете ознакомление с
       <a href="privacy.html">политикой конфиденциальности</a>.
