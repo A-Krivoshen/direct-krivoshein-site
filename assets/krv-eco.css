@@ -285,10 +285,12 @@ html body:not(#krvz):not(#krvy) div.flex > svg.krv-i:first-child { margin-top: .
 html body.art-lb:not(#krvz) main > .max-w-screen-xl > .text-center { margin-left: auto !important; margin-right: auto !important; }
 .krv-yandex-reviews__shell[hidden] { display: none !important; }
 /* Partner logos keep their proportions */
-#host > .flex > img[alt="Amvera"] { width: auto !important; height: 96px !important; max-width: 120px; object-fit: contain; flex: 0 0 auto; align-self: flex-start; }
+#host > .flex { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+#host > .flex > img[alt="Amvera"] { display: block; width: auto !important; height: 88px !important; max-width: none !important; object-fit: contain; flex: 0 0 auto; margin: 0 !important; }
+#host > .flex > .max-w-xl { min-width: 0; }
 @media (min-width: 640px) {
-  #host > .flex { flex-direction: row !important; align-items: center !important; gap: 2rem !important; }
-  #host > .flex > img[alt="Amvera"] { align-self: center; }
+  #host > .flex { flex-direction: row !important; align-items: center !important; gap: 36px !important; }
+  #host > .flex > img[alt="Amvera"] { height: 112px !important; }
 }
-@media (max-width: 639.98px) { #host > .flex > img[alt="Amvera"] { height: 72px !important; } }
+@media (min-width: 1024px) { #host > .flex > img[alt="Amvera"] { height: 132px !important; } }
 .krv-client img[alt="LUMISTEK"] { transform: scale(1.45); transform-origin: center; }
