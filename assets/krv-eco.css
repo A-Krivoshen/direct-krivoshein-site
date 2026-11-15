@@ -280,3 +280,7 @@ html body.art-lb:not(#krvz) main > .max-w-screen-xl > .text-center > p { margin-
 @media (min-width: 900px) {
   html body.art-lb:not(#krvz) .krv-asym-grid.max-w-4xl { max-width: none !important; }
 }
+html body:not(#krvz):not(#krvy) div.flex:has(> svg.krv-i:first-child) { flex-direction: row !important; align-items: flex-start !important; }
+html body:not(#krvz):not(#krvy) div.flex > svg.krv-i:first-child { margin-top: .2em; }
+html body.art-lb:not(#krvz) main > .max-w-screen-xl > .text-center { margin-left: auto !important; margin-right: auto !important; }
+.krv-yandex-reviews__shell[hidden] { display: none !important; }
